@@ -36,7 +36,7 @@ export default function ConsultForm({ clinics, initialClinic, demo = false }: { 
     () =>
       clinics
         .filter((c) => !option || c.clinic.treatments.some((t) => t.option_code === option))
-        .sort((a, b) => b.clinic.rating - a.clinic.rating),
+        .sort((a, b) => a.clinic.walk_minutes - b.clinic.walk_minutes),
     [clinics, option],
   );
   const pickedIds = Object.keys(picks);
@@ -215,7 +215,7 @@ export default function ConsultForm({ clinics, initialClinic, demo = false }: { 
                     <span className="flex-1">
                       <span className="block font-bold">{cc.clinic.name}</span>
                       <span className="mt-0.5 block text-xs text-gray-500">
-                        {cc.clinic.nearest_station} 徒歩{cc.clinic.walk_minutes}分・★{cc.clinic.rating.toFixed(1)}（{cc.clinic.review_count}件）
+                        {cc.clinic.nearest_station} 徒歩{cc.clinic.walk_minutes}分
                       </span>
                       {t && <span className="mt-1 block text-sm font-bold text-[#B54708]">{formatPrice(t.price_min)}〜{formatPrice(t.price_max)}<span className="ml-1 text-xs font-normal text-gray-500">{t.duration_label}</span></span>}
                     </span>

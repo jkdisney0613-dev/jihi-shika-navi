@@ -15,7 +15,7 @@ export async function getPublishedClinics(): Promise<Clinic[]> {
   if (!db) return SAMPLE_CLINICS;
   const { data, error } = await db
     .from("clinics")
-    .select("*, treatments:clinic_treatments(option_code, price_min, price_max, duration_label, cases_count)")
+    .select("*, treatments:clinic_treatments(option_code, price_min, price_max, duration_label, cases_count, source_url, updated_at)")
     .eq("is_published", true);
   if (error) throw error;
   return data as Clinic[];
@@ -65,7 +65,7 @@ export interface Sponsor {
   clinic: Pick<Clinic, "slug" | "catch_copy" | "nearest_station" | "walk_minutes"> | null;
 }
 
-/** 決済が有効なおすすめ枠（トップに表示する） */
+/** 決済が有効なPR枠（トップに表示する） */
 export async function getActiveSponsors(): Promise<Sponsor[]> {
   const db = getReadDb();
   if (!db) return [];
@@ -103,7 +103,6 @@ export function toMapClinics(clinics: Clinic[]) {
       station_slug: c.station_slug,
       nearest_station: c.nearest_station,
       walk_minutes: c.walk_minutes,
-      rating: c.rating,
       catch_copy: c.catch_copy,
       treatments: c.treatments.map((t) => ({ option_code: t.option_code, price_min: t.price_min })),
     }));

@@ -15,8 +15,8 @@ const arr = (xs: string[]) => `'{${xs.join(",")}}'`;
 const lines = ["-- サンプル医院データ（架空）。scripts/generate-seed.ts で生成。003_yamanote.sql まで実行してから流してください", "begin;"];
 for (const c of SAMPLE_CLINICS) {
   lines.push(
-    `insert into public.clinics (id, slug, station_slug, name, prefecture, city, nearest_station, walk_minutes, rating, review_count, features, catch_copy, image_url, booking_url) values (` +
-      [q(c.id), q(c.slug), q(c.station_slug), q(c.name), q(c.prefecture), q(c.city), q(c.nearest_station), c.walk_minutes, c.rating, c.review_count, arr(c.features), q(c.catch_copy), q(c.image_url), q(c.booking_url)].join(", ") +
+    `insert into public.clinics (id, slug, station_slug, name, prefecture, city, nearest_station, walk_minutes, features, catch_copy, image_url, booking_url) values (` +
+      [q(c.id), q(c.slug), q(c.station_slug), q(c.name), q(c.prefecture), q(c.city), q(c.nearest_station), c.walk_minutes, arr(c.features), q(c.catch_copy), q(c.image_url), q(c.booking_url)].join(", ") +
       `) on conflict (id) do nothing;`,
   );
   for (const t of c.treatments) {

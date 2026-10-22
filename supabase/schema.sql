@@ -12,8 +12,6 @@ create table if not exists public.clinics (
   city             text not null,
   nearest_station  text not null,
   walk_minutes     smallint not null default 0,
-  rating           numeric(2,1) not null default 0 check (rating between 0 and 5),
-  review_count     integer not null default 0,
   features         text[] not null default '{}',    -- price / track_record / access / weekend / painless / female_doctor
   catch_copy       text not null default '',
   image_url        text,

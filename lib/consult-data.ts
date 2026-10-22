@@ -29,7 +29,7 @@ export async function getConsultClinics(): Promise<ConsultClinic[]> {
   if (!db) {
     return SAMPLE_CLINICS.flatMap((clinic) => {
       const doctors = SAMPLE_DOCTORS.filter((d) => d.clinic_id === clinic.id);
-      return doctors.length ? [{ clinic, doctors, partnerId: `sample-${clinic.id}`, leadPrice: 5000 }] : [];
+      return doctors.length ? [{ clinic, doctors, partnerId: `sample-${clinic.id}`, leadPrice: 0 }] : [];
     });
   }
 

@@ -63,7 +63,7 @@ export default async function ArticlePage({ params }: Props) {
         </dl>
       </section>
       <Link href="/diagnosis" className="mt-10 block rounded-xl bg-sky-600 py-4 text-center font-bold text-white hover:bg-sky-700">
-        予算と希望から医院を診断する（無料）
+        予算と希望から医院を探す（無料）
       </Link>
     </main>
   );

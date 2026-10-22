@@ -7,7 +7,7 @@ Vercel Cron（`vercel.json`）が決まった時刻に API を呼び、Supabase 
 | 医院データ収集・更新 | 毎日 3:00 | `/api/cron/clinics` | 掲載医院の Google 評価・口コミ数を更新 → **その日の山手線の駅**（30日で一周）の周辺を4つの治療で検索し、口コミの多い新しい医院を5件、公式サイトから自費メニューの価格を Claude が読み取って登録 → 30日以上前の価格を3件再調査 |
 | SEO・AI検索向け記事 | 毎日 5:00 | `/api/cron/articles` | `keyword_queue` の検索語から1本、自社の価格データを使った記事を生成。表現チェックを通ったものだけ公開 |
 | メルマガ | 毎週火曜 9:00 | `/api/cron/newsletter` | その週の新着記事を紹介するメルマガを作り、確認済みの購読者に Resend で一斉送信 |
-| おすすめ枠 | 申込み時に即時 | `/api/stripe/webhook` | 決済完了でトップの「おすすめ枠（PR）」に自動掲載。解約・支払い失敗で自動的に外す |
+| PR枠 | 申込み時に即時 | `/api/stripe/webhook` | 決済完了でトップの「PR枠」に自動掲載。解約・支払い失敗で自動的に外す |
 
 ## 人の確認を挟んでいるところ（初期設定）
 
@@ -19,7 +19,7 @@ Vercel Cron（`vercel.json`）が決まった時刻に API を呼び、Supabase 
 
 都内全域ではなく、山手線30駅を1日1駅ずつ調べます（`lib/yamanote.ts`）。1周30日で約150院、2周目以降は各駅の未登録医院を追加していきます。駅ごとの進み具合は `station_research` テーブルに残ります。
 
-- トップの路線図（`components/YamanoteMap.tsx`）：駅を押すとその駅のおすすめ医院が出て、なければ山手線で2駅以内の医院を出します。治療で絞り込み可。そのまま「この駅で診断」に進めます
+- トップの路線図（`components/YamanoteMap.tsx`）：駅を押すとその駅の医院が近い順に出て、なければ山手線で2駅以内の医院を出します。治療で絞り込み可。そのまま「この駅で探す」に進めます
 - 駅ページ `/station/[駅]`：30ページ。「渋谷 ホワイトニング 料金」のような駅名検索の受け皿
 - 診断フォーム：東京都を選ぶと山手線の駅を任意で選べ、同じ駅・近い駅の医院ほど上に出ます
 
@@ -31,7 +31,7 @@ Vercel Cron（`vercel.json`）が決まった時刻に API を呼び、Supabase 
 - `/sitemap.xml`、`/robots.txt`（GPTBot・ClaudeBot・PerplexityBot などの AI クローラーを明示的に許可）、`/llms.txt`（AI 向けのサイト要約）
 - 記事は冒頭で答えを言い切り、「当サイト調べ」の価格データ（院数・時点つき）を必ず使う構成。AI 検索は独自の一次データと出典が明確なページを引用しやすいため
 
-## おすすめ枠のつくり方
+## PR枠のつくり方
 
 1. Stripe で月額の商品と **Payment Link** を作成（完了後の遷移先はサイトトップ等）
 2. Webhook を `https://<ドメイン>/api/stripe/webhook` に登録。イベントは `checkout.session.completed`、`customer.subscription.updated`、`customer.subscription.deleted`

@@ -1,4 +1,4 @@
-// おすすめ枠の申込み：申込み内容を保存し、Stripe の決済リンク（月額）へ申込みIDを付けて送る
+// PR枠の申込み：申込み内容を保存し、Stripe の決済リンク（月額）へ申込みIDを付けて送る
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase";
 

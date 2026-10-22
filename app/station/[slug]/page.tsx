@@ -75,7 +75,7 @@ export default async function StationPage({ params }: Props) {
               {offering.map((c) => (
                 <li key={c.id}>
                   <Link href={`/clinics/${c.slug}`} className="font-bold text-sky-700 hover:underline">{c.name}</Link>
-                  　徒歩{c.walk_minutes}分・{formatPrice(minPrice(c, cat.value)!)}〜・★{c.rating.toFixed(1)}
+                  　徒歩{c.walk_minutes}分・{formatPrice(minPrice(c, cat.value)!)}〜
                 </li>
               ))}
             </ul>
@@ -98,7 +98,7 @@ export default async function StationPage({ params }: Props) {
 
       <p className="mt-8 text-xs text-gray-500">{PRICE_DISCLAIMER}</p>
       <Link href={`/diagnosis?station=${s.slug}`} className="mt-6 block rounded-xl bg-sky-600 py-4 text-center font-bold text-white hover:bg-sky-700">
-        {s.name}駅で予算に合う医院を診断する（無料）
+        {s.name}駅で予算に合う医院を探す（無料）
       </Link>
     </main>
   );

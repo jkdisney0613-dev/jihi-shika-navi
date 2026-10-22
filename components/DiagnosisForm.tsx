@@ -209,7 +209,7 @@ export default function DiagnosisForm({ initialStation }: { initialStation?: str
             onClick={submit}
             className="w-full rounded-xl bg-sky-600 py-4 font-bold text-white shadow transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-gray-300"
           >
-            {loading ? "診断中…" : "診断結果を見る"}
+            {loading ? "検索中…" : "条件に合う医院を見る"}
           </button>
         </div>
       )}
@@ -238,8 +238,8 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
 
   return (
     <div className="mx-auto w-full max-w-xl px-4 py-8">
-      <p className="text-sm text-gray-500">診断結果</p>
-      <h2 className="mb-1 text-xl font-bold text-gray-900">あなたにおすすめの歯科医院</h2>
+      <p className="text-sm text-gray-500">検索結果</p>
+      <h2 className="mb-1 text-xl font-bold text-gray-900">ご希望の条件に合う歯科医院</h2>
       <p className="mb-6 text-sm text-gray-600">
         {optionLabel}／予算{budgetLabel}／{answers.station ? `${stationBySlug(answers.station)?.name}駅周辺` : answers.prefecture}
       </p>
@@ -249,12 +249,16 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
           条件に合う医院が見つかりませんでした。予算やエリアを変えてお試しください。
         </div>
       ) : (
+        <>
+        <p className="mb-4 rounded-lg bg-gray-50 p-3 text-xs leading-relaxed text-gray-600">
+          並び順は、ご予算・エリア・重視することとの一致度だけで決めています。口コミ評価や掲載料は使っていません。医院の優劣を示すものではありません。
+        </p>
         <ol className="space-y-4">
           {matches.map((m, i) => (
             <li key={m.clinic.id} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
               <div className="mb-2 flex items-start justify-between gap-3">
                 <div>
-                  <span className="text-xs font-bold text-sky-600">おすすめ No.{i + 1}</span>
+                  <span className="text-xs font-bold text-sky-600">候補 {i + 1}</span>
                   <h3 className="text-lg font-bold text-gray-900">{m.clinic.name}</h3>
                   <p className="text-sm text-gray-500">
                     {m.clinic.prefecture}
@@ -263,7 +267,7 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
                 </div>
                 <div className="shrink-0 text-right">
                   <span className="block text-2xl font-bold text-sky-600">{m.score}</span>
-                  <span className="text-xs text-gray-500">マッチ度</span>
+                  <span className="text-xs text-gray-500">条件の一致度</span>
                 </div>
               </div>
 
@@ -280,12 +284,6 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
                 <div className="flex justify-between">
                   <span className="text-gray-500">期間の目安</span>
                   <span>{m.treatment.duration_label}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500">口コミ評価</span>
-                  <span>
-                    ★{m.clinic.rating.toFixed(1)}（{m.clinic.review_count}件）
-                  </span>
                 </div>
               </div>
 
@@ -312,10 +310,11 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
             </li>
           ))}
         </ol>
+        </>
       )}
 
       <p className="mt-6 text-xs leading-relaxed text-gray-400">
-        ※表示している費用は自費診療の目安（税込）です。実際の金額は診察・検査の結果により異なります。自費診療のため公的医療保険は適用されません。
+        ※表示している費用は、各医院の公式サイトに掲載された自費診療の目安（税込）です。実際の金額は診察・検査の結果により異なり、最新の金額は医院にご確認ください。自費診療のため公的医療保険は適用されません。この結果は費用と条件の比較であり、診断ではありません。
       </p>
 
       <div className="mt-6">
@@ -323,7 +322,7 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
       </div>
 
       <button type="button" onClick={onRestart} className="mt-6 w-full rounded-xl border border-gray-300 py-3 text-gray-700 hover:bg-gray-50">
-        もう一度診断する
+        条件を変えて探す
       </button>
     </div>
   );
