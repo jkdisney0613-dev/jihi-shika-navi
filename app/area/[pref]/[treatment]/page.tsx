@@ -110,7 +110,7 @@ export default async function AreaPage({ params }: Props) {
 
       <p className="mt-8 text-xs text-gray-500">{PRICE_DISCLAIMER}</p>
       <Link href="/diagnosis" className="mt-6 block rounded-xl bg-sky-600 py-4 text-center font-bold text-white hover:bg-sky-700">
-        あなたの予算と希望で診断する（無料）
+        あなたの予算と希望で探す（無料）
       </Link>
     </main>
   );

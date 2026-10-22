@@ -12,6 +12,8 @@ const OPTION_CODES: TreatmentOption[] = [
 
 export interface ResearchResult {
   is_dental_clinic: boolean;
+  /** 公式サイトに書かれている正式な医院名 */
+  official_name: string;
   prefecture: string;
   city: string;
   nearest_station: string;
@@ -30,9 +32,10 @@ export interface ResearchResult {
 const SCHEMA = {
   type: "object",
   additionalProperties: false,
-  required: ["is_dental_clinic", "prefecture", "city", "nearest_station", "walk_minutes", "features", "catch_copy", "treatments"],
+  required: ["is_dental_clinic", "official_name", "prefecture", "city", "nearest_station", "walk_minutes", "features", "catch_copy", "treatments"],
   properties: {
     is_dental_clinic: { type: "boolean" },
+    official_name: { type: "string" },
     prefecture: { type: "string" },
     city: { type: "string" },
     nearest_station: { type: "string" },
@@ -69,7 +72,8 @@ const SYSTEM = `あなたは歯科医院の自費診療メニューを調べる�
 - 税抜表記なら1.1倍して税込にする。単一価格なら price_min と price_max を同じ値にする。
 - source_url には金額が書かれていたページのURLを入れる。
 - features は、サイトで確認できたものだけ（price は相場より明らかに安い場合のみ）。
-- catch_copy は医院の特徴を40字以内で事実ベースに要約する。「No.1」「絶対」「痛くない」など誇大・保証表現は使わない。
+- catch_copy は医院の特徴を40字以内で事実ベースに要約する。「No.1」「最大級」「絶対」「痛くない」など比較優良・誇大・保証表現や、患者の口コミ・体験談の引用は使わない。
+- official_name には公式サイトに書かれている正式な医院名を入れる。
 - 歯科医院でなければ is_dental_clinic を false にし、他は空でよい。`;
 
 export async function researchClinic(name: string, websiteUrl: string, address: string): Promise<ResearchResult> {

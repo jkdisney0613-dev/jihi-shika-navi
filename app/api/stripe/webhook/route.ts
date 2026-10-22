@@ -1,4 +1,4 @@
-// Stripe Webhook：決済完了でおすすめ枠を有効化し、解約・支払い失敗で自動的に掲載を外す
+// Stripe Webhook：決済完了でPR枠を有効化し、解約・支払い失敗で自動的に掲載を外す
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
@@ -57,8 +57,8 @@ export async function POST(req: Request) {
         await getResend().emails.send({
           from: FROM,
           to: sp.contact_email,
-          subject: "【自費歯科ナビ】おすすめ枠の掲載を開始しました",
-          html: `<p>${sp.clinic_name} ご担当者様</p><p>お申込みありがとうございます。サイトトップの「おすすめ枠（PR）」への掲載を開始しました。</p><p>解約は Stripe から届く領収メールのリンクよりいつでも行えます。</p>`,
+          subject: "【自費歯科ナビ】PR枠の掲載を開始しました",
+          html: `<p>${sp.clinic_name} ご担当者様</p><p>お申込みありがとうございます。サイトトップの「PR枠（PR）」への掲載を開始しました。</p><p>解約は Stripe から届く領収メールのリンクよりいつでも行えます。</p>`,
         });
       }
       revalidatePath("/");

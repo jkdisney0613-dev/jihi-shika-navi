@@ -48,6 +48,10 @@ export interface ClinicTreatment {
   price_max: number;
   duration_label: string; // 例: "6ヶ月〜1年"
   cases_count: number; // 年間症例数
+  /** 金額が書かれていた医院公式ページ */
+  source_url?: string | null;
+  /** 金額を最後に確認した日時 */
+  updated_at?: string | null;
 }
 
 export interface Clinic {
@@ -60,8 +64,6 @@ export interface Clinic {
   walk_minutes: number;
   /** 最寄りの山手線駅（lib/yamanote.ts の slug）。山手線エリア外は null */
   station_slug: string | null;
-  rating: number; // 0.0〜5.0
-  review_count: number;
   features: Priority[];
   catch_copy: string;
   image_url: string | null;

@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: "自費歯科ナビ",
-  description: "ホワイトニング・矯正・インプラントの予算と仕上がりを診断",
+  description: "ホワイトニング・矯正・インプラントの費用の目安を比べて、条件に合う歯科医院を探す",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

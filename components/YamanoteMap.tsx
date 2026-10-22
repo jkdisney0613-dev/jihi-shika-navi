@@ -1,6 +1,6 @@
 "use client";
 
-// 山手線の路線図。駅を押すと、その駅（なければ近くの駅）のおすすめ医院が下に出る
+// 山手線の路線図。駅を押すと、その駅（なければ近くの駅）の医院が近い順に下に出る
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { CATEGORIES, formatPrice } from "@/lib/options";
@@ -13,7 +13,6 @@ export interface MapClinic {
   station_slug: string;
   nearest_station: string;
   walk_minutes: number;
-  rating: number;
   catch_copy: string;
   treatments: { option_code: string; price_min: number }[];
 }
@@ -48,7 +47,7 @@ export default function YamanoteMap({ clinics }: { clinics: MapClinic[] }) {
       .filter(matchesCategory)
       .map((c) => ({ c, d: stationDistance(selected, c.station_slug) }))
       .filter((x): x is { c: MapClinic; d: number } => x.d !== null && x.d <= 2)
-      .sort((a, b) => a.d - b.d || b.c.rating - a.c.rating)
+      .sort((a, b) => a.d - b.d || a.c.walk_minutes - b.c.walk_minutes)
       .slice(0, 4);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clinics, selected, category]);
@@ -78,7 +77,7 @@ export default function YamanoteMap({ clinics }: { clinics: MapClinic[] }) {
         ))}
       </div>
 
-      <svg viewBox="0 0 420 520" className="w-full select-none" role="group" aria-label="山手線の路線図。駅を選ぶとおすすめの歯科医院が表示されます">
+      <svg viewBox="0 0 420 520" className="w-full select-none" role="group" aria-label="山手線の路線図。駅を選ぶと周辺の歯科医院が表示されます">
         {/* 線路 */}
         <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none" stroke="#80C241" strokeWidth={10} />
         <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none" stroke="#fff" strokeWidth={2} strokeDasharray="10 8" opacity={0.7} />
@@ -86,7 +85,7 @@ export default function YamanoteMap({ clinics }: { clinics: MapClinic[] }) {
         {/* 中央のガイド */}
         <text x={CX} y={CY - 14} textAnchor="middle" className="fill-lime-700" fontSize={22} fontWeight={700}>山手線</text>
         <text x={CX} y={CY + 12} textAnchor="middle" className="fill-gray-500" fontSize={12}>駅を押すと</text>
-        <text x={CX} y={CY + 28} textAnchor="middle" className="fill-gray-500" fontSize={12}>おすすめの医院が出ます</text>
+        <text x={CX} y={CY + 28} textAnchor="middle" className="fill-gray-500" fontSize={12}>周辺の医院が出ます</text>
 
         {YAMANOTE.map((s, i) => {
           const { x, y, cos, sin } = position(i);
@@ -140,12 +139,12 @@ export default function YamanoteMap({ clinics }: { clinics: MapClinic[] }) {
 
       <p className="-mt-2 mb-4 text-center text-xs text-gray-500">緑の丸の数字は掲載医院数。白い駅はリサーチ中です。</p>
 
-      {/* 選んだ駅のおすすめ */}
+      {/* 選んだ駅の医院 */}
       <div aria-live="polite">
         {station && (
           <div className="rounded-2xl border border-lime-200 bg-white p-4 shadow-sm">
             <div className="mb-3 flex items-baseline justify-between">
-              <h3 className="text-lg font-bold text-gray-900">{station.name}駅周辺のおすすめ</h3>
+              <h3 className="text-lg font-bold text-gray-900">{station.name}駅周辺の医院</h3>
               <Link href={`/station/${station.slug}`} className="text-xs text-sky-700 hover:underline">駅のページへ</Link>
             </div>
             {results.length === 0 ? (
@@ -159,7 +158,6 @@ export default function YamanoteMap({ clinics }: { clinics: MapClinic[] }) {
                       <Link href={`/clinics/${c.slug}`} className="block rounded-xl border border-gray-100 p-3 hover:border-lime-400">
                         <span className="flex items-center justify-between gap-2">
                           <span className="font-bold text-gray-900">{c.name}</span>
-                          <span className="shrink-0 text-xs text-amber-600">★{c.rating.toFixed(1)}</span>
                         </span>
                         <span className="block text-xs text-gray-500">
                           {d === 0 ? `${c.nearest_station} 徒歩${c.walk_minutes}分` : `隣の${d === 1 ? "" : "隣の"}駅・${c.nearest_station}`}
@@ -176,7 +174,7 @@ export default function YamanoteMap({ clinics }: { clinics: MapClinic[] }) {
               href={`/diagnosis?station=${station.slug}`}
               className="mt-4 block rounded-xl bg-sky-600 py-3 text-center text-sm font-bold text-white hover:bg-sky-700"
             >
-              {station.name}駅で予算に合う医院を診断する
+              {station.name}駅で予算に合う医院を探す
             </Link>
           </div>
         )}
