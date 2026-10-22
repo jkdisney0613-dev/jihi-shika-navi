@@ -95,3 +95,11 @@ service_role キーは API Route（サーバー）でだけ使い、ブラウザ
 - 相談先は提携医院だけであることと手数料を受け取っていることを画面に表示し、並び順は口コミ評価順（手数料は関係しない）
 
 セットアップは `004_consultations.sql` を 003 の後に実行し、`.env` に `CONSULT_LEAD_PRICE` と `ADMIN_EMAIL` を追加します。
+
+## テスト公開（Vercel）
+
+1. Vercel でこのリポジトリを Import する
+2. 環境変数 `NEXT_PUBLIC_DEMO_MODE=true` を「設定」（非公開ではない値）として登録する。ビルド時に埋め込まれるので、変えたら再デプロイが必要
+3. 人数を記録するときは Supabase で `schema.sql` → `002` → `003` → `004` → `005_demo.sql` を実行し、`NEXT_PUBLIC_SUPABASE_URL` と `SUPABASE_SERVICE_ROLE_KEY`（こちらは「秘密」）を登録して再デプロイする
+
+`main` に push すると本番に自動で公開されます。
