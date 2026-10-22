@@ -6,7 +6,7 @@ import { getPlace, searchClinics } from "@/lib/google-places";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { stationOfTheDay } from "@/lib/yamanote";
 
-export const maxDuration = 800; // Vercel Pro の上限。Hobby では 300 にして件数を減らす
+export const maxDuration = 300; // Hobby の上限。Pro にしたら 800 まで延ばせる
 
 const NEW_PER_DAY = 5; // 1日に新規調査する医院数（1駅あたり）
 const REFRESH_PER_DAY = 3; // 1日に再調査する既存医院数
