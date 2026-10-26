@@ -1,12 +1,19 @@
 // フォームに表示する選択肢のマスタ（文言はここだけ直せば画面に反映される）
+import { DEMO_MODE } from "./demo";
 import type { Priority, TreatmentCategory, TreatmentOption } from "./types";
 
-export const CATEGORIES: { value: TreatmentCategory; label: string; description: string; icon: string }[] = [
+const ALL_CATEGORIES: { value: TreatmentCategory; label: string; description: string; icon: string }[] = [
   { value: "whitening", label: "ホワイトニング", description: "歯を白く明るくしたい", icon: "✨" },
   { value: "orthodontics", label: "矯正", description: "歯並び・かみ合わせを整えたい", icon: "😁" },
   { value: "implant", label: "インプラント", description: "失った歯を補いたい", icon: "🦷" },
   { value: "cleaning", label: "自費クリーニング", description: "着色や歯石をしっかり落としたい", icon: "🪥" },
 ];
+
+/** 実在の医院を掲載している治療（本番は渋谷から順にホワイトニングと矯正だけ載せる） */
+export const LIVE_CATEGORIES: TreatmentCategory[] = ["whitening", "orthodontics"];
+
+/** 画面に出す治療。テスト公開中は4つすべて、本番は医院データがある治療だけ */
+export const CATEGORIES = DEMO_MODE ? ALL_CATEGORIES : ALL_CATEGORIES.filter((c) => LIVE_CATEGORIES.includes(c.value));
 
 export const OPTIONS: Record<TreatmentCategory, { value: TreatmentOption; label: string; description: string }[]> = {
   whitening: [
@@ -76,3 +83,5 @@ export const PRIORITIES: { value: Priority; label: string }[] = [
 export const yen = (n: number) => `${(n / 10_000).toLocaleString("ja-JP", { maximumFractionDigits: 1 })}万円`;
 export const yenRaw = (n: number) => `${n.toLocaleString("ja-JP")}円`;
 export const formatPrice = (n: number) => (n >= 10_000 ? yen(n) : yenRaw(n));
+/** 「33万円〜99万円」。単一価格なら「2.5万円」 */
+export const formatPriceRange = (min: number, max: number) => (min === max ? formatPrice(min) : `${formatPrice(min)}〜${formatPrice(max)}`);

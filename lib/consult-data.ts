@@ -1,6 +1,7 @@
 // オンライン相談を受け付けている医院と担当医の取得（Supabase 未設定時はサンプルで動く）
 import type { Doctor } from "./consult";
 import { getPublishedClinics } from "./data";
+import { DEMO_MODE } from "./demo";
 import { SAMPLE_CLINICS } from "./sample-clinics";
 import { getReadDb } from "./supabase";
 import type { Clinic } from "./types";
@@ -27,6 +28,7 @@ const SAMPLE_DOCTORS: Doctor[] = [
 export async function getConsultClinics(): Promise<ConsultClinic[]> {
   const db = getReadDb();
   if (!db) {
+    if (!DEMO_MODE) return []; // 本番で Supabase 未接続なら、架空の先生は出さない
     return SAMPLE_CLINICS.flatMap((clinic) => {
       const doctors = SAMPLE_DOCTORS.filter((d) => d.clinic_id === clinic.id);
       return doctors.length ? [{ clinic, doctors, partnerId: `sample-${clinic.id}`, leadPrice: 0 }] : [];

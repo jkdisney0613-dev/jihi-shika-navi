@@ -105,6 +105,23 @@ service_role キーは API Route（サーバー）でだけ使い、ブラウザ
 
 `main` に push すると本番に自動で公開されます。
 
+## 本番公開の準備（2026-10-26）
+
+本番（`NEXT_PUBLIC_DEMO_MODE` を外した状態）では、架空のサンプルではなく実在の医院を出します。
+
+- **掲載している医院**：渋谷駅周辺のホワイトニング10院・矯正11院（重複を除いて16院）。`lib/real-clinics.ts` に、2026-10-26 に各医院の公式サイトの料金ページで確認した医院名・所在地・料金・出典URLを入れています。Supabase につなぐ前はこのファイルを表示し、つないだ後は `supabase/007_real_clinics.sql` で同じ内容が入ります
+- **治療はホワイトニングと矯正だけ**表示（`LIVE_CATEGORIES`）。インプラント・自費クリーニングは医院データがそろってから出します
+- **税表記がない料金**は記載額のまま載せ、「公式サイトに税込・税抜の記載がない」と注記。精密検査料など別にかかる費用も注記しています（`price_note`）
+- **オンライン相談の入口は隠しています**（`NEXT_PUBLIC_CONSULT_ENABLED`）。提携医院がいないのに、実在の医院が相談を受け付けているように見えるのを避けるため
+- **検索エンジンには載せません**。`NEXT_PUBLIC_SITE_LAUNCHED=true` にするまで全ページ noindex、robots.txt もクロール禁止です。URL を知っている人だけが見られます
+
+一般公開するときの手順：
+
+1. Supabase で `schema.sql` → `002` → `003` → `004` → `005_demo.sql` → `006_legal.sql` → `007_real_clinics.sql` を実行し、Vercel に `NEXT_PUBLIC_SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` を登録（医院からの掲載停止の依頼を受けるのに必須）
+2. 自動で医院を増やすために `GOOGLE_MAPS_API_KEY`・`ANTHROPIC_API_KEY`・`CRON_SECRET`・`ADMIN_EMAIL`・`RESEND_API_KEY` を登録
+3. `NEXT_PUBLIC_DEMO_MODE` を削除（または `false`）して再デプロイ → 実在の医院が表示される。この時点ではまだ検索に出ない
+4. 表示を確認したら `NEXT_PUBLIC_SITE_LAUNCHED=true` にして再デプロイ → 検索エンジンに公開
+
 ## 法的リスク対策（2026-10-22）
 
 `supabase/006_legal.sql` を 005 の後に実行してください。

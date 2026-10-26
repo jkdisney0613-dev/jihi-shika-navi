@@ -1,4 +1,7 @@
 // ページ表示用のデータ取得（Supabase 未設定時はサンプルデータで動く）
+import { DEMO_MODE } from "./demo";
+import { CATEGORIES } from "./options";
+import { REAL_CLINICS } from "./real-clinics";
 import { SAMPLE_CLINICS } from "./sample-clinics";
 import { getReadDb } from "./supabase";
 import type { Clinic, TreatmentCategory } from "./types";
@@ -6,16 +9,17 @@ import type { Clinic, TreatmentCategory } from "./types";
 export const PREF_SLUGS: Record<string, string> = {
   tokyo: "東京都", kanagawa: "神奈川県", saitama: "埼玉県", chiba: "千葉県", osaka: "大阪府", aichi: "愛知県", fukuoka: "福岡県",
 };
-export const CATEGORY_SLUGS: Record<string, TreatmentCategory> = {
-  whitening: "whitening", orthodontics: "orthodontics", implant: "implant", cleaning: "cleaning",
-};
+export const CATEGORY_SLUGS: Record<string, TreatmentCategory> = Object.fromEntries(CATEGORIES.map((c) => [c.value, c.value]));
+
+/** Supabase につないでいないときの医院データ（テスト公開中は架空のサンプル、本番は実在の医院） */
+export const fallbackClinics = (): Clinic[] => (DEMO_MODE ? SAMPLE_CLINICS : REAL_CLINICS);
 
 export async function getPublishedClinics(): Promise<Clinic[]> {
   const db = getReadDb();
-  if (!db) return SAMPLE_CLINICS;
+  if (!db) return fallbackClinics();
   const { data, error } = await db
     .from("clinics")
-    .select("*, treatments:clinic_treatments(option_code, price_min, price_max, duration_label, cases_count, source_url, updated_at)")
+    .select("*, treatments:clinic_treatments(option_code, price_min, price_max, duration_label, cases_count, source_url, updated_at, price_note)")
     .eq("is_published", true);
   if (error) throw error;
   return data as Clinic[];

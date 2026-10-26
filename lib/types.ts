@@ -52,6 +52,8 @@ export interface ClinicTreatment {
   source_url?: string | null;
   /** 金額を最後に確認した日時 */
   updated_at?: string | null;
+  /** 税表記がない・検査料が別など、金額を読むときの注意 */
+  price_note?: string | null;
 }
 
 export interface Clinic {
@@ -68,6 +70,11 @@ export interface Clinic {
   catch_copy: string;
   image_url: string | null;
   booking_url: string | null;
+  /** 所在地（公式サイト記載のもの） */
+  address?: string | null;
+  website_url?: string | null;
+  /** 掲載内容を公式サイトで最後に確認した日時 */
+  verified_at?: string | null;
   treatments: ClinicTreatment[];
 }
 
