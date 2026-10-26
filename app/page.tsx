@@ -2,6 +2,8 @@ import Link from "next/link";
 import SponsoredClinics from "@/components/SponsoredClinics";
 import YamanoteMap from "@/components/YamanoteMap";
 import { getActiveSponsors, getPublishedArticles, getPublishedClinics, toMapClinics } from "@/lib/data";
+import { CONSULT_ENABLED } from "@/lib/demo";
+import { CATEGORIES } from "@/lib/options";
 
 // 決済・解約の Webhook で revalidatePath("/") されるので、掲載はすぐ反映される
 export const revalidate = 3600;
@@ -12,13 +14,15 @@ export default async function Home() {
     <main className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
       <section className="mx-auto max-w-3xl px-4 pt-14 pb-8 text-center">
         <h1 className="text-3xl font-bold text-gray-900">自費の歯科治療、予算でいくら？どこで？</h1>
-        <p className="mt-3 text-gray-600">ホワイトニング・矯正・インプラント・自費クリーニングの費用と、条件に合う医院を30秒で比較。</p>
+        <p className="mt-3 text-gray-600">{CATEGORIES.map((c) => c.label).join("・")}の費用と、条件に合う医院を30秒で比較。</p>
         <Link href="/diagnosis" className="mt-6 inline-block rounded-xl bg-sky-600 px-8 py-4 font-bold text-white shadow hover:bg-sky-700">
           無料で比べる
         </Link>
-        <Link href="/consult" className="mt-3 block text-sm font-bold text-[#0B6E63] underline">
-          行く前に先生を選んで、概算を聞く（オンライン相談）
-        </Link>
+        {CONSULT_ENABLED && (
+          <Link href="/consult" className="mt-3 block text-sm font-bold text-[#0B6E63] underline">
+            行く前に先生を選んで、概算を聞く（オンライン相談）
+          </Link>
+        )}
       </section>
 
       <section id="yamanote" className="px-4 py-8">
@@ -46,7 +50,7 @@ export default async function Home() {
       )}
 
       <footer className="px-4 py-10 text-center text-xs text-gray-500">
-        <Link href="/for-clinics" className="hover:underline">歯科医院の方へ：PR枠・オンライン相談・掲載情報の修正</Link>
+        <Link href="/for-clinics" className="hover:underline">歯科医院の方へ：掲載情報の修正・掲載停止のご依頼</Link>
       </footer>
     </main>
   );

@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import { matchClinics } from "@/lib/matching";
 import { BUDGETS, OPTIONS, PREFECTURES, PRIORITIES } from "@/lib/options";
-import { SAMPLE_CLINICS } from "@/lib/sample-clinics";
+import { fallbackClinics } from "@/lib/data";
 import { getReadDb, getSupabaseAdmin } from "@/lib/supabase";
 import type { Clinic, DiagnosisInput, TreatmentCategory } from "@/lib/types";
 import { stationBySlug } from "@/lib/yamanote";
@@ -30,18 +30,18 @@ function parseInput(body: unknown): DiagnosisInput | null {
 
 async function loadClinics(input: DiagnosisInput): Promise<Clinic[]> {
   const supabase = getReadDb();
-  if (!supabase) return SAMPLE_CLINICS;
+  if (!supabase) return fallbackClinics();
 
   // 希望の治療を扱う医院だけを取得（エリア外も候補に残し、スコアで下げる）
   const { data, error } = await supabase
     .from("clinics")
-    .select("*, treatments:clinic_treatments!inner(option_code, price_min, price_max, duration_label, cases_count)")
+    .select("*, treatments:clinic_treatments!inner(option_code, price_min, price_max, duration_label, cases_count, source_url, updated_at, price_note)")
     .eq("is_published", true)
     .eq("clinic_treatments.option_code", input.option);
 
   if (error) {
     console.error("[diagnosis] failed to load clinics", error);
-    return SAMPLE_CLINICS;
+    return fallbackClinics();
   }
   return data as Clinic[];
 }

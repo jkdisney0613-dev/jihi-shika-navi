@@ -1,5 +1,5 @@
 // 山手線30駅のマスタ（外回り順：東京 → 品川 → 渋谷 → 新宿 → 池袋 → 上野 → 東京）
-// 医院は「最寄りの山手線駅」でひもづけ、駅ごとに順番にリサーチ・表示する
+// 医院は「最寄りの山手線駅」でひもづけ、STATION_PRIORITY の順にリサーチして表示する
 
 export interface YamanoteStation {
   slug: string;
@@ -51,8 +51,19 @@ export function stationDistance(a: string | null | undefined, b: string | null |
   return Math.min(d, YAMANOTE.length - d);
 }
 
-/** 日替わりでリサーチする駅（30日で一周） */
-export function stationOfTheDay(date = new Date()): YamanoteStation {
-  const day = Math.floor(date.getTime() / 86_400_000);
-  return YAMANOTE[day % YAMANOTE.length];
-}
+/**
+ * 医院を集める駅の順番。20〜30代の利用が多い駅から先に埋める。
+ * 土台は JR東日本「各駅の乗車人員 2024年度」（1日平均）。駅ごとの年代別データは公開されていないため、
+ * 渋谷・新宿・池袋を先頭に固定し、若い世代が集まる街（恵比寿・原宿・高田馬場・新大久保）を乗車人員の順位より前に出している。
+ * 1駅あたり PER_STATION_TARGET 件たまるか、検索で新しい医院が見つからなくなったら次の駅へ進む。
+ */
+export const STATION_PRIORITY: string[] = [
+  "shibuya", "shinjuku", "ikebukuro", // 指定の主要3駅
+  "ebisu", "harajuku", "takadanobaba", // 20〜30代が多い街
+  "tokyo", "shinagawa", "akihabara", "ueno", "shimbashi", "yurakucho", // 乗車人員の上位
+  "osaki", "gotanda", "meguro", "shin-okubo", "yoyogi", "hamamatsucho", "tamachi",
+  "nippori", "nishi-nippori", "kanda", "okachimachi", "otsuka", "mejiro",
+  "komagome", "tabata", "sugamo", "uguisudani", "takanawa-gateway",
+];
+
+export const PER_STATION_TARGET = 20;

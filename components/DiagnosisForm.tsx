@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import NewsletterSignup from "./NewsletterSignup";
-import { BUDGETS, CATEGORIES, OPTIONS, PREFECTURES, PRIORITIES, formatPrice } from "@/lib/options";
+import { CONSULT_ENABLED } from "@/lib/demo";
+import { BUDGETS, CATEGORIES, OPTIONS, PREFECTURES, PRIORITIES, formatPriceRange } from "@/lib/options";
 import { YAMANOTE, stationBySlug } from "@/lib/yamanote";
 import type { ClinicMatch, Priority, TreatmentCategory, TreatmentOption } from "@/lib/types";
 
@@ -277,10 +278,11 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
                 <div className="flex justify-between">
                   <span className="text-gray-500">費用の目安</span>
                   <span className="font-bold">
-                    {formatPrice(m.treatment.price_min)}〜{formatPrice(m.treatment.price_max)}
+                    {formatPriceRange(m.treatment.price_min, m.treatment.price_max)}
                     {!m.withinBudget && <span className="ml-2 text-xs text-orange-600">予算オーバー</span>}
                   </span>
                 </div>
+                {m.treatment.price_note && <p className="mb-1 text-right text-[11px] text-gray-500">{m.treatment.price_note}</p>}
                 <div className="flex justify-between">
                   <span className="text-gray-500">期間の目安</span>
                   <span>{m.treatment.duration_label}</span>
@@ -295,17 +297,19 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
                 </ul>
               )}
 
-              <a
-                href={`/consult?clinic=${m.clinic.slug}`}
-                className="block rounded-xl bg-[#0B6E63] py-3 text-center font-bold text-white hover:bg-[#08534B]"
-              >
-                行く前に先生へオンライン相談（無料）
-              </a>
+              {CONSULT_ENABLED && (
+                <a
+                  href={`/consult?clinic=${m.clinic.slug}`}
+                  className="mb-2 block rounded-xl bg-[#0B6E63] py-3 text-center font-bold text-white hover:bg-[#08534B]"
+                >
+                  行く前に先生へオンライン相談（無料）
+                </a>
+              )}
               <a
                 href={m.clinic.booking_url ?? `/clinics/${m.clinic.slug}`}
-                className="mt-2 block rounded-xl border border-gray-300 py-3 text-center text-sm font-bold text-gray-700 hover:bg-gray-50"
+                className="block rounded-xl border border-gray-300 py-3 text-center text-sm font-bold text-gray-700 hover:bg-gray-50"
               >
-                カウンセリングを予約する
+                {m.clinic.booking_url ? "カウンセリングを予約する" : "料金の出典と医院の詳細を見る"}
               </a>
             </li>
           ))}
@@ -314,7 +318,7 @@ function Results({ matches, answers, onRestart }: { matches: ClinicMatch[]; answ
       )}
 
       <p className="mt-6 text-xs leading-relaxed text-gray-400">
-        ※表示している費用は、各医院の公式サイトに掲載された自費診療の目安（税込）です。実際の金額は診察・検査の結果により異なり、最新の金額は医院にご確認ください。自費診療のため公的医療保険は適用されません。この結果は費用と条件の比較であり、診断ではありません。
+        ※表示している費用は、各医院の公式サイトに掲載された自費診療の目安です（税込と明記のないものは記載額のまま）。実際の金額は診察・検査の結果により異なり、最新の金額は医院にご確認ください。自費診療のため公的医療保険は適用されません。この結果は費用と条件の比較であり、診断ではありません。
       </p>
 
       <div className="mt-6">

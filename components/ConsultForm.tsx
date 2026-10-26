@@ -4,7 +4,7 @@
 import { useMemo, useState } from "react";
 import { CONCERNS, MAX_CLINICS_PER_CONSULT, MAX_PHOTOS, candidatesFor, estimate, type Concern } from "@/lib/consult";
 import type { ConsultClinic } from "@/lib/consult-data";
-import { BUDGETS, OPTIONS, PRIORITIES, formatPrice } from "@/lib/options";
+import { BUDGETS, OPTIONS, PRIORITIES, formatPrice, formatPriceRange } from "@/lib/options";
 import type { TreatmentOption } from "@/lib/types";
 
 const STEPS = ["お悩み", "費用の目安", "先生を選ぶ", "写真と相談内容", "連絡先"];
@@ -217,7 +217,7 @@ export default function ConsultForm({ clinics, initialClinic, demo = false }: { 
                       <span className="mt-0.5 block text-xs text-gray-500">
                         {cc.clinic.nearest_station} 徒歩{cc.clinic.walk_minutes}分
                       </span>
-                      {t && <span className="mt-1 block text-sm font-bold text-[#B54708]">{formatPrice(t.price_min)}〜{formatPrice(t.price_max)}<span className="ml-1 text-xs font-normal text-gray-500">{t.duration_label}</span></span>}
+                      {t && <span className="mt-1 block text-sm font-bold text-[#B54708]">{formatPriceRange(t.price_min, t.price_max)}<span className="ml-1 text-xs font-normal text-gray-500">{t.duration_label}</span></span>}
                     </span>
                   </label>
                   {picked && (
