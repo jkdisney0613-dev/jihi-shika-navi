@@ -2,6 +2,7 @@
 
 // 山手線の路線図。駅を押すと、その駅（なければ近くの駅）の医院が近い順に下に出る
 import Link from "next/link";
+import { Kiwi_Maru } from "next/font/google";
 import { useMemo, useState } from "react";
 import { CATEGORIES, formatPrice } from "@/lib/options";
 import type { TreatmentCategory } from "@/lib/types";
@@ -19,12 +20,36 @@ export interface MapClinic {
 
 const PREFIX: Record<TreatmentCategory, string> = { whitening: "whitening", orthodontics: "ortho", implant: "implant", cleaning: "cleaning" };
 
-// 環状線の形（実際の路線に近い縦長の楕円）。東京駅を右、品川を下、新宿を左、池袋を左上に置く
-const CX = 210, CY = 260, RX = 128, RY = 178;
-const position = (i: number) => {
-  const angle = (-8 + (360 / YAMANOTE.length) * i) * (Math.PI / 180);
-  return { x: CX + RX * Math.cos(angle), y: CY + RY * Math.sin(angle), cos: Math.cos(angle), sin: Math.sin(angle) };
+// 手書き風の路線図（いただいたイラストに合わせる）。角の丸い四角に近い環状線で、東京駅を右、品川を下、新宿を左、池袋を左上に置く
+const CX = 210, CY = 285, RX = 126, RY = 172, SQUARE = 3.2;
+const curve = (deg: number) => {
+  const a = deg * (Math.PI / 180), c = Math.cos(a), s = Math.sin(a);
+  const k = 2 / SQUARE;
+  return { x: CX + RX * Math.sign(c) * Math.abs(c) ** k, y: CY + RY * Math.sign(s) * Math.abs(s) ** k, cos: c, sin: s };
 };
+const TRACK = Array.from({ length: 121 }, (_, i) => curve(i * 3)).map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join("") + "Z";
+// 駅は線路の長さに沿って等間隔に置く（角に駅が寄らないように）。東京駅は右の少し上から始める
+const STATIONS = (() => {
+  const pts = Array.from({ length: 1441 }, (_, i) => curve(-8 + i / 4));
+  const acc = [0];
+  for (let i = 1; i < pts.length; i++) acc.push(acc[i - 1] + Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y));
+  const total = acc[acc.length - 1];
+  let j = 0;
+  return YAMANOTE.map((_, i) => {
+    const target = (total * i) / YAMANOTE.length;
+    while (acc[j] < target) j++;
+    const p = pts[j];
+    // ラベルを出す向き：楕円の中心から外向き
+    const nx = (p.x - CX) / RX, ny = (p.y - CY) / RY, len = Math.hypot(nx, ny);
+    return { x: p.x, y: p.y, cos: nx / len, sin: ny / len };
+  });
+})();
+const position = (i: number) => STATIONS[i];
+const INK = "#2B2118";
+// 背景の小さな点（手描きの余白の飾り）
+const DOTS = [[30, 40], [44, 52], [388, 70], [398, 84], [24, 500], [36, 512], [392, 470], [380, 520], [60, 300], [362, 300]];
+
+const kiwi = Kiwi_Maru({ weight: "500", subsets: ["latin"], preload: false, display: "swap" });
 
 export default function YamanoteMap({ clinics }: { clinics: MapClinic[] }) {
   const [selected, setSelected] = useState<string | null>(null);
@@ -77,67 +102,92 @@ export default function YamanoteMap({ clinics }: { clinics: MapClinic[] }) {
         ))}
       </div>
 
-      <svg viewBox="0 0 420 520" className="w-full select-none" role="group" aria-label="山手線の路線図。駅を選ぶと周辺の歯科医院が表示されます">
-        {/* 線路 */}
-        <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none" stroke="#80C241" strokeWidth={10} />
-        <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none" stroke="#fff" strokeWidth={2} strokeDasharray="10 8" opacity={0.7} />
+      <div className={`${kiwi.className} rounded-3xl bg-[#C9DC52] p-1 shadow-inner`}>
+        <svg viewBox="0 0 420 570" className="w-full select-none" role="group" aria-label="山手線の路線図。駅を選ぶと周辺の歯科医院が表示されます">
+          <defs>
+            {/* 線路を少しだけゆがませて手描きの線に見せる */}
+            <filter id="hand" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves={2} seed={7} />
+              <feDisplacementMap in="SourceGraphic" scale={4} />
+            </filter>
+          </defs>
+          {DOTS.map(([x, y]) => <circle key={`${x}-${y}`} cx={x} cy={y} r={2.2} fill="#fff" opacity={0.8} />)}
 
-        {/* 中央のガイド */}
-        <text x={CX} y={CY - 14} textAnchor="middle" className="fill-lime-700" fontSize={22} fontWeight={700}>山手線</text>
-        <text x={CX} y={CY + 12} textAnchor="middle" className="fill-gray-500" fontSize={12}>駅を押すと</text>
-        <text x={CX} y={CY + 28} textAnchor="middle" className="fill-gray-500" fontSize={12}>周辺の医院が出ます</text>
+          {/* 線路：白い帯に緑の枕木 */}
+          <g filter="url(#hand)">
+            <path d={TRACK} fill="none" stroke="#3F5F1E" strokeWidth={17} strokeLinejoin="round" />
+            <path d={TRACK} fill="none" stroke="#FAFAE6" strokeWidth={12} strokeLinejoin="round" />
+            <path d={TRACK} fill="none" stroke="#6B9A35" strokeWidth={12} strokeDasharray="12 26" />
+          </g>
 
-        {YAMANOTE.map((s, i) => {
-          const { x, y, cos, sin } = position(i);
-          const count = counts.get(s.slug) ?? 0;
-          const active = selected === s.slug;
-          const anchor = cos > 0.35 ? "start" : cos < -0.35 ? "end" : "middle";
-          // 上下の駅は駅名が横に並んで重なるので、1駅おきに外側へずらす
-          const dist = anchor === "middle" && i % 2 === 1 ? 38 : 22;
-          const lx = x + cos * dist, ly = y + sin * dist + 4;
-          return (
-            <g
-              key={s.slug}
-              role="button"
-              tabIndex={0}
-              aria-pressed={active}
-              aria-label={`${s.name}駅（掲載${count}院）`}
-              onClick={() => setSelected(s.slug)}
-              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), setSelected(s.slug))}
-              className="cursor-pointer outline-none [&:focus-visible>circle]:stroke-sky-500"
-            >
-              {/* 押しやすいよう透明の当たり判定を広めに取る */}
-              <circle cx={x} cy={y} r={16} fill="transparent" />
-              <circle
-                cx={x}
-                cy={y}
-                r={active ? 11 : count > 0 ? 8.5 : 6}
-                fill={active ? "#0284c7" : count > 0 ? "#80C241" : "#fff"}
-                stroke={active ? "#0369a1" : "#4d7c0f"}
-                strokeWidth={2.5}
-                className="transition-all"
-              />
-              {count > 0 && (
-                <text x={x} y={y + 3.5} textAnchor="middle" fontSize={active ? 11 : 9} fontWeight={700} fill="#fff" pointerEvents="none">
-                  {count}
-                </text>
-              )}
-              <text
-                x={lx}
-                y={ly}
-                textAnchor={anchor}
-                fontSize={active ? 13 : 11}
-                fontWeight={active || count > 0 ? 700 : 400}
-                className={active ? "fill-sky-700" : count > 0 ? "fill-gray-900" : "fill-gray-400"}
+          {/* 中央のタイトルとビーバー */}
+          <text x={CX} y={CY - 70} textAnchor="middle" fill={INK} fontSize={44}>山手線</text>
+          <text x={CX} y={CY - 44} textAnchor="middle" fill={INK} fontSize={15}>Yamanote Line</text>
+          <text x={CX} y={CY - 18} textAnchor="middle" fill="#4A3B2C" fontSize={12}>駅を押すと周辺の医院が出ます</text>
+          <image href="/beaver/search.png" x={CX - 50} y={CY - 4} width={100} height={105} />
+
+          {YAMANOTE.map((s, i) => {
+            const { x, y, cos, sin } = position(i);
+            const count = counts.get(s.slug) ?? 0;
+            const active = selected === s.slug;
+            const vertical = Math.abs(cos) < 0.45; // 上と下の駅は縦書きにして重ならないようにする
+            const size = s.name.length >= 4 ? 13 : 15;
+            const fill = active ? "#B4471C" : INK;
+            let label: React.ReactNode;
+            if (vertical) {
+              const chars = [...(s.slug === "takanawa-gateway" ? "高輪" : s.name)];
+              const lh = size + 1;
+              const y0 = sin < 0 ? y - 20 - (chars.length - 1) * lh : y + 20 + size - 2;
+              label = chars.map((ch, j) => (
+                <text key={j} x={x} y={y0 + j * lh} textAnchor="middle" fontSize={size} fill={fill}>{ch}</text>
+              ));
+            } else {
+              const anchor = cos > 0 ? "start" : "end";
+              const lx = x + (cos > 0 ? 17 : -17), ly = y + sin * 8 + 5;
+              label = s.slug === "takanawa-gateway" ? (
+                <>
+                  <text x={lx} y={ly - 3} textAnchor={anchor} fontSize={14} fill={fill}>高輪</text>
+                  <text x={lx} y={ly + 11} textAnchor={anchor} fontSize={10} fill={fill}>ゲートウェイ</text>
+                </>
+              ) : (
+                <text x={lx} y={ly} textAnchor={anchor} fontSize={size} fill={fill}>{s.name}</text>
+              );
+            }
+            return (
+              <g
+                key={s.slug}
+                role="button"
+                tabIndex={0}
+                aria-pressed={active}
+                aria-label={`${s.name}駅（掲載${count}院）`}
+                onClick={() => setSelected(s.slug)}
+                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), setSelected(s.slug))}
+                className="cursor-pointer outline-none [&:focus-visible>circle]:stroke-sky-600"
               >
-                {s.name}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
+                {/* 押しやすいよう透明の当たり判定を広めに取る */}
+                <circle cx={x} cy={y} r={18} fill="transparent" />
+                <circle
+                  cx={x}
+                  cy={y}
+                  r={active ? 13 : count > 0 ? 11.5 : 9}
+                  fill={active ? "#B4471C" : count > 0 ? "#FFE27A" : "#EEF2D3"}
+                  stroke={INK}
+                  strokeWidth={2.6}
+                  className="transition-all"
+                />
+                {count > 0 && (
+                  <text x={x} y={y + 4} textAnchor="middle" fontSize={active ? 12 : 11} fill={active ? "#fff" : INK} pointerEvents="none">
+                    {count}
+                  </text>
+                )}
+                {label}
+              </g>
+            );
+          })}
+        </svg>
+      </div>
 
-      <p className="-mt-2 mb-4 text-center text-xs text-gray-500">緑の丸の数字は掲載医院数。白い駅はリサーチ中です。</p>
+      <p className="mb-4 mt-2 text-center text-xs text-gray-500">黄色い駅の数字は掲載医院数。白い駅はリサーチ中です。</p>
 
       {/* 選んだ駅の医院 */}
       <div aria-live="polite">

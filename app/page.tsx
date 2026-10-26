@@ -44,11 +44,11 @@ export default async function Home() {
         </div>
       </header>
 
-      <section className="relative mx-auto max-w-3xl px-4 pt-6">
+      <section className="relative mx-auto max-w-3xl overflow-x-clip px-4 pt-6">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/beaver/hi.png" alt="案内役のビーバー" width={120} height={140} className="absolute right-3 top-4 h-36 w-auto sm:right-10" />
-        <h1 className="w-3/5 text-[28px] font-bold leading-snug">気になるのは、<br />どっち？</h1>
-        <p className="mt-2 w-3/5 text-[#6E5F4E]">押すだけで、料金と医院をくらべられます。無料・登録不要です。</p>
+        <img src="/beaver/hi.png" alt="案内役のビーバー" width={190} height={196} className="absolute -right-2 top-2 h-[196px] w-auto sm:right-8" />
+        <h1 className="relative w-[56%] text-[28px] font-bold leading-snug">気になるのは、<br />どっち？</h1>
+        <p className="relative mt-2 w-[52%] text-[#6E5F4E]">押すだけで、料金と医院をくらべられます。無料・登録不要です。</p>
         <div className="mt-8 grid grid-cols-2 gap-3">
           {CATEGORIES.map((c) => {
             const s = summarize(clinics, (o) => o.startsWith(PREFIX[c.value]));
@@ -115,7 +115,7 @@ export default async function Home() {
         </div>
         <div className="mt-4 flex items-center gap-3 rounded-3xl bg-[#EEF5E6] p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/beaver/brush.png" alt="" width={72} height={84} className="h-20 w-auto flex-none" />
+          <img src="/beaver/brush.png" alt="" width={72} height={84} className="h-24 w-auto flex-none" />
           <div>
             <p className="font-bold">医院を毎日少しずつ増やしています</p>
             <p className="text-sm text-[#5A4A3A]">
