@@ -44,11 +44,20 @@ function countClinics(clinics: CountClinic[], a: Partial<Answers>) {
   }).length;
 }
 
-/** initialStation：路線図で駅を押してから来た場合、その駅を選んだ状態で始める */
-export default function DiagnosisForm({ initialStation, clinics }: { initialStation?: string | null; clinics: CountClinic[] }) {
+/**
+ * initialStation：路線図で駅を押してから来た場合、その駅を選んだ状態で始める
+ * initialCategory：トップの「ホワイトニング／矯正」ボタンから来た場合、2問目から始める
+ */
+export default function DiagnosisForm({ initialStation, initialCategory, clinics }: { initialStation?: string | null; initialCategory?: string | null; clinics: CountClinic[] }) {
   const preset = stationBySlug(initialStation);
-  const initialAnswers: Answers = preset ? { prefecture: "東京都", station: preset.slug, priorities: [] } : { priorities: [] };
-  const [step, setStep] = useState(0);
+  const presetCategory = CATEGORIES.find((c) => c.value === initialCategory)?.value;
+  const initialAnswers: Answers = {
+    ...(preset ? { prefecture: "東京都", station: preset.slug } : {}),
+    ...(presetCategory ? { category: presetCategory } : {}),
+    priorities: [],
+  };
+  const initialStep = presetCategory ? 1 : 0;
+  const [step, setStep] = useState(initialStep);
   const [answers, setAnswers] = useState<Answers>(initialAnswers);
   const [matches, setMatches] = useState<ClinicMatch[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -99,7 +108,7 @@ export default function DiagnosisForm({ initialStation, clinics }: { initialStat
   function restart() {
     setAnswers(initialAnswers);
     setMatches(null);
-    setStep(0);
+    setStep(initialStep);
   }
 
   const total = clinics.length;

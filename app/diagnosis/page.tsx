@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600;
 
-export default async function DiagnosisPage({ searchParams }: { searchParams: Promise<{ station?: string }> }) {
-  const [{ station }, clinics] = await Promise.all([searchParams, getPublishedClinics()]);
+export default async function DiagnosisPage({ searchParams }: { searchParams: Promise<{ station?: string; category?: string }> }) {
+  const [{ station, category }, clinics] = await Promise.all([searchParams, getPublishedClinics()]);
   // 「候補◯院」を画面で数えるための軽いデータ（料金の下限と駅だけ）
   const counts: CountClinic[] = clinics.map((c) => ({
     prefecture: c.prefecture,
@@ -26,7 +26,7 @@ export default async function DiagnosisPage({ searchParams }: { searchParams: Pr
         <h1 className="mt-1 text-2xl font-bold">ビーバーと一緒に、条件に合う歯科医院をさがそう</h1>
         <p className="mt-2 text-sm text-[#6E5F4E]">4つの質問に答えるだけで、費用の目安と条件に合う医院がわかります。医療的な診断ではありません。</p>
       </section>
-      <DiagnosisForm initialStation={station} clinics={counts} />
+      <DiagnosisForm initialStation={station} initialCategory={category} clinics={counts} />
     </main>
   );
 }
