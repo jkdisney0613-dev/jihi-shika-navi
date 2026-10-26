@@ -1,4 +1,5 @@
-// 医院向け：オンライン相談の受付（1件ごとの定額）の申込み。運営が内容を確認してから有効にする
+// 医院向け：オンライン相談の受付（無料）の申込み。運営が内容を確認してから有効にする
+// 相談1件ごとの料金は療担規則の「患者紹介の対価」にあたるおそれがあるため取らない
 import { NextResponse } from "next/server";
 import { siteUrl } from "@/lib/cron-auth";
 import { esc } from "@/lib/consult-mail";
@@ -23,8 +24,8 @@ export async function POST(req: Request) {
     clinic_name: clinicName,
     contact_email: email,
     website_url: website,
-    plan: "per_lead",
-    lead_price: Number(process.env.CONSULT_LEAD_PRICE ?? 5000),
+    plan: "free",
+    lead_price: 0,
   });
   if (error) return NextResponse.json({ error: "申込みを保存できませんでした" }, { status: 500 });
 

@@ -1,4 +1,4 @@
-// トップページのおすすめ枠（ステマ規制に対応して「PR」を明示）
+// トップページのPR枠（ステマ規制に対応して広告であることを明示）
 import Link from "next/link";
 import type { Sponsor } from "@/lib/data";
 
@@ -6,8 +6,8 @@ export default function SponsoredClinics({ sponsors }: { sponsors: Sponsor[] }) 
   if (sponsors.length === 0) return null;
   return (
     <section className="mx-auto max-w-3xl px-4 py-8">
-      <h2 className="mb-1 text-lg font-bold text-gray-900">おすすめの歯科医院</h2>
-      <p className="mb-4 text-xs text-gray-500">PR：掲載料をいただいている医院です。診断結果の順位には影響しません。</p>
+      <h2 className="mb-1 text-lg font-bold text-gray-900">広告（PR）</h2>
+      <p className="mb-4 text-xs text-gray-500">掲載料をいただいている医院の広告です。検索結果の順位には影響しません。</p>
       <ul className="grid gap-3 sm:grid-cols-2">
         {sponsors.map((s) => {
           const href = s.clinic ? `/clinics/${s.clinic.slug}` : s.website_url ?? "#";

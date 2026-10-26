@@ -6,8 +6,7 @@ alter table public.clinics
   add column if not exists google_place_id     text unique,
   add column if not exists website_url         text,
   add column if not exists source              text not null default 'manual',  -- manual / auto_research
-  add column if not exists researched_at       timestamptz,                     -- メニュー価格を最後に調べた日時
-  add column if not exists rating_updated_at   timestamptz;
+  add column if not exists researched_at       timestamptz;                     -- メニュー価格を最後に調べた日時
 
 -- 価格の出典（医療広告ガイドライン対応：どのページに書いてあったかを残す）
 alter table public.clinic_treatments

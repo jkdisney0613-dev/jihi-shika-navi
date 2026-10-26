@@ -1,14 +1,15 @@
-// 診断結果から医院をスコアリングして並べる（サーバー・クライアントどちらでも動く純粋関数）
+// 回答の条件と医院の一致度で並べる（サーバー・クライアントどちらでも動く純粋関数）
+// 医療広告ガイドライン上、口コミ評価や掲載料で順位を決めると「比較優良広告」になり得るため、
+// 予算・エリア・希望条件という客観的な一致度だけを使う
 import { PRIORITIES, formatPrice } from "./options";
 import { stationBySlug, stationDistance } from "./yamanote";
 import type { Clinic, ClinicMatch, DiagnosisInput } from "./types";
 
 // 配点（合計100点）
 const WEIGHT = {
-  budget: 40, // 予算との適合
-  area: 25, // 希望エリア
-  priorities: 20, // 重視ポイントの一致
-  reputation: 15, // 口コミ評価・症例数
+  budget: 45, // 予算との適合
+  area: 30, // 希望エリア
+  priorities: 25, // 重視ポイントの一致
 } as const;
 
 function budgetScore(priceMin: number, priceMax: number, budgetMax: number | null): number {
@@ -63,16 +64,10 @@ export function matchClinics(clinics: Clinic[], input: DiagnosisInput, limit = 3
       if (label) reasons.push(`「${label}」に対応`);
     }
 
-    // 評判（評価 3.5〜5.0 を 0〜1 に、症例数 300件で満点）
-    const ratingPart = Math.min(Math.max((clinic.rating - 3.5) / 1.5, 0), 1);
-    const casesPart = Math.min(treatment.cases_count / 300, 1);
-    const r = WEIGHT.reputation * (0.6 * ratingPart + 0.4 * casesPart);
-    if (treatment.cases_count >= 200) reasons.push(`この治療の年間症例 ${treatment.cases_count}件`);
-
     matches.push({
       clinic,
       treatment,
-      score: Math.round(b + a + p + r),
+      score: Math.round(b + a + p),
       withinBudget,
       reasons: reasons.slice(0, 4),
     });
