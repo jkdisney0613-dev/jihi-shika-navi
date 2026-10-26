@@ -52,7 +52,7 @@ export async function POST(req: Request) {
   if (!input) return NextResponse.json({ error: "回答内容が正しくありません" }, { status: 400 });
 
   const clinics = await loadClinics(input);
-  const matches = matchClinics(clinics, input, 3);
+  const matches = matchClinics(clinics, input, 10); // 比べるリストに入れて選べるよう多めに返す
 
   // リード保存（失敗しても診断結果は返す）
   const supabase = getSupabaseAdmin();

@@ -80,6 +80,9 @@ export const PRIORITIES: { value: Priority; label: string }[] = [
   { value: "female_doctor", label: "女性医師がいる" },
 ];
 
+/** 画面に出す「重視すること」。本番は実在医院のデータで確かめられる項目だけ（症例実績・痛みへの配慮は出さない） */
+export const ACTIVE_PRIORITIES = DEMO_MODE ? PRIORITIES : PRIORITIES.filter((p) => !["track_record", "painless"].includes(p.value));
+
 export const yen = (n: number) => `${(n / 10_000).toLocaleString("ja-JP", { maximumFractionDigits: 1 })}万円`;
 export const yenRaw = (n: number) => `${n.toLocaleString("ja-JP")}円`;
 export const formatPrice = (n: number) => (n >= 10_000 ? yen(n) : yenRaw(n));
