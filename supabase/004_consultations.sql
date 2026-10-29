@@ -36,6 +36,7 @@ create table if not exists public.doctors (
 );
 create index if not exists doctors_clinic_idx on public.doctors (clinic_id) where is_published;
 alter table public.doctors enable row level security;
+drop policy if exists "doctors are public when published" on public.doctors;
 create policy "doctors are public when published" on public.doctors for select using (is_published);
 
 -- 患者さんの相談（1回の送信で最大3院に送れる。医院ごとの行は consultation_requests）
