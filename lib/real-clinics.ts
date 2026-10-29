@@ -1,7 +1,8 @@
 // 実在する医院のデータ（渋谷駅周辺・ホワイトニングと矯正）。2026-10-26 に各医院の公式サイトの料金ページで確認した内容です。
 // 掲載しているのは公式サイトで公開されている情報（医院名・所在地・診療時間・料金）だけで、口コミ・評価・症例写真は扱いません。
 // 料金は公式サイトの記載どおり（税込と明記されたものは税込）。税表記がないものは price_note にその旨を書いています。
-// Supabase 未接続の本番（NEXT_PUBLIC_DEMO_MODE が true でない）ではこのデータを表示し、
+// 本番では DB の医院に、このファイルにしかない医院を足して表示する（lib/data.ts の codeOnlyClinics）。追加の手順は docs/ADD_CLINICS.md。
+// Supabase 未接続の本番（NEXT_PUBLIC_DEMO_MODE が true でない）ではこのデータだけを表示し、
 // supabase/007_real_clinics.sql はこのファイルから生成しています（scripts/generate-real-seed.ts）。
 import type { Clinic, ClinicTreatment } from "./types";
 
@@ -21,6 +22,15 @@ const shibuya = (c: C): Clinic => ({
   prefecture: "東京都", city: "渋谷区", nearest_station: "渋谷駅", station_slug: "shibuya",
   image_url: null, booking_url: null, verified_at: REAL_VERIFIED_AT, ...c,
 });
+
+/** 渋谷以外の駅。verifiedAt は公式サイトで確認した日（例 "2026-10-30"） */
+const at = (station_slug: string, nearest_station: string, city: string, verifiedAt: string) => (c: C): Clinic => ({
+  prefecture: "東京都", city, nearest_station, station_slug,
+  image_url: null, booking_url: null, ...c, verified_at: `${verifiedAt}T00:00:00+09:00`,
+  treatments: c.treatments.map((x) => ({ ...x, updated_at: `${verifiedAt}T00:00:00+09:00` })),
+});
+// 例：const shinjuku = at("shinjuku", "新宿駅", "新宿区", "2026-10-30");
+
 
 export const REAL_CLINICS: Clinic[] = [
   shibuya({

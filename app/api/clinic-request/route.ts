@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { siteUrl } from "@/lib/cron-auth";
 import { esc } from "@/lib/consult-mail";
 import { FROM, getResend } from "@/lib/resend";
+import { REAL_CLINICS } from "@/lib/real-clinics";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 export async function POST(req: Request) {
@@ -20,7 +21,18 @@ export async function POST(req: Request) {
   const db = getSupabaseAdmin();
   if (!db) return NextResponse.json({ error: "現在受け付けできません。お手数ですがサイト運営者へメールでご連絡ください" }, { status: 503 });
 
-  const { data: clinic } = slug ? await db.from("clinics").select("id").eq("slug", slug).maybeSingle() : { data: null };
+  let { data: clinic } = slug ? await db.from("clinics").select("id").eq("slug", slug).maybeSingle() : { data: null };
+  // lib/real-clinics.ts にだけある医院は、掲載停止のときに DB へ非公開の行を作って表示から外す
+  const fromCode = !clinic && kind === "remove" ? REAL_CLINICS.find((c) => c.slug === slug) : undefined;
+  if (fromCode) {
+    const { data: inserted } = await db.from("clinics").insert({
+      id: fromCode.id, slug: fromCode.slug, station_slug: fromCode.station_slug, name: fromCode.name, address: fromCode.address,
+      prefecture: fromCode.prefecture, city: fromCode.city, nearest_station: fromCode.nearest_station, walk_minutes: fromCode.walk_minutes,
+      features: fromCode.features, catch_copy: fromCode.catch_copy, website_url: fromCode.website_url,
+      source: "manual", researched_at: fromCode.verified_at, is_published: false,
+    }).select("id").single();
+    clinic = inserted;
+  }
   const { error } = await db.from("clinic_change_requests").insert({
     clinic_id: clinic?.id ?? null, clinic_name: clinicName, kind, requester, contact_email: email, message,
   });
