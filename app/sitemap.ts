@@ -10,6 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   return [
     { url: siteUrl("/"), lastModified: now, priority: 1 },
+    { url: siteUrl("/start"), lastModified: now, priority: 0.9 },
     { url: siteUrl("/diagnosis"), lastModified: now, priority: 0.9 },
     { url: siteUrl("/consult"), lastModified: now, priority: 0.9 },
     { url: siteUrl("/articles"), lastModified: now },
