@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
   if (!SITE_LAUNCHED) return { rules: [{ userAgent: "*", disallow: "/" }] };
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/api/"] },
+      { userAgent: "*", allow: "/", disallow: ["/api/", "/admin/"] },
       { userAgent: ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Google-Extended"], allow: "/" },
     ],
     sitemap: siteUrl("/sitemap.xml"),
