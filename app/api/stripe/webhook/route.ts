@@ -61,7 +61,7 @@ export async function POST(req: Request) {
           html: `<p>${sp.clinic_name} ご担当者様</p><p>お申込みありがとうございます。サイトトップの「PR枠（PR）」への掲載を開始しました。</p><p>解約は Stripe から届く領収メールのリンクよりいつでも行えます。</p>`,
         });
       }
-      revalidatePath("/");
+      revalidatePath("/start");
     }
   }
 
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
         updated_at: new Date().toISOString(),
       })
       .eq("stripe_subscription_id", sub.id);
-    revalidatePath("/");
+    revalidatePath("/start");
   }
 
   return NextResponse.json({ received: true });
