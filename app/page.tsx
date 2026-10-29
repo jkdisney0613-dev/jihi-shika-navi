@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SponsoredClinics from "@/components/SponsoredClinics";
+import { AskIcon, ArrowRight, BracesIcon, ChatIcon, Chevron, ToothIcon, TrainIcon } from "@/components/LineIcons";
 import YamanoteMap from "@/components/YamanoteMap";
 import { getActiveSponsors, getPublishedArticles, getPublishedClinics, toMapClinics } from "@/lib/data";
 import { CONSULT_ENABLED } from "@/lib/demo";
@@ -14,6 +15,62 @@ const PREFIX: Record<TreatmentCategory, string> = { whitening: "whitening_", ort
 const BUTTON_LABEL: Partial<Record<TreatmentCategory, string>> = { orthodontics: "歯並び・矯正" };
 // 「いま比べられる料金」に出すメニュー（掲載がないものは出さない）
 const PRICE_CARDS: TreatmentOption[] = ["whitening_office", "whitening_home", "ortho_aligner", "ortho_partial", "implant_single", "cleaning_pmtc"];
+
+const card = "rounded-2xl border border-[#E4E8DC] bg-white shadow-[0_1px_3px_rgba(35,48,31,0.06)] transition hover:border-[#9CC58A] hover:shadow-md";
+
+function SectionTitle({ children, sub }: { children: React.ReactNode; sub?: string }) {
+  return (
+    <h2 className="flex items-baseline gap-2 border-l-4 border-[#2F6B3A] pl-2.5 text-lg font-bold leading-tight">
+      {children}
+      {sub && <span className="text-xs font-normal text-[#7A8473]">{sub}</span>}
+    </h2>
+  );
+}
+
+// はじめての方へ：このサイトでできること3つ
+const MERITS = [
+  { tag: "無料で比較", title: <>医院の料金を<br />一度に比べられる</>, text: "医院のホワイトニング・矯正の料金を、公式サイトで確認したうえで並べています。「検査料は別」などの注意書きと出典のリンクもあるので、1軒ずつサイトを回らなくて済みます。" },
+  { tag: "リアルな支払いがわかる", title: <>「実際いくら払ったか」<br />がわかる</>, text: "公式サイトの価格と、やってみた人が払った総額（調整料や保定装置も含む）を並べて見られます。「思ったより高かった」を事前に防げます。" },
+  { tag: "専門家に相談できる", title: <>歯科衛生士に<br />無料で質問できる</>, text: "お手入れや費用の不安を、医院名を出さずに匿名で聞けます。歯科衛生士（専門家）が答えます。" },
+];
+
+function Merits() {
+  return (
+    <section className="mt-12 bg-[#F9F8F2] px-4 py-10">
+      <div className="mx-auto max-w-3xl">
+        <p className="text-center text-sm font-bold text-[#4E8B3A]">＼ こんなことで悩んでいませんか？ ／</p>
+        <h2 className="mt-2 text-center text-xl font-bold leading-snug sm:text-2xl">歯科の自費治療は、<br className="sm:hidden" />もっとわかりやすくできるはずです。</h2>
+        <p className="mt-3 text-center text-sm leading-relaxed text-[#5E6A58]">歯科医院の料金・実際の支払い額・歯科衛生士への相談を<br className="hidden sm:block" />まとめて確認できるサービスです。</p>
+        <ol className="mt-8 space-y-10">
+          {MERITS.map((m, i) => (
+            <li key={m.tag} className="grid items-center gap-4 sm:grid-cols-[1fr_1.1fr] sm:gap-8">
+              <div className="relative">
+                <span className="absolute -top-2 left-0 z-10 text-5xl font-extrabold text-[#3F7F45]">{String(i + 1).padStart(2, "0")}</span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/lp/merit-${i + 1}.webp`} alt="" width={440} height={340} loading="lazy" className="mx-auto w-full max-w-[270px] sm:max-w-[340px]" />
+              </div>
+              <div>
+                <span className="inline-block rounded-full bg-[#E3F0DA] px-3 py-1 text-xs font-bold text-[#2F6B3A]">{m.tag}</span>
+                <h3 className="mt-2 text-2xl font-bold leading-snug text-[#1F3A26]">{m.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-[#4F5B4A]">{m.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <Link href="/diagnosis" className="mt-10 flex items-center gap-4 rounded-3xl border sm:rounded-full border-[#DCE8D2] bg-[#EAF3E3] py-3 pl-4 pr-6 transition hover:bg-[#E0EED6]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/beaver/hi.png" alt="ビーバー" width={64} height={66} className="h-16 w-auto flex-none" />
+          <span className="min-w-0 flex-1 border-l border-[#C9DDBC] pl-4">
+            <span className="inline-block rounded-full bg-[#2F5B3A] px-3 py-0.5 text-xs font-bold text-white">ひとことで言うなら</span>
+            <span className="mt-1 block text-xl font-bold text-[#2F6B3A]">無料・登録不要。</span>
+            <span className="block text-sm text-[#3F4A3A]">自費の歯科治療を、払う前に比べて、聞ける場所です。</span>
+          </span>
+          <ArrowRight className="h-6 w-6 flex-none text-[#2F6B3A]" />
+        </Link>
+      </div>
+    </section>
+  );
+}
 
 /** 条件に合う医院の数と、いちばん低い料金 */
 function summarize(clinics: Clinic[], match: (option: string) => boolean) {
@@ -36,11 +93,11 @@ export default async function Home() {
   const label = (o: TreatmentOption) => Object.values(OPTIONS).flat().find((x) => x.value === o)?.label ?? o;
 
   return (
-    <main className="min-h-screen bg-[#FBF7F0] text-[#2B2118]">
-      <header className="border-b border-[#EADFCF] bg-white px-4 py-3">
+    <main className="min-h-screen bg-[#F7F7F2] text-[#23301F]">
+      <header className="border-b border-[#E4E8DC] bg-white px-4 py-3">
         <div className="mx-auto max-w-3xl">
-          <p className="text-lg font-bold text-[#3F6E1E]">自費歯科ナビ</p>
-          <p className="text-xs text-[#8A7A66]">{CATEGORIES.map((c) => c.label).join("・")}の費用を比べる</p>
+          <p className="text-lg font-bold text-[#2F6B3A]">自費歯科ナビ</p>
+          <p className="text-xs text-[#7A8473]">{CATEGORIES.map((c) => c.label).join("・")}の費用を比べる</p>
         </div>
       </header>
 
@@ -48,19 +105,19 @@ export default async function Home() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/beaver/hi.png" alt="案内役のビーバー" width={190} height={196} className="absolute -right-2 top-2 h-[196px] w-auto sm:right-8" />
         <h1 className="relative w-[56%] text-[28px] font-bold leading-snug">気になるのは、<br />どっち？</h1>
-        <p className="relative mt-2 w-[52%] text-[#6E5F4E]">押すだけで、料金と医院をくらべられます。無料・登録不要です。</p>
-        <div className="mt-8 grid grid-cols-2 gap-3">
+        <p className="relative mt-2 w-[52%] text-[#5E6A58]">押すだけで、料金と医院をくらべられます。無料・登録不要です。</p>
+        <div className="mt-8 grid gap-3 sm:grid-cols-2">
           {CATEGORIES.map((c) => {
             const s = summarize(clinics, (o) => o.startsWith(PREFIX[c.value]));
+            const Icon = c.value === "orthodontics" ? BracesIcon : ToothIcon;
             return (
-              <Link
-                key={c.value}
-                href={`/diagnosis?category=${c.value}`}
-                className="rounded-3xl border-2 border-[#E2D6C2] bg-white px-3 py-5 text-center shadow-[0_3px_0_#E2D6C2] transition hover:-translate-y-0.5 hover:border-[#7AB648]"
-              >
-                <span className="block text-3xl">{c.icon}</span>
-                <span className="mt-1 block text-lg font-bold">{BUTTON_LABEL[c.value] ?? c.label}</span>
-                <span className="block text-sm text-[#6E5F4E]">{s.count > 0 && s.min !== null ? `${s.count}院・${formatPrice(s.min)}〜` : "準備中"}</span>
+              <Link key={c.value} href={`/diagnosis?category=${c.value}`} className={`${card} flex items-center gap-3 p-4`}>
+                <span className="grid h-12 w-12 flex-none place-items-center rounded-full bg-[#EEF5E8] text-[#2F6B3A]"><Icon className="h-7 w-7" /></span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[17px] font-bold">{BUTTON_LABEL[c.value] ?? c.label}</span>
+                  <span className="block text-xs text-[#6B7666]">{s.count > 0 && s.min !== null ? `${s.count}院・${formatPrice(s.min)}〜` : "準備中"}</span>
+                </span>
+                <Chevron className="h-5 w-5 flex-none text-[#9AA593]" />
               </Link>
             );
           })}
@@ -72,76 +129,83 @@ export default async function Home() {
         )}
       </section>
 
+      <Merits />
+
       {priceCards.length > 0 && (
-        <section className="mx-auto mt-8 max-w-3xl px-4">
-          <h2 className="text-xl font-bold">
-            いま比べられる料金 <span className="text-sm font-normal text-[#6E5F4E]">医院の公式サイトで確認</span>
-          </h2>
+        <section className="mx-auto mt-10 max-w-3xl px-4">
+          <SectionTitle sub="医院の公式サイトで確認">いま比べられる料金</SectionTitle>
           <div className="-mx-4 mt-3 flex gap-3 overflow-x-auto px-4 pb-2">
             {priceCards.map((p) => (
               <Link
                 key={p.o}
                 href={`/diagnosis?category=${Object.entries(PREFIX).find(([, v]) => p.o.startsWith(v))![0]}`}
-                className="w-40 flex-none rounded-2xl border border-[#EADFCF] bg-white p-3 hover:border-[#7AB648]"
+                className={`${card} w-36 flex-none p-3`}
               >
-                <span className="block text-sm">{label(p.o)}</span>
-                <span className="block text-xl font-bold text-[#B4471C]">{formatPrice(p.min!)}〜</span>
-                <span className="block text-sm text-[#6E5F4E]">{p.count}院</span>
+                <span className="block min-h-[2.5em] text-xs leading-tight text-[#5E6A58]">{label(p.o)}</span>
+                <span className="mt-1 block text-xl font-bold text-[#2F6B3A]">{formatPrice(p.min!)}<span className="text-sm">〜</span></span>
+                <span className="block text-xs text-[#7A8473]">{p.count}院</span>
               </Link>
             ))}
           </div>
-          <p className="text-xs text-[#8A7A66]">※いちばん低いプランの料金です。検査料などが別にかかる場合があります。</p>
+          <p className="text-xs text-[#7A8473]">※いちばん低いプランの料金です。検査料などが別にかかる場合があります。</p>
         </section>
       )}
 
-      <section className="mx-auto mt-8 max-w-3xl px-4">
-        <h2 className="text-xl font-bold">駅から探す</h2>
+      <section className="mx-auto mt-10 max-w-3xl px-4">
+        <SectionTitle>駅から探す</SectionTitle>
         <div className="mt-3 flex flex-wrap gap-2">
           {shownStations.map((slug) => {
             const st = stationBySlug(slug)!;
             const n = perStation.get(slug) ?? 0;
             return n > 0 ? (
-              <Link key={slug} href={`/station/${slug}`} className="rounded-2xl border-2 border-[#E2D6C2] bg-white px-4 py-2.5 font-bold hover:border-[#7AB648]">
+              <Link key={slug} href={`/station/${slug}`} className="flex items-center gap-1.5 rounded-full bg-[#2F6B3A] px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-[#275A31]">
+                <TrainIcon className="h-4 w-4" />
                 {st.name}
-                <span className="ml-1 text-sm font-normal text-[#6E5F4E]">{n}院</span>
+                <span className="font-normal opacity-80">{n}院</span>
               </Link>
             ) : (
-              <span key={slug} className="rounded-2xl border-2 border-dashed border-[#E2D6C2] px-4 py-2.5 font-bold text-[#9C8C76]">
+              <span key={slug} className="flex items-center gap-1.5 rounded-full border border-[#D9DED0] bg-white px-4 py-2 text-sm font-bold text-[#8C9686]">
+                <TrainIcon className="h-4 w-4" />
                 {st.name}
-                <span className="ml-1 text-sm font-normal">準備中</span>
+                <span className="font-normal">準備中</span>
               </span>
             );
           })}
         </div>
-        <div className="mt-4 flex items-center gap-3 rounded-3xl bg-[#EEF5E6] p-4">
+        <div className="mt-4 flex items-center gap-3 rounded-2xl border border-[#DCE8D2] bg-[#EEF5E8] p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/beaver/brush.png" alt="" width={72} height={84} className="h-24 w-auto flex-none" />
+          <img src="/beaver/brush.png" alt="" width={72} height={84} className="h-20 w-auto flex-none" />
           <div>
-            <p className="font-bold">医院を毎日少しずつ増やしています</p>
-            <p className="text-sm text-[#5A4A3A]">
+            <p className="text-[15px] font-bold text-[#2F6B3A]">医院を毎日少しずつ増やしています</p>
+            <p className="text-sm text-[#4F5B4A]">
               掲載{clinics.length}院。{nextStation ? `いまは${nextStation.name}駅のまわりを調べています` : "山手線ぜんぶの駅を調べ終わりました"}
             </p>
           </div>
         </div>
 
-        <h2 className="mt-8 text-lg font-bold">やった人に聞いてみる</h2>
-        <div className="mt-3 grid grid-cols-2 gap-3">
-          <Link href="/community" className="rounded-3xl border-2 border-[#E2D6C2] bg-white p-4 shadow-[0_3px_0_#E2D6C2] hover:border-[#7AB648]">
-            <span className="block text-2xl">💴</span>
-            <span className="mt-1 block font-bold">みんなの記録</span>
-            <span className="block text-xs text-[#6E5F4E]">実際いくら払った？後悔したことは？</span>
-          </Link>
-          <Link href="/community/questions" className="rounded-3xl border-2 border-[#E2D6C2] bg-white p-4 shadow-[0_3px_0_#E2D6C2] hover:border-[#7AB648]">
-            <span className="block text-2xl">🙋</span>
-            <span className="mt-1 block font-bold">質問ひろば</span>
-            <span className="block text-xs text-[#6E5F4E]">お手入れの悩みに歯科衛生士が答えます</span>
-          </Link>
+        <div className="mt-10">
+          <SectionTitle>やった人に聞いてみる</SectionTitle>
+        </div>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          {[
+            { href: "/community", Icon: ChatIcon, title: "みんなの記録", text: "実際いくら払った？後悔したことは？" },
+            { href: "/community/questions", Icon: AskIcon, title: "質問ひろば", text: "お手入れや費用の悩みに歯科衛生士が答えます" },
+          ].map(({ href, Icon, title, text }) => (
+            <Link key={href} href={href} className={`${card} flex items-center gap-3 p-4`}>
+              <span className="grid h-11 w-11 flex-none place-items-center rounded-full bg-[#EEF5E8] text-[#2F6B3A]"><Icon className="h-6 w-6" /></span>
+              <span className="min-w-0 flex-1">
+                <span className="block font-bold">{title}</span>
+                <span className="block text-xs text-[#6B7666]">{text}</span>
+              </span>
+              <Chevron className="h-5 w-5 flex-none text-[#9AA593]" />
+            </Link>
+          ))}
         </div>
       </section>
 
       <section id="yamanote" className="px-4 py-10">
         <h2 className="mb-1 text-center text-xl font-bold">路線図から探す</h2>
-        <p className="mb-4 text-center text-sm text-[#6E5F4E]">通勤・通学で使う駅を押してみてください</p>
+        <p className="mb-4 text-center text-sm text-[#5E6A58]">通勤・通学で使う駅を押してみてください</p>
         <YamanoteMap clinics={toMapClinics(clinics)} />
       </section>
 
