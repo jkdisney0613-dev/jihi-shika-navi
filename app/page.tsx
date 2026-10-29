@@ -123,6 +123,20 @@ export default async function Home() {
             </p>
           </div>
         </div>
+
+        <h2 className="mt-8 text-lg font-bold">やった人に聞いてみる</h2>
+        <div className="mt-3 grid grid-cols-2 gap-3">
+          <Link href="/community" className="rounded-3xl border-2 border-[#E2D6C2] bg-white p-4 shadow-[0_3px_0_#E2D6C2] hover:border-[#7AB648]">
+            <span className="block text-2xl">💴</span>
+            <span className="mt-1 block font-bold">みんなの記録</span>
+            <span className="block text-xs text-[#6E5F4E]">実際いくら払った？後悔したことは？</span>
+          </Link>
+          <Link href="/community/questions" className="rounded-3xl border-2 border-[#E2D6C2] bg-white p-4 shadow-[0_3px_0_#E2D6C2] hover:border-[#7AB648]">
+            <span className="block text-2xl">🙋</span>
+            <span className="mt-1 block font-bold">質問ひろば</span>
+            <span className="block text-xs text-[#6E5F4E]">お手入れの悩みに歯科衛生士が答えます</span>
+          </Link>
+        </div>
       </section>
 
       <section id="yamanote" className="px-4 py-10">

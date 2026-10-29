@@ -13,6 +13,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: siteUrl("/diagnosis"), lastModified: now, priority: 0.9 },
     { url: siteUrl("/consult"), lastModified: now, priority: 0.9 },
     { url: siteUrl("/articles"), lastModified: now },
+    { url: siteUrl("/community"), lastModified: now, changeFrequency: "daily", priority: 0.8 },
+    { url: siteUrl("/community/questions"), lastModified: now, changeFrequency: "daily", priority: 0.8 },
     ...Object.keys(PREF_SLUGS).flatMap((p) =>
       Object.keys(CATEGORY_SLUGS).map((t) => ({ url: siteUrl(`/area/${p}/${t}`), lastModified: now, priority: 0.8 })),
     ),
