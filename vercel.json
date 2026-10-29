@@ -1,8 +1,12 @@
 {
   "crons": [
     {
-      "path": "/api/cron/clinics",
+      "path": "/api/cron/clinics?slot=1",
       "schedule": "0 18 * * *"
+    },
+    {
+      "path": "/api/cron/clinics?slot=2",
+      "schedule": "30 18 * * *"
     },
     {
       "path": "/api/cron/articles",
