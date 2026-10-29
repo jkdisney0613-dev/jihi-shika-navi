@@ -1,4 +1,4 @@
-// 実在する医院のデータ（渋谷駅周辺・ホワイトニングと矯正）。2026-10-26 に各医院の公式サイトの料金ページで確認した内容です。
+// 実在する医院のデータ（山手線の駅ごと・ホワイトニングと矯正）。渋谷の16院は 2026-10-26、以降は各医院の verified_at の日に各医院の公式サイトの料金ページで確認した内容です。
 // 掲載しているのは公式サイトで公開されている情報（医院名・所在地・診療時間・料金）だけで、口コミ・評価・症例写真は扱いません。
 // 料金は公式サイトの記載どおり（税込と明記されたものは税込）。税表記がないものは price_note にその旨を書いています。
 // 本番では DB の医院に、このファイルにしかない医院を足して表示する（lib/data.ts の codeOnlyClinics）。追加の手順は docs/ADD_CLINICS.md。
@@ -30,6 +30,8 @@ const at = (station_slug: string, nearest_station: string, city: string, verifie
   treatments: c.treatments.map((x) => ({ ...x, updated_at: `${verifiedAt}T00:00:00+09:00` })),
 });
 // 例：const shinjuku = at("shinjuku", "新宿駅", "新宿区", "2026-10-30");
+const shibuya1029 = at("shibuya", "渋谷駅", "渋谷区", "2026-10-29");
+const shinjuku = at("shinjuku", "新宿駅", "新宿区", "2026-10-29");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -217,6 +219,119 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_aligner", 484_000, 1_155_000, "記載なし", "https://www.oralpro.jp/price/", `インビザライン。検査・診断33,000円は別。${NO_TAX}`),
       t("ortho_wire", 990_000, 990_000, "記載なし", "https://www.oralpro.jp/price/", `検査・診断33,000円は別。${NO_TAX}`),
       t("ortho_lingual", 1_320_000, 1_320_000, "記載なし", "https://www.oralpro.jp/price/", `検査・診断33,000円は別。${NO_TAX}`),
+    ],
+  }),
+  shibuya1029({
+    id: id(17), slug: "shibuya-haisha-kyousei", name: "渋谷歯医者・矯正歯科",
+    address: "東京都渋谷区渋谷2-20-11 渋谷協和ビル3F", walk_minutes: 1, website_url: "https://shibuya-haisha.com/",
+    features: ["access", "weekend"],
+    catch_copy: "銀座線渋谷駅出口から徒歩30秒。土日祝も10時〜21時まで診療",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "記載なし", "https://shibuya-haisha.com/price/", NO_TAX),
+      t("whitening_home", 22_000, 22_000, "マウスピースとジェル2本", "https://shibuya-haisha.com/price/", NO_TAX),
+      t("whitening_dual", 55_000, 55_000, "マウスピースとジェル2本付き", "https://shibuya-haisha.com/price/", NO_TAX),
+      t("ortho_aligner", 440_000, 990_000, "記載なし", "https://shibuya-haisha.com/price/", `インビザライン（ハーフ〜アドバンス）の装置代。検査・診断55,000円・調整料5,500円/回は別。${NO_TAX}`),
+      t("ortho_wire", 550_000, 550_000, "記載なし", "https://shibuya-haisha.com/price/", `表側矯正は550,000円〜。精密検査33,000円・通院観察料5,500円〜/回は別。${NO_TAX}`),
+      t("ortho_lingual", 880_000, 990_000, "記載なし", "https://shibuya-haisha.com/price/", `ハーフリンガル880,000円・裏側990,000円。精密検査33,000円・通院観察料5,500円〜/回は別。${NO_TAX}`),
+      t("ortho_partial", 220_000, 220_000, "記載なし", "https://shibuya-haisha.com/price/", `部分矯正は220,000円〜。精密検査33,000円は別。${NO_TAX}`),
+    ],
+  }),
+  shibuya1029({
+    id: id(18), slug: "shibuya-tokyo-kyousei-polaris", name: "渋谷東京矯正歯科",
+    address: "東京都渋谷区神南1-12-16 和光ビル3階", walk_minutes: 3, website_url: "https://polaris-oc.com/",
+    features: ["access"],
+    catch_copy: "マウスピース矯正の総額を範囲別に公開。渋谷駅B1出口から徒歩3分",
+    treatments: [
+      t("ortho_aligner", 715_000, 935_000, "記載なし", "https://polaris-oc.com/%e6%96%99%e9%87%91%e3%81%ae%e3%81%94%e6%a1%88%e5%86%85/", `マウスピースの全体矯正（総額表示）。${NO_TAX}`),
+      t("ortho_partial", 275_000, 605_000, "記載なし", "https://polaris-oc.com/%e6%96%99%e9%87%91%e3%81%ae%e3%81%94%e6%a1%88%e5%86%85/", `マウスピースのワンポイント〜部分矯正（総額表示）。${NO_TAX}`),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://polaris-oc.com/%e6%96%99%e9%87%91%e3%81%ae%e3%81%94%e6%a1%88%e5%86%85/", `ワイヤー矯正は調整料5,500円/月・保定装置38,500円がかかると記載あり。${NO_TAX}`),
+    ],
+  }),
+  shibuya1029({
+    id: id(19), slug: "ginza-dental-white-shibuya", name: "銀座デンタルホワイト渋谷院",
+    address: "東京都渋谷区渋谷1-24-15 ヒューリック渋谷宮益坂ビル3階", walk_minutes: 3, website_url: "https://ginza-dw.com/shibuya/",
+    features: ["price", "access", "weekend"],
+    catch_copy: "ホワイトニング中心の歯科医院。年中無休（お盆・年末年始など一部休診あり）",
+    treatments: [
+      t("whitening_office", 6_600, 22_000, "1回60〜80分", "https://ginza-dw.com/menu/", "本数・薬剤のプランで料金が変わる。料金はグループ共通のメニューページの記載"),
+      t("whitening_home", 33_000, 33_000, "マウスピース上下とジェル2本（約2週間分）", "https://ginza-dw.com/menu/", "料金はグループ共通のメニューページの記載"),
+      t("whitening_dual", 61_600, 61_600, "オフィス16本とホームの組み合わせ", "https://ginza-dw.com/menu/", "料金はグループ共通のメニューページの記載"),
+    ],
+  }),
+  shibuya1029({
+    id: id(20), slug: "miyagishi-dental-clinic", name: "みやぎし歯科クリニック",
+    address: "東京都渋谷区渋谷3-15-4 2F", walk_minutes: 5, website_url: "https://miyagishi-dental.com/",
+    features: ["price"],
+    catch_copy: "渋谷駅から徒歩5分。自費診療の費用をサイトで公開",
+    treatments: [
+      t("whitening_office", 16_500, 16_500, "1回", "https://miyagishi-dental.com/ownexpense.html", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別15,000円）"),
+      t("ortho_partial", 110_000, 110_000, "記載なし", "https://miyagishi-dental.com/ownexpense.html", "MTM（1歯〜）は110,000円〜。公式サイトは税別表記のため、消費税10%を加えた額にしています（税別100,000円〜）"),
+    ],
+  }),
+  shinjuku({
+    id: id(21), slug: "kawaguchi-shika-shinjuku", name: "川口歯科診療所",
+    address: "東京都新宿区西新宿6-5-1 新宿アイランドタワー2階", walk_minutes: 5, website_url: "https://www.kawaguchi-d.or.jp/",
+    features: ["price"],
+    catch_copy: "新宿駅西口から徒歩5分、都庁前駅から徒歩3分",
+    treatments: [
+      t("whitening_office", 11_000, 11_000, "1回約90分", "https://www.kawaguchi-d.or.jp/0530whitening/", "20歯の料金"),
+      t("whitening_home", 27_500, 27_500, "1日2時間×14日間", "https://www.kawaguchi-d.or.jp/0530whitening/", "マウスピース上下22,000円と薬剤14回分5,500円の合計"),
+    ],
+  }),
+  shinjuku({
+    id: id(22), slug: "nishishinjuku-toyo-clinic", name: "西新宿歯科TOYOクリニック",
+    address: "東京都新宿区西新宿1-19-7 岡崎ビル3F", walk_minutes: 3, website_url: "https://shinjuku-dental.jp/",
+    features: ["access"],
+    catch_copy: "JR新宿駅西口・南口から徒歩3分。新宿地下道7番出口すぐ",
+    treatments: [
+      t("whitening_office", 22_000, 22_000, "記載なし（複数回必要な場合あり）", "https://shinjuku-dental.jp/price"),
+      t("whitening_home", 16_000, 16_000, "オパールエッセンスGO 10回分", "https://shinjuku-dental.jp/price"),
+      t("ortho_aligner", 770_000, 880_000, "記載なし", "https://shinjuku-dental.jp/price", "非抜歯軽度〜抜歯で料金が変わる。検査料16,500円・診断料33,000円は別"),
+    ],
+  }),
+  shinjuku({
+    id: id(23), slug: "senga-dental-shinjuku-east", name: "千賀デンタルクリニック 新宿駅東口医院",
+    address: "東京都新宿区新宿3-17-5 T&TⅢビル6階", walk_minutes: 1, website_url: "https://www.senga-dc-shinjuku-east.com/",
+    features: ["access", "weekend"],
+    catch_copy: "新宿駅東口から徒歩1分。年中無休で10時〜20時まで診療（ビル休館日を除く）",
+    treatments: [
+      t("whitening_office", 93_500, 93_500, "オフィス3回", "https://www.senga-dc-shinjuku-east.com/whitening/", "GLOW PLAN（オフィス3回）の料金"),
+      t("whitening_home", 36_300, 36_300, "マウスピースとジェル6本", "https://www.senga-dc-shinjuku-east.com/whitening/", "DAILY PLANの料金"),
+      t("whitening_dual", 60_500, 60_500, "オフィス1回とホームキット", "https://www.senga-dc-shinjuku-east.com/whitening/", "PERFECT PLANの料金"),
+    ],
+  }),
+  shinjuku({
+    id: id(24), slug: "tokyo-shinjuku-kyousei", name: "東京新宿矯正歯科",
+    address: "東京都新宿区新宿3-19-4 MLJ新宿ビル5階", walk_minutes: 5, website_url: "https://www.oh-my-teeth.com/whitening/locations/shinjuku",
+    features: ["price"],
+    catch_copy: "新宿駅から徒歩5分。16分照射のオフィスホワイトニングを薬剤別に案内",
+    treatments: [
+      t("whitening_office", 4_980, 16_500, "1回16分照射", "https://www.oh-my-teeth.com/whitening/locations/shinjuku", "スタンダード4,980円・BOOST16,500円（2026年4月時点の税込価格と記載）"),
+      t("whitening_home", 22_000, 22_000, "ジェル1か月分", "https://www.oh-my-teeth.com/whitening/locations/shinjuku", "ジェル1か月分11,000円と初回のマウスピース作製11,000円の合計"),
+    ],
+  }),
+  shinjuku({
+    id: id(25), slug: "shinjuku-white-clinic", name: "新宿ホワイトクリニック",
+    address: "東京都新宿区新宿3-25-10 當山ビル7階", walk_minutes: 1, website_url: "https://shinjuku-wc.com/",
+    features: ["price", "access"],
+    catch_copy: "ホワイトニング中心の歯科医院。新宿駅東口から徒歩1分",
+    treatments: [
+      t("whitening_office", 8_800, 22_000, "1回約60分", "https://shinjuku-wc.com/menu/", "本数無制限。薬剤の濃度で料金が変わる"),
+      t("whitening_home", 33_000, 33_000, "マウスピース上下とジェル4本", "https://shinjuku-wc.com/menu/"),
+      t("whitening_dual", 43_400, 74_800, "オフィス2回とホーム（ジェル2本）", "https://shinjuku-wc.com/menu/", "薬剤で料金が変わる。下限は割引価格、上限は通常価格"),
+    ],
+  }),
+  shinjuku({
+    id: id(26), slug: "shinjuku-is-dental", name: "新宿I'S歯科・矯正歯科",
+    address: "東京都新宿区新宿3-17-10 HULIC & New SHINJUKU 6階", walk_minutes: 3, website_url: "https://www.shinjukud-c.com/",
+    features: ["access"],
+    catch_copy: "新宿駅から徒歩3分。ホワイトニングとマウスピース・ワイヤー矯正の料金を公開",
+    treatments: [
+      t("whitening_office", 22_000, 88_000, "1回〜5回（1回3照射）", "https://www.shinjukud-c.com/price/", "1回22,000円・3回55,000円・5回88,000円"),
+      t("whitening_home", 29_700, 29_700, "上下あごセット", "https://www.shinjukud-c.com/price/"),
+      t("ortho_aligner", 660_000, 880_000, "記載なし", "https://www.shinjukud-c.com/price/", "インビザライン。検査・診断料33,000円・調整料5,500円/回は別"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.shinjukud-c.com/price/", "全顎矯正。検査・診断料33,000円・調整料5,500円/月は別"),
+      t("ortho_partial", 165_000, 440_000, "記載なし", "https://www.shinjukud-c.com/price/", "ワイヤー165,000円〜・マウスピース220,000円〜。検査・診断料33,000円・調整料5,500円は別"),
     ],
   }),
 ];
