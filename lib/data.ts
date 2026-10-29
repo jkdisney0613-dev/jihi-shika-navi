@@ -22,7 +22,21 @@ export async function getPublishedClinics(): Promise<Clinic[]> {
     .select("*, treatments:clinic_treatments(option_code, price_min, price_max, duration_label, cases_count, source_url, updated_at, price_note)")
     .eq("is_published", true);
   if (error) throw error;
-  return data as Clinic[];
+  return [...(data as Clinic[]), ...(await codeOnlyClinics())];
+}
+
+/**
+ * lib/real-clinics.ts に追加した実在医院のうち、まだ DB に行がないもの。
+ * 医院は駅ごとに調べて lib/real-clinics.ts に足していく（デプロイするだけで載る）。
+ * DB に同じ slug の行があれば、非公開も含めて DB を優先する（掲載停止の依頼は DB に非公開の行を作って反映する）。
+ */
+export async function codeOnlyClinics(): Promise<Clinic[]> {
+  const db = getReadDb();
+  if (!db || DEMO_MODE) return [];
+  const { data, error } = await db.from("clinics").select("slug");
+  if (error) throw error;
+  const inDb = new Set((data ?? []).map((r) => r.slug));
+  return REAL_CLINICS.filter((c) => !inDb.has(c.slug));
 }
 
 export interface Article {

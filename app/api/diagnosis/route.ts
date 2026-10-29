@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import { matchClinics } from "@/lib/matching";
 import { BUDGETS, OPTIONS, PREFECTURES, PRIORITIES } from "@/lib/options";
-import { fallbackClinics } from "@/lib/data";
+import { codeOnlyClinics, fallbackClinics } from "@/lib/data";
 import { getReadDb, getSupabaseAdmin } from "@/lib/supabase";
 import type { Clinic, DiagnosisInput, TreatmentCategory } from "@/lib/types";
 import { stationBySlug } from "@/lib/yamanote";
@@ -43,7 +43,10 @@ async function loadClinics(input: DiagnosisInput): Promise<Clinic[]> {
     console.error("[diagnosis] failed to load clinics", error);
     return fallbackClinics();
   }
-  return data as Clinic[];
+  const fromCode = (await codeOnlyClinics())
+    .map((c) => ({ ...c, treatments: c.treatments.filter((t) => t.option_code === input.option) }))
+    .filter((c) => c.treatments.length > 0);
+  return [...(data as Clinic[]), ...fromCode];
 }
 
 export async function POST(req: Request) {
