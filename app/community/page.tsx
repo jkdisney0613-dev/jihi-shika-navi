@@ -3,10 +3,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CommunityHeader from "@/components/community/CommunityHeader";
-import ExperienceCard from "@/components/community/ExperienceCard";
+import ExperienceCard, { SampleNotice } from "@/components/community/ExperienceCard";
 import { COMMUNITY_OPTIONS, COMMUNITY_READY, MIN_RECORDS_FOR_STATS, getExperiences, getPaidStats, shortLabel } from "@/lib/community";
 import { getPublishedClinics } from "@/lib/data";
-import { DEMO_MODE } from "@/lib/demo";
 import { formatPrice, formatPriceRange } from "@/lib/options";
 
 export const revalidate = 60;
@@ -28,7 +27,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Pr
     return ts.length ? { min: Math.min(...ts.map((t) => t.price_min)), max: Math.max(...ts.map((t) => t.price_max ?? t.price_min)) } : null;
   };
   const counts = new Map<string, number>();
-  for (const e of experiences) counts.set(e.option_code, (counts.get(e.option_code) ?? 0) + 1);
+  for (const e of experiences) if (!e.sample) counts.set(e.option_code, (counts.get(e.option_code) ?? 0) + 1);
   const summaryCodes = option ? [option] : COMMUNITY_OPTIONS.map((x) => x.value).filter((c) => stats.has(c));
 
   return (
@@ -36,7 +35,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Pr
       <CommunityHeader active="records" beaver="hi" say={<>実際いくら払った？<br />やってみた人の記録を見てみよう</>} />
 
       <div className="mx-auto max-w-3xl px-4">
-        {DEMO_MODE && !ready && <p className="mt-4 rounded-xl bg-[#F4EEE3] px-3 py-2 text-xs text-[#6E5F4E]">いま表示しているのは見本の投稿です。</p>}
+        {experiences.some((e) => e.sample) && <SampleNotice what="記録（金額や感想はイメージです）" />}
 
         <div className="-mx-4 mt-4 flex gap-2 overflow-x-auto px-4 pb-1" aria-label="治療で絞り込む">
           {[{ value: null, label: "すべて" }, ...COMMUNITY_OPTIONS.map((x) => ({ value: x.value, label: shortLabel(x.value) }))].map((x) => (

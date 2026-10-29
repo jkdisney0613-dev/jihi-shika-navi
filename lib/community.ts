@@ -17,7 +17,7 @@ const count = (rel: unknown) => (Array.isArray(rel) && rel[0] && typeof rel[0].c
 
 export async function getExperiences(option?: string | null, limit = 50): Promise<Experience[]> {
   const db = communityDb();
-  if (!db) return DEMO_MODE ? SAMPLE_EXPERIENCES.filter((e) => !option || e.option_code === option) : [];
+  if (!db) return DEMO_MODE ? sampleExperiences(option) : [];
   let q = db
     .from("community_experiences")
     .select("id, option_code, total_paid, months, pain, satisfaction, choose_again, age_band, good, regret, created_at, community_reactions(count)")
@@ -27,14 +27,22 @@ export async function getExperiences(option?: string | null, limit = 50): Promis
   if (option) q = q.eq("option_code", option);
   const { data, error } = await q;
   if (error) throw error;
-  return (data ?? []).map(({ community_reactions, ...e }) => ({ ...e, helpful: count(community_reactions) }) as Experience);
+  if (!data?.length && !(await hasPublished("community_experiences"))) return sampleExperiences(option);
+  return data.map(({ community_reactions, ...e }) => ({ ...e, helpful: count(community_reactions) }) as Experience);
+}
+
+/** 公開済みの本物の投稿が1件でもあるか（なければ見本を出す） */
+async function hasPublished(table: "community_experiences" | "community_questions") {
+  const { count: n, error } = await communityDb()!.from(table).select("id", { count: "exact", head: true }).eq("status", "published");
+  if (error) throw error;
+  return (n ?? 0) > 0;
 }
 
 /** 治療ごとの「みんなが払った総額」。記録が少ないうちは出さない */
 export async function getPaidStats(): Promise<Map<string, { n: number; median: number; p25: number; p75: number }>> {
   const db = communityDb();
   let rows: { option_code: string; total_paid: number }[];
-  if (!db) rows = DEMO_MODE ? SAMPLE_EXPERIENCES : [];
+  if (!db) rows = []; // 見本は集計に入れない
   else {
     const { data, error } = await db.from("community_experiences").select("option_code, total_paid").eq("status", "published").limit(5000);
     if (error) throw error;
@@ -65,14 +73,13 @@ function toAnswer({ community_reactions, ...a }: Record<string, unknown>): Answe
 
 export async function getQuestions(opts: { topic?: string | null; expertOnly?: boolean; limit?: number } = {}): Promise<Question[]> {
   const db = communityDb();
-  if (!db) {
-    if (!DEMO_MODE) return [];
-    return SAMPLE_QUESTIONS.filter((q) => (!opts.topic || q.topic === opts.topic) && (!opts.expertOnly || q.answers.some((a) => a.is_expert)));
-  }
+  const samples = () => sampleQuestions(opts);
+  if (!db) return DEMO_MODE ? samples() : [];
   let q = db.from("community_questions").select(QUESTION_FIELDS).eq("status", "published").order("created_at", { ascending: false }).limit(opts.limit ?? 50);
   if (opts.topic) q = q.eq("topic", opts.topic);
   const { data, error } = await q;
   if (error) throw error;
+  if (!data?.length && !(await hasPublished("community_questions"))) return samples();
   const ids = (data ?? []).map((x) => x.id);
   const { data: answers } = ids.length
     ? await db.from("community_answers").select(ANSWER_FIELDS).in("question_id", ids).eq("status", "published").order("is_expert", { ascending: false }).order("created_at")
@@ -87,8 +94,9 @@ export async function getQuestions(opts: { topic?: string | null; expertOnly?: b
 
 export async function getQuestion(id: string): Promise<Question | null> {
   const db = communityDb();
-  if (!db) return DEMO_MODE ? (SAMPLE_QUESTIONS.find((q) => q.id === id) ?? null) : null;
-  if (!/^[0-9a-f-]{36}$/.test(id)) return null;
+  const sample = sampleQuestions({}).find((q) => q.id === id) ?? null;
+  if (!db) return DEMO_MODE ? sample : null;
+  if (!/^[0-9a-f-]{36}$/.test(id)) return sample && !(await hasPublished("community_questions")) ? sample : null;
   const { data } = await db.from("community_questions").select(QUESTION_FIELDS).eq("id", id).eq("status", "published").maybeSingle();
   if (!data) return null;
   const { data: answers } = await db.from("community_answers").select(ANSWER_FIELDS).eq("question_id", id).eq("status", "published")
@@ -159,7 +167,15 @@ export async function tooMany(table: string, ipHash: string, limit = 5) {
   return (n ?? 0) >= limit;
 }
 
-// ---- テスト公開中（DB なし）に出す見本 ----
+// ---- 見本：本物の投稿がまだないとき（とテスト公開中）だけ出す ----
+// 「見本」と明示し、日付・「参考になった」の数は出さず、みんなの総額の集計にも入れない
+const sampleExperiences = (option?: string | null): Experience[] =>
+  SAMPLE_EXPERIENCES.filter((e) => !option || e.option_code === option).map((e) => ({ ...e, helpful: 0, sample: true }));
+const sampleQuestions = (opts: { topic?: string | null; expertOnly?: boolean }): Question[] =>
+  SAMPLE_QUESTIONS
+    .filter((q) => (!opts.topic || q.topic === opts.topic) && (!opts.expertOnly || q.answers.some((a) => a.is_expert)))
+    .map((q) => ({ ...q, same: 0, sample: true, answers: q.answers.map((a) => ({ ...a, helpful: 0 })) }));
+
 const d = (daysAgo: number) => new Date(Date.UTC(2026, 9, 28) - daysAgo * 86_400_000).toISOString();
 const SAMPLE_EXPERIENCES: Experience[] = [
   { id: "s1", option_code: "ortho_aligner", total_paid: 880_000, months: 18, pain: 2, satisfaction: 4, choose_again: "yes", age_band: "20代後半", good: "仕事中も目立たず、食事のときに外せるのが楽。", regret: "1日22時間つけるのがきつい。最初に知りたかった。", created_at: d(3), helpful: 32 },

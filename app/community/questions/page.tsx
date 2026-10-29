@@ -3,10 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnswerBlock from "@/components/community/AnswerBlock";
 import CommunityHeader from "@/components/community/CommunityHeader";
-import { ago } from "@/components/community/ExperienceCard";
+import { SampleBadge, SampleNotice, ago } from "@/components/community/ExperienceCard";
 import HelpfulButton from "@/components/community/HelpfulButton";
 import { COMMUNITY_READY, TOPICS, getQuestions, shortLabel, type Topic } from "@/lib/community";
-import { DEMO_MODE } from "@/lib/demo";
 
 export const revalidate = 60;
 export const metadata: Metadata = {
@@ -31,7 +30,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     <main className="min-h-screen bg-[#FBF7F0] pb-28 text-[#2B2118]">
       <CommunityHeader active="questions" beaver="search" say={<>気になることは、<br />やった人と専門家に聞いてみよう</>} />
       <div className="mx-auto max-w-3xl px-4">
-        {DEMO_MODE && !ready && <p className="mt-4 rounded-xl bg-[#F4EEE3] px-3 py-2 text-xs text-[#6E5F4E]">いま表示しているのは見本の投稿です。</p>}
+        {questions.some((q) => q.sample) && <SampleNotice what="質問と回答" />}
         <div className="-mx-4 mt-4 flex gap-2 overflow-x-auto px-4 pb-1">
           {tabs.map((x) => (
             <Link key={x.href} href={x.href} aria-current={x.on ? "true" : undefined}
@@ -50,12 +49,12 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
                 <p className="flex flex-wrap items-center gap-1">
                   <span className="rounded-full bg-[#FBEADF] px-2.5 py-0.5 text-xs font-bold text-[#B4471C]">{TOPICS[q.topic]}</span>
                   {q.option_code && <span className="rounded-full bg-[#EEF4E2] px-2.5 py-0.5 text-xs font-bold text-[#3F6E1E]">{shortLabel(q.option_code)}</span>}
-                  <span className="ml-auto text-xs text-[#8A7A66]">{ago(q.created_at)}</span>
+                  <span className="ml-auto">{q.sample ? <SampleBadge /> : <span className="text-xs text-[#8A7A66]">{ago(q.created_at)}</span>}</span>
                 </p>
                 <Link href={`/community/questions/${q.id}`} className="mt-2 block text-[16px] font-bold leading-snug hover:underline">{q.title}</Link>
                 {top ? <AnswerBlock a={top} helpful={false} /> : <p className="mt-2 text-sm text-[#8A7A66]">まだ回答がありません</p>}
                 <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <HelpfulButton target="question" id={q.id} count={q.same} label="同じ悩み" emoji="🙋" />
+                  {!q.sample && <HelpfulButton target="question" id={q.id} count={q.same} label="同じ悩み" emoji="🙋" />}
                   <Link href={`/community/questions/${q.id}`} className="ml-auto text-sm font-bold text-[#3F6E1E]">
                     {q.answers.length > 1 ? `回答${q.answers.length}件を見る` : "答える・くわしく"} →
                   </Link>
