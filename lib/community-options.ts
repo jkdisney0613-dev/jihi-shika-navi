@@ -39,6 +39,8 @@ export interface Experience {
   regret: string | null;
   created_at: string;
   helpful: number;
+  /** 見本（本物の投稿がまだないときだけ出す。集計や「参考になった」には使わない） */
+  sample?: true;
 }
 export interface Answer {
   id: string;
@@ -58,5 +60,6 @@ export interface Question {
   created_at: string;
   same: number;
   answers: Answer[];
+  sample?: true;
 }
 
