@@ -34,6 +34,8 @@ const shibuya1029 = at("shibuya", "渋谷駅", "渋谷区", "2026-10-29");
 const shinjuku = at("shinjuku", "新宿駅", "新宿区", "2026-10-29");
 const shinjuku1030 = at("shinjuku", "新宿駅", "新宿区", "2026-10-30");
 const shinjukuSendagaya1030 = at("shinjuku", "新宿駅", "渋谷区", "2026-10-30");
+const shinjuku1031 = at("shinjuku", "新宿駅", "新宿区", "2026-10-31");
+const ikebukuro1031 = at("ikebukuro", "池袋駅", "豊島区", "2026-10-31");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -461,6 +463,116 @@ export const REAL_CLINICS: Clinic[] = [
       t("whitening_home", 55_000, 55_000, "マウスピースとお薬", "https://www.biyou-dental.com/price.php"),
       t("ortho_aligner", 440_000, 880_000, "記載なし", "https://www.biyou-dental.com/price.php", "インビザラインGO440,000円・クリアコレクト550,000円・インビザライン880,000円"),
       t("ortho_partial", 330_000, 330_000, "記載なし", "https://www.biyou-dental.com/price.php", "MTM"),
+    ],
+  }),
+  shinjuku1031({
+    id: id(37), slug: "sbc-dental-shinjuku", name: "湘南美容歯科 新宿院",
+    address: "東京都新宿区西新宿7-10-1 O-GUARD SHINJUKU 8F", walk_minutes: 5, website_url: "https://www.sbc-dental.com/clinic/shinjuku/",
+    features: [],
+    catch_copy: "JR新宿駅から徒歩5分。10時〜19時の予約制",
+    treatments: [
+      t("whitening_office", 19_800, 49_800, "1回〜3回", "https://www.sbc-dental.com/price/whitening.html", `1回19,800円・3回49,800円（モニター価格ではない通常価格）。${NO_TAX}`),
+      t("whitening_home", 25_250, 25_250, "上下トレーとジェル2本", "https://www.sbc-dental.com/price/whitening.html", `追加ジェル1本3,030円。${NO_TAX}`),
+    ],
+  }),
+  shinjuku1031({
+    id: id(38), slug: "alesta-shinjuku-dental", name: "アレスタ新宿デンタルオフィス",
+    address: "東京都新宿区西新宿7-10-3 第二雨宮ビル3F", walk_minutes: 5, website_url: "https://www.alesta-do.jp/",
+    features: ["weekend"],
+    catch_copy: "JR新宿駅から徒歩5分。土曜・祝日も診療（火・日、第2・第4水曜休診）",
+    treatments: [
+      t("whitening_office", 22_000, 88_000, "1回〜5回", "https://www.alesta-do.jp/price.html", "1回22,000円・3回55,000円・5回88,000円"),
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://www.alesta-do.jp/price.html"),
+      t("whitening_dual", 60_500, 60_500, "オフィス2回とホーム", "https://www.alesta-do.jp/price.html"),
+      t("ortho_aligner", 660_000, 825_000, "記載なし", "https://www.alesta-do.jp/price.html", "全顎（非抜歯〜抜歯）。精密検査22,000円・シミュレーション11,000円・リテーナー16,000円は別"),
+      t("ortho_partial", 495_000, 495_000, "記載なし", "https://www.alesta-do.jp/price.html", "マウスピースの部分矯正。精密検査22,000円・シミュレーション11,000円は別"),
+    ],
+  }),
+  shinjuku1031({
+    id: id(39), slug: "shinjuku-orange-dental", name: "新宿オランジェ歯科・矯正歯科",
+    address: "東京都新宿区新宿4-2-1 ライオンズマンション新宿御苑1F", walk_minutes: 5, website_url: "https://www.sdc-shinjuku.com/",
+    features: ["weekend"],
+    catch_copy: "JR新宿駅南口・東南口から徒歩5分。土日も診療（水曜・祝日休診）",
+    treatments: [
+      t("ortho_wire", 550_000, 1_000_000, "記載なし", "https://www.sdc-shinjuku.com/price", `難易度により増減。検査・診断料・調節料・リテーナー代を含む定額制。舌側やマウスピースを選ぶと200,000〜330,000円の加算。${NO_TAX}`),
+      t("ortho_aligner", 220_000, 330_000, "記載なし", "https://www.sdc-shinjuku.com/price", `マウスピース型矯正（片顎）。${NO_TAX}`),
+      t("ortho_partial", 150_000, 330_000, "記載なし", "https://www.sdc-shinjuku.com/price", `検査・診断料・調節料・リテーナー代を含む定額制。${NO_TAX}`),
+    ],
+  }),
+  shinjuku1031({
+    id: id(40), slug: "komori-kyousei-shinjuku", name: "小森矯正歯科",
+    address: "東京都新宿区西新宿1-3-3 品川ステーションビル6F", walk_minutes: 3, website_url: "https://www.komori-kyoseisika.com/",
+    features: ["weekend"],
+    catch_copy: "新宿駅西口から徒歩3分。平日は20時まで、土日も診療",
+    treatments: [
+      t("ortho_wire", 320_000, 640_000, "記載なし", "https://www.komori-kyoseisika.com/charge/orthodontic.html", "メタル・クリアブラケット320,000円、クリアティ・デーモンブラケット640,000円。精密検査は無料、調整料はトータルフィーに含む"),
+      t("ortho_lingual", 890_000, 1_440_000, "記載なし", "https://www.komori-kyoseisika.com/charge/orthodontic.html", "ハーフリンガル890,000円〜全部裏側（STb）1,440,000円。精密検査は無料、調整料はトータルフィーに含む"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(41), slug: "ikebukuro-kinoshita-dental", name: "池袋きのした歯科・矯正歯科",
+    address: "東京都豊島区東池袋1-15-1 菱山ビル6階", walk_minutes: 3, website_url: "https://ikebukurokdc.com/",
+    features: ["weekend"],
+    catch_copy: "JR池袋駅東口から徒歩3分。日曜も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 16_500, 27_500, "記載なし", "https://ikebukurokdc.com/menu/medical02/", "ベストスマイル16,500円・プラチナ27,500円"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://ikebukurokdc.com/menu/medical02/"),
+      t("ortho_aligner", 880_000, 880_000, "記載なし", "https://ikebukurokdc.com/price/", "マウスピースの全顎矯正。矯正検査・診断料33,000円・再診費用5,500円は別"),
+      t("ortho_partial", 495_000, 495_000, "記載なし", "https://ikebukurokdc.com/price/", "マウスピースの部分矯正。矯正検査・診断料33,000円・再診費用5,500円は別"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(42), slug: "tokyo-ikebukuro-kyousei", name: "東京池袋矯正歯科",
+    address: "東京都豊島区西池袋1-1-30 東武ホープセンター ノースゾーン B1F", walk_minutes: 1, website_url: "https://tokyo-ikebukuro-kyousei.com/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅直結。土日祝も10時〜19時に診療。マウスピース矯正の定額プラン",
+    treatments: [
+      t("ortho_aligner", 660_000, 880_000, "約6ヶ月（Pro・中央値）", "https://tokyo-ikebukuro-kyousei.com/price/", "Pro（上下24本）660,000円・インビザライン コンプリヘンシブ880,000円。診察・検査は無料。リテーナー（上下11,000円）は別"),
+      t("ortho_partial", 150_000, 330_000, "約2〜4ヶ月（中央値）", "https://tokyo-ikebukuro-kyousei.com/price/", "前歯12本。Lite 150,000円（軽度のみ）・Basic 330,000円。リテーナー（上下11,000円）は別"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(43), slug: "natural-smile-dental-ikebukuro", name: "ナチュラルスマイルデンタルクリニック",
+    address: "東京都豊島区南池袋1-17-13 ゴールデンプラザビル4F", walk_minutes: 1, website_url: "https://dental-esthetic.net/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅東口から徒歩1分。日曜・祝日も診療（水・土休診）",
+    treatments: [
+      t("ortho_aligner", 385_000, 385_000, "最長3年", "https://dental-esthetic.net/cost/", "片顎・両顎とも同額。精密検査5,000円・調整料1,000円/回は別"),
+      t("ortho_wire", 418_000, 418_000, "記載なし", "https://dental-esthetic.net/cost/", "審美ブラケット（上下）。精密検査33,000円・調整料2,500円/回（土日祝は+1,000円）は別"),
+      t("ortho_lingual", 649_000, 880_000, "記載なし", "https://dental-esthetic.net/cost/", "ハーフリンガル649,000円・裏側880,000円（上下）。精密検査33,000円・調整料3,500〜4,500円/回は別"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(44), slug: "ikebukuro-first-dental", name: "池袋ファースト歯科クリニック",
+    address: "東京都豊島区南池袋1-17-3 前島ビル1F", walk_minutes: 1, website_url: "https://ikebukuro-first-dental.jp/",
+    features: ["price", "access", "weekend"],
+    catch_copy: "JR池袋駅から徒歩1分。土曜は午前診療（日曜・祝日休診）",
+    treatments: [
+      t("whitening_office", 10_560, 10_560, "1回", "https://ikebukuro-first-dental.jp/17777002838664", `ポリリン酸ホワイトニング。${NO_TAX}`),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(45), slug: "metropolitan-dental-ikebukuro", name: "メトロポリタンデンタルクリニック",
+    address: "東京都豊島区西池袋1-11-1 メトロポリタンプラザビル10階（ルミネ池袋10階）", walk_minutes: 1, website_url: "https://metropolitan-dc.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR池袋駅直結・西口から徒歩1分。平日21時まで、土日祝も診療",
+    treatments: [
+      t("whitening_office", 25_300, 25_300, "記載なし", "https://metropolitan-dc.com/menu/aesthe/"),
+      t("whitening_home", 36_300, 36_300, "記載なし", "https://metropolitan-dc.com/menu/aesthe/"),
+      t("whitening_dual", 58_300, 58_300, "記載なし", "https://metropolitan-dc.com/menu/aesthe/"),
+      t("ortho_wire", 1_069_200, 1_465_200, "記載なし", "https://metropolitan-dc.com/menu/ortho/", "総額（相談料・精密検査料・装置料・調整料・保定料を含む）"),
+      t("ortho_lingual", 1_322_200, 1_498_200, "記載なし", "https://metropolitan-dc.com/menu/ortho/", "総額。マウスピース型矯正は公式サイトの総額表記が崩れているため載せていません"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(46), slug: "ikebukuro-kyousei-clinic", name: "池袋矯正歯科クリニック",
+    address: "東京都豊島区東池袋1-14-12 第二SSビル7階", walk_minutes: 3, website_url: "https://www.ikebukuro-c.com/",
+    features: [],
+    catch_copy: "池袋駅東口から徒歩3分。調整料なしの料金表示（水・日・祝休診）",
+    treatments: [
+      t("ortho_wire", 902_000, 957_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別820,000円・870,000円）。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
+      t("ortho_lingual", 1_342_000, 1_342_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "税別1,220,000円に消費税10%を加えた額。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
+      t("ortho_aligner", 957_000, 957_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "税別870,000円に消費税10%を加えた額。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
     ],
   }),
 ];
