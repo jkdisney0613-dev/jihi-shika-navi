@@ -36,6 +36,7 @@ const shinjuku1030 = at("shinjuku", "新宿駅", "新宿区", "2026-10-30");
 const shinjukuSendagaya1030 = at("shinjuku", "新宿駅", "渋谷区", "2026-10-30");
 const shinjuku1031 = at("shinjuku", "新宿駅", "新宿区", "2026-10-31");
 const ikebukuro1031 = at("ikebukuro", "池袋駅", "豊島区", "2026-10-31");
+const ikebukuro1101 = at("ikebukuro", "池袋駅", "豊島区", "2026-11-01");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -573,6 +574,119 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_wire", 902_000, 957_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別820,000円・870,000円）。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
       t("ortho_lingual", 1_342_000, 1_342_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "税別1,220,000円に消費税10%を加えた額。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
       t("ortho_aligner", 957_000, 957_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "税別870,000円に消費税10%を加えた額。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(47), slug: "sato-dental-ikebukuro-higashiguchi", name: "さとうデンタルクリニック 池袋東口駅前院",
+    address: "東京都豊島区南池袋1-26-6 The SH one 4F", walk_minutes: 1, website_url: "https://satodentalclinic-ikebukuro.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅から徒歩1分。土日も診療",
+    treatments: [
+      t("whitening_office", 20_900, 50_600, "記載なし", "https://satodentalclinic-ikebukuro.jp/price", "公式サイトは税別表記のため、消費税10%を加えた額にしています（ポリリン酸プラチナ税別19,000円・プレミアム税別46,000円）"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://satodentalclinic-ikebukuro.jp/price", "スタートキット税別30,000円に消費税10%を加えた額"),
+      t("ortho_aligner", 660_000, 1_100_000, "記載なし", "https://satodentalclinic-ikebukuro.jp/price", "インビザライン フル片顎 税別600,000円・上下 税別1,000,000円に消費税10%を加えた額。検査・診断料33,000円（税別30,000円）・保定装置は別"),
+      t("ortho_partial", 165_000, 605_000, "記載なし", "https://satodentalclinic-ikebukuro.jp/price", "部分矯正 税別150,000〜550,000円に消費税10%を加えた額"),
+      t("ortho_wire", 880_000, 968_000, "記載なし", "https://satodentalclinic-ikebukuro.jp/price", "セラミックブラケット（上下）税別800,000円・ホワイトワイヤー税別880,000円に消費税10%を加えた額。検査・診断料33,000円（税別30,000円）・調整料5,500円（税別5,000円）/回・保定装置は別"),
+      t("ortho_lingual", 1_100_000, 1_320_000, "記載なし", "https://satodentalclinic-ikebukuro.jp/price", "ハーフリンガル税別1,000,000円・フルリンガル税別1,200,000円に消費税10%を加えた額。検査・診断料と調整料（税別6,000〜7,000円/回）は別"),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(48), slug: "tsunori-shika-ikebukuro", name: "池袋駅東口つのり歯科",
+    address: "東京都豊島区東池袋1-3-5 池袋伊藤ビル6階", walk_minutes: 1, website_url: "https://www.tsunori-shika.com/",
+    features: ["price", "access", "weekend"],
+    catch_copy: "池袋駅東口から徒歩1分。土曜も診療（日曜・祝日休診）",
+    treatments: [
+      t("whitening_office", 22_000, 22_000, "記載なし", "https://www.tsunori-shika.com/price/", NO_TAX),
+      t("whitening_home", 16_500, 29_700, "記載なし", "https://www.tsunori-shika.com/price/", `片顎（ジェル2本付き）16,500円・両顎（ジェル4本付き）29,700円。${NO_TAX}`),
+      t("ortho_aligner", 660_000, 660_000, "通院可能期間5年以内", "https://www.tsunori-shika.com/price/", `インビザライン（マウスピース枚数無制限）。精密検査・診断料22,000円・調整料3,300円/回・保定装置22,000円は別。${NO_TAX}`),
+      t("ortho_partial", 170_000, 385_000, "記載なし", "https://www.tsunori-shika.com/price/", `インビザライン 計14枚まで170,000円・計28枚まで385,000円。精密検査・診断料22,000円・調整料3,300円/回・保定装置22,000円は別。${NO_TAX}`),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(49), slug: "hanarabi-kyousei-ikebukuro", name: "池袋はならび矯正歯科・神谷",
+    address: "東京都豊島区池袋2-7-5 ソラーレ3階", walk_minutes: 1, website_url: "https://www.kdc-ikebukuro.com/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅C6出口から徒歩1分。土日も診療（金・祝休診）",
+    treatments: [
+      t("ortho_aligner", 220_000, 1_210_000, "約2〜3ヶ月（i7）〜約2年半（フル）", "https://www.kdc-ikebukuro.com/medical-bills/invisalign.php", "公式サイトは「+税」表記のため、消費税10%を加えた額にしています（i7 20万円〜プラス110万円）。トータルフィー（診断・定期チェック・保定装置を含む）"),
+      t("whitening_office", 33_000, 33_000, "通常3回セット", "https://www.kdc-ikebukuro.com/medical-bills/others.php", "ポリリンプラチナ 税別30,000円に消費税10%を加えた額"),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(50), slug: "sealds-dental-nishiikebukuro", name: "シールズデンタルクリニック 西池袋院",
+    address: "東京都豊島区西池袋2-34-8", walk_minutes: 6, website_url: "https://sealds-dental.com/",
+    features: ["weekend"],
+    catch_copy: "池袋駅（JR・メトロポリタン口）から徒歩6分。土日も診療",
+    treatments: [
+      t("whitening_office", 19_900, 25_400, "記載なし", "https://sealds-dental.com/fee/", `プロ（前歯12本）19,900円・プロプラス（全歯）25,400円。${NO_TAX}`),
+      t("ortho_wire", 756_000, 861_000, "記載なし", "https://sealds-dental.com/fee/", `表側矯正。調整料5,500円/回は別。${NO_TAX}`),
+      t("ortho_lingual", 1_029_000, 1_239_000, "記載なし", "https://sealds-dental.com/fee/", `ハーフリンガル1,029,000円・フルリンガル1,239,000円。調整料7,700〜11,000円/回は別。${NO_TAX}`),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(51), slug: "diagate-ikebukuro-dental", name: "デンタルオフィスダイヤゲート池袋",
+    address: "東京都豊島区南池袋1-16-15 ダイヤゲート池袋2F", walk_minutes: 5, website_url: "https://www.setaden.com/ikebukuro/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅東口から徒歩5分。土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 33_000, 55_000, "記載なし", "https://www.setaden.com/ikebukuro/price/", "1回目33,000円（2回目11,000円）・Tionオフィスホワイトニング55,000円"),
+      t("whitening_home", 22_000, 33_000, "記載なし", "https://www.setaden.com/ikebukuro/price/", "片顎22,000円・上下33,000円"),
+      t("whitening_dual", 55_000, 66_000, "記載なし", "https://www.setaden.com/ikebukuro/price/", "オフィス1回＋ホーム55,000円・ガムピーリング付き66,000円"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.setaden.com/ikebukuro/price/", "相談料8,800円・調整料8,800円/回は別"),
+      t("ortho_aligner", 660_000, 880_000, "記載なし", "https://www.setaden.com/ikebukuro/price/", "インビザライン ライト660,000円〜コンプリヘンシブ880,000円。調整料8,800円/回は別"),
+      t("ortho_partial", 220_000, 440_000, "記載なし", "https://www.setaden.com/ikebukuro/price/", "ワイヤー部分矯正。調整料8,800円/回は別"),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(52), slug: "ikebukuro-maruyama-kyousei", name: "池袋まるやま矯正歯科",
+    address: "東京都豊島区南池袋3-15-10 桐生ビル2F", walk_minutes: 3, website_url: "https://87-ortho.com/",
+    features: ["weekend"],
+    catch_copy: "池袋駅から徒歩3分。土曜も診療",
+    treatments: [
+      t("ortho_wire", 977_570, 1_198_780, "記載なし", "https://87-ortho.com/price/", "表側矯正。精密検査55,000円・初診カウンセリング3,300円・保定観察6,600円/回は別。治療中の再診料・処置料とリテーナー作製料は含む"),
+      t("ortho_aligner", 1_155_000, 1_398_100, "記載なし", "https://87-ortho.com/price/", "インビザライン。精密検査55,000円・初診カウンセリング3,300円・保定観察6,600円/回は別"),
+      t("ortho_lingual", 1_510_960, 1_655_390, "記載なし", "https://87-ortho.com/price/", "ハーフリンガル（上顎裏側・下顎表側）。精密検査55,000円・初診カウンセリング3,300円は別"),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(53), slug: "ikebukuro-dental-clinic", name: "池袋デンタルクリニック",
+    address: "東京都豊島区西池袋1-16-10 第2三笠ビル4F", walk_minutes: 1, website_url: "https://www.ikebukurodc.com/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅から徒歩1分。土日祝も診療（水曜・第2・4日曜休診）",
+    treatments: [
+      t("whitening_office", 33_000, 39_800, "90分", "https://www.ikebukurodc.com/price/index.html", "上または下の前歯8本33,000円・前歯16本39,800円"),
+      t("whitening_home", 39_800, 39_800, "約10日分", "https://www.ikebukurodc.com/price/index.html", "上下のスターターキット（マウスピース・ジェル2本）"),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(54), slug: "lily-smile-dental-ikebukuro", name: "Lily Smile Dental Clinic",
+    address: "東京都豊島区西池袋5-2-10 八勝堂ビル2F", walk_minutes: 1, website_url: "https://lilysmiledc.com/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅西口C2出口から徒歩1分。日曜・祝日も診療",
+    treatments: [
+      t("whitening_office", 38_500, 38_500, "記載なし", "https://lilysmiledc.com/whitening/", "通常料金（キャンペーン価格は載せていません）"),
+      t("whitening_home", 30_800, 30_800, "記載なし", "https://lilysmiledc.com/whitening/", "通常料金（キャンペーン価格は載せていません）"),
+      t("whitening_dual", 66_000, 66_000, "記載なし", "https://lilysmiledc.com/whitening/", "通常料金（キャンペーン価格は載せていません）"),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(55), slug: "ikebukuro-minnano-kyousei", name: "みんなの矯正歯科・こども歯科クリニック",
+    address: "東京都豊島区池袋2-2-1 ウイックスビル9階", walk_minutes: 3, website_url: "https://www.ikebukuro-minnano.com/",
+    features: ["price", "weekend"],
+    catch_copy: "池袋駅西口C6出口から徒歩3分。土曜と第1・3日曜（矯正のみ）も診療",
+    treatments: [
+      t("ortho_aligner", 698_500, 727_000, "記載なし", "https://www.ikebukuro-minnano.com/price/", "インビザライン ラショナル698,500円（リテーナー55,000円を含む）・コンプリヘンシブ727,000円（13歳以上）"),
+      t("ortho_partial", 385_000, 385_000, "記載なし", "https://www.ikebukuro-minnano.com/price/", "インビザライン部分治療 ライトパッケージ（13歳以上）"),
+    ],
+  }),
+  ikebukuro1101({
+    id: id(56), slug: "idogawa-dental-ikebukuro", name: "いどがわ歯科 池袋院",
+    address: "東京都豊島区池袋2-18-2 セラミック安藤ビル1F", walk_minutes: 1, website_url: "https://www.idogawa-dental.com/",
+    features: ["price", "access", "weekend"],
+    catch_copy: "池袋駅西口C1出口から徒歩1分。土日は午前に診療",
+    treatments: [
+      t("whitening_office", 16_500, 16_500, "1回", "https://www.idogawa-dental.com/price/"),
+      t("whitening_home", 20_000, 20_000, "薬剤8回分", "https://www.idogawa-dental.com/price/", "マウスピース作製と薬剤8回分を含む"),
     ],
   }),
 ];
