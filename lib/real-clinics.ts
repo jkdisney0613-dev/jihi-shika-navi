@@ -32,6 +32,10 @@ const at = (station_slug: string, nearest_station: string, city: string, verifie
 // 例：const shinjuku = at("shinjuku", "新宿駅", "新宿区", "2026-10-30");
 const shibuya1029 = at("shibuya", "渋谷駅", "渋谷区", "2026-10-29");
 const shinjuku = at("shinjuku", "新宿駅", "新宿区", "2026-10-29");
+const shinjuku1030 = at("shinjuku", "新宿駅", "新宿区", "2026-10-30");
+const shinjukuSendagaya1030 = at("shinjuku", "新宿駅", "渋谷区", "2026-10-30");
+const shinjuku1031 = at("shinjuku", "新宿駅", "新宿区", "2026-10-31");
+const ikebukuro1031 = at("ikebukuro", "池袋駅", "豊島区", "2026-10-31");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -332,6 +336,243 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_aligner", 660_000, 880_000, "記載なし", "https://www.shinjukud-c.com/price/", "インビザライン。検査・診断料33,000円・調整料5,500円/回は別"),
       t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.shinjukud-c.com/price/", "全顎矯正。検査・診断料33,000円・調整料5,500円/月は別"),
       t("ortho_partial", 165_000, 440_000, "記載なし", "https://www.shinjukud-c.com/price/", "ワイヤー165,000円〜・マウスピース220,000円〜。検査・診断料33,000円・調整料5,500円は別"),
+    ],
+  }),
+  shinjukuSendagaya1030({
+    id: id(27), slug: "shinjuku-minamiguchi-mishima", name: "新宿駅南口歯科三島",
+    address: "東京都渋谷区千駄ケ谷5-27-5 リンクスクエア新宿203", walk_minutes: 3, website_url: "https://www.mishima-shika-shinjuku.com/",
+    features: ["access", "weekend"],
+    catch_copy: "新宿駅新南口デッキ直結で徒歩3分。平日は20時半まで、土曜も診療",
+    treatments: [
+      t("whitening_office", 20_000, 30_000, "1回", "https://www.mishima-shika-shinjuku.com/whitening", "1回20,000〜30,000円"),
+      t("whitening_home", 20_000, 20_000, "記載なし", "https://www.mishima-shika-shinjuku.com/whitening", "追加ジェルは1本1,980円"),
+      t("whitening_dual", 70_000, 100_000, "記載なし", "https://www.mishima-shika-shinjuku.com/whitening"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(28), slug: "od-shinjuku-dental", name: "OD新宿歯科・矯正歯科",
+    address: "東京都新宿区新宿2-12-8 ACN新宿ビル3F", walk_minutes: 8, website_url: "https://od-shinjuku.com/",
+    features: ["price"],
+    catch_copy: "JR新宿駅から徒歩8分、新宿三丁目駅C8出口すぐ。ワイヤー・マウスピース矯正とホワイトニングの料金を公開",
+    treatments: [
+      t("whitening_office", 30_000, 30_000, "1回", "https://od-shinjuku.com/fee/", `1回目30,000円・2回目10,000円。${NO_TAX}`),
+      t("whitening_home", 30_000, 30_000, "約2週間分（トレー2・シリンジ4本）", "https://od-shinjuku.com/fee/", NO_TAX),
+      t("ortho_aligner", 460_000, 660_000, "記載なし", "https://od-shinjuku.com/fee/", "インビザライン両顎モデレート46万円〜コンプリヘンシブ（5年）66万円。検査料5万円・調整料4,000円/回は別"),
+      t("ortho_wire", 300_000, 600_000, "記載なし", "https://od-shinjuku.com/fee/", "全体矯正は片顎30万円（上下で60万円）。診断検査料3万円・調整料4,000〜5,000円/回・保定装置1万円/個は別"),
+      t("ortho_lingual", 500_000, 1_000_000, "記載なし", "https://od-shinjuku.com/fee/", "全体矯正は片顎50万円（上下で100万円）。診断検査料3万円・調整料6,000〜7,000円/回・保定装置1万円/個は別"),
+      t("ortho_partial", 100_000, 200_000, "半年程度", "https://od-shinjuku.com/fee/", "表側10万円・裏側20万円。診断検査料3万円・調整料は別"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(29), slug: "shinjuku-louvre-dental", name: "新宿ルーブル歯科・矯正歯科",
+    address: "東京都新宿区新宿3-25-1 ヒューリック新宿ビル8階", walk_minutes: 1, website_url: "https://www.shinjuku-louvre-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "新宿駅東口から徒歩1分。土日も18時まで診療（水曜・祝日休診）",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "記載なし", "https://www.shinjuku-louvre-dental.com/whitening/"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.shinjuku-louvre-dental.com/whitening/"),
+      t("whitening_dual", 66_000, 66_000, "オフィスとホーム", "https://www.shinjuku-louvre-dental.com/whitening/"),
+      t("ortho_aligner", 770_000, 880_000, "記載なし", "https://www.shinjuku-louvre-dental.com/clinic/cost.php", "インビザライン全体矯正（調整料なし）。精密検査33,000円は別"),
+      t("ortho_wire", 660_000, 770_000, "記載なし", "https://www.shinjuku-louvre-dental.com/clinic/cost.php", "クリアブラケットとホワイトワイヤー。精密検査33,000円・調整料6,600円/回は別"),
+      t("ortho_lingual", 990_000, 1_210_000, "記載なし", "https://www.shinjuku-louvre-dental.com/clinic/cost.php", "ハーフリンガル990,000円・フルリンガル1,210,000円。精密検査33,000円・調整料8,800〜11,000円/回は別"),
+      t("ortho_partial", 110_000, 550_000, "記載なし", "https://www.shinjuku-louvre-dental.com/clinic/cost.php", "MTM。お口の状態で変わる。精密検査33,000円・調整料6,600円/回は別"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(30), slug: "tokyo-bianco-shinjuku", name: "東京ビアンコ歯科・矯正歯科 新宿院",
+    address: "東京都新宿区西新宿7-2-5 TH西新宿ビル7F", walk_minutes: 5, website_url: "https://kyouseishika-shinjuku.tokyo/",
+    features: ["price"],
+    catch_copy: "新宿駅西口から徒歩5分。矯正料金に検査料・調整料・リテーナーを含む料金表示",
+    treatments: [
+      t("ortho_aligner", 712_500, 900_000, "記載なし", "https://kyouseishika-shinjuku.tokyo/price", "インビザライン（非抜歯〜抜歯・PBMの有無で変わる）。検査料・調整料・リテーナー込み"),
+      t("ortho_wire", 627_000, 783_750, "記載なし", "https://kyouseishika-shinjuku.tokyo/price", "白い目立たない表側矯正（非抜歯〜抜歯）。検査料・調整料・リテーナー込み"),
+      t("ortho_lingual", 712_500, 807_500, "記載なし", "https://kyouseishika-shinjuku.tokyo/price", "ハーフリンガル712,500円〜・裏側（非抜歯）807,500円。裏側の抜歯矯正は公式サイトの表記が崩れているため載せていません。検査料・調整料・リテーナー込み"),
+      t("ortho_partial", 275_000, 605_000, "記載なし", "https://kyouseishika-shinjuku.tokyo/price", "表側（片顎）275,000円〜裏側（上下）605,000円"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(31), slug: "amour-dental-shinjuku", name: "アムール歯科 新宿",
+    address: "東京都新宿区新宿3-37-11 安与ビル4F", walk_minutes: 1, website_url: "https://amour-d.com/",
+    features: ["access"],
+    catch_copy: "JR新宿駅東口改札から徒歩1分。マウスピース矯正の料金を公開",
+    treatments: [
+      t("ortho_aligner", 547_800, 547_800, "マウスピース48枚まで", "https://amour-d.com/price/", "精密検査33,000円・リテーナー16,500円は別"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(32), slug: "shinjuku-swan-dental", name: "新宿スワン歯科・矯正歯科",
+    address: "東京都新宿区西新宿1-13-8 朝日新宿ビル3F", walk_minutes: 2, website_url: "https://shinjuku-swan.com/",
+    features: ["access", "weekend"],
+    catch_copy: "新宿駅西口から徒歩2分。土曜も診療（日曜・祝日休診）",
+    treatments: [
+      t("whitening_office", 16_500, 16_500, "1回", "https://shinjuku-swan.com/price/", "公式サイトの表記は「1歯1回」"),
+      t("whitening_home", 29_500, 29_500, "トレーとジェル6本", "https://shinjuku-swan.com/price/"),
+      t("ortho_aligner", 330_000, 899_800, "記載なし", "https://shinjuku-swan.com/price/", "インビザライン エクスプレス〜コンプリヘンシブ。精密検査38,500円・調整料5,500円（発生する場合）・リテーナー88,000円は別"),
+      t("ortho_wire", 715_000, 715_000, "記載なし", "https://shinjuku-swan.com/price/", "ワイヤー矯正Mild。精密検査38,500円・調整料5,500円（発生する場合）・リテーナー88,000円は別"),
+      t("ortho_lingual", 1_300_200, 1_300_200, "記載なし", "https://shinjuku-swan.com/price/", "インコグニト。精密検査38,500円・調整料5,500円（発生する場合）・リテーナー88,000円は別"),
+      t("ortho_partial", 178_200, 288_200, "記載なし", "https://shinjuku-swan.com/price/", "精密検査38,500円・リテーナー88,000円は別"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(33), slug: "shinjuku-ekimae-bratt-dental", name: "新宿駅前ブラート歯科",
+    address: "東京都新宿区新宿4-4-1 第1スカイビル1階", walk_minutes: 2, website_url: "https://www.shinjyuku-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR新宿駅新南口から徒歩2分。土日も診療（水曜休診）",
+    treatments: [
+      t("whitening_office", 27_500, 44_000, "1回", "https://www.shinjyuku-dental.com/price/", "通常44,000円。平日10:00〜15:30の予約は27,500円"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.shinjyuku-dental.com/price/"),
+      t("whitening_dual", 66_000, 66_000, "オフィスとホーム", "https://www.shinjyuku-dental.com/price/"),
+      t("ortho_aligner", 990_000, 990_000, "記載なし", "https://www.shinjyuku-dental.com/price/", "インビザライン。精密検査27,500円は別。トータルフィーのため調整料はなし"),
+      t("ortho_wire", 990_000, 990_000, "記載なし", "https://www.shinjyuku-dental.com/price/", "精密検査27,500円は別。トータルフィーのため調整料はなし"),
+      t("ortho_lingual", 1_375_000, 1_375_000, "記載なし", "https://www.shinjyuku-dental.com/price/", "精密検査27,500円は別。トータルフィーのため調整料はなし"),
+      t("ortho_partial", 165_000, 605_000, "記載なし", "https://www.shinjyuku-dental.com/price/", "精密検査27,500円は別"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(34), slug: "shinjuku-nishiguchi-dental", name: "新宿西口歯科医院",
+    address: "東京都新宿区西新宿2-1-1 新宿三井ビルディング4F", walk_minutes: 6, website_url: "https://ikashika.jp/",
+    features: ["weekend"],
+    catch_copy: "JR新宿駅から徒歩6分。土曜は19時、日曜は17時まで診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "1回", "https://ikashika.jp/price/", "追加1回5,500円"),
+      t("whitening_home", 33_000, 33_000, "ジェル6本付き", "https://ikashika.jp/price/"),
+      t("whitening_dual", 55_000, 55_000, "オフィス3回とジェル6本", "https://ikashika.jp/price/", "オフィスの追加1回5,500円"),
+      t("ortho_aligner", 440_000, 440_000, "記載なし", "https://ikashika.jp/price/", "前歯向けのインビザラインGo（両顎）"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(35), slug: "tokiwa-orthodontic-shinjuku", name: "常盤矯正歯科医院",
+    address: "東京都新宿区新宿4-3-22 安藤ビル5F", walk_minutes: 5, website_url: "https://tokiwaoc.com/",
+    features: ["weekend"],
+    catch_copy: "JR新宿駅南口から徒歩5分。土日も10時〜18時に診療",
+    treatments: [
+      t("whitening_home", 44_000, 44_000, "上下トレイと薬剤4本", "https://tokiwaoc.com/menu/", "追加薬剤は1パック6,600円"),
+      t("ortho_aligner", 990_000, 1_100_000, "記載なし", "https://tokiwaoc.com/menu/", "精密検査44,000円・診断22,000円・調整料5,500円/回は別"),
+      t("ortho_wire", 880_000, 990_000, "記載なし", "https://tokiwaoc.com/menu/", "公式サイト内に880,000円〜990,000円の記載があります。精密検査44,000円・診断22,000円・調整料5,500円/回は別"),
+      t("ortho_lingual", 1_210_000, 1_650_000, "記載なし", "https://tokiwaoc.com/menu/", "上だけ1,210,000円・上下1,430,000〜1,650,000円。精密検査44,000円・診断22,000円・調整料6,600〜8,800円/回は別"),
+      t("ortho_partial", 220_000, 440_000, "記載なし", "https://tokiwaoc.com/menu/", "精密検査33,000円・診断22,000円・調整料5,500円/回は別"),
+    ],
+  }),
+  shinjuku1030({
+    id: id(36), slug: "the-white-dental-shinjuku", name: "ザ・ホワイトデンタルクリニック新宿院",
+    address: "東京都新宿区新宿3-33-10 新宿モリエールビル5階", walk_minutes: 5, website_url: "https://www.biyou-dental.com/sphone/shinjuku/",
+    features: ["weekend"],
+    catch_copy: "JR新宿駅東南口から徒歩5分。土日祝も10時〜19時に診療",
+    treatments: [
+      t("whitening_office", 132_000, 132_000, "記載なし", "https://www.biyou-dental.com/price.php"),
+      t("whitening_home", 55_000, 55_000, "マウスピースとお薬", "https://www.biyou-dental.com/price.php"),
+      t("ortho_aligner", 440_000, 880_000, "記載なし", "https://www.biyou-dental.com/price.php", "インビザラインGO440,000円・クリアコレクト550,000円・インビザライン880,000円"),
+      t("ortho_partial", 330_000, 330_000, "記載なし", "https://www.biyou-dental.com/price.php", "MTM"),
+    ],
+  }),
+  shinjuku1031({
+    id: id(37), slug: "sbc-dental-shinjuku", name: "湘南美容歯科 新宿院",
+    address: "東京都新宿区西新宿7-10-1 O-GUARD SHINJUKU 8F", walk_minutes: 5, website_url: "https://www.sbc-dental.com/clinic/shinjuku/",
+    features: [],
+    catch_copy: "JR新宿駅から徒歩5分。10時〜19時の予約制",
+    treatments: [
+      t("whitening_office", 19_800, 49_800, "1回〜3回", "https://www.sbc-dental.com/price/whitening.html", `1回19,800円・3回49,800円（モニター価格ではない通常価格）。${NO_TAX}`),
+      t("whitening_home", 25_250, 25_250, "上下トレーとジェル2本", "https://www.sbc-dental.com/price/whitening.html", `追加ジェル1本3,030円。${NO_TAX}`),
+    ],
+  }),
+  shinjuku1031({
+    id: id(38), slug: "alesta-shinjuku-dental", name: "アレスタ新宿デンタルオフィス",
+    address: "東京都新宿区西新宿7-10-3 第二雨宮ビル3F", walk_minutes: 5, website_url: "https://www.alesta-do.jp/",
+    features: ["weekend"],
+    catch_copy: "JR新宿駅から徒歩5分。土曜・祝日も診療（火・日、第2・第4水曜休診）",
+    treatments: [
+      t("whitening_office", 22_000, 88_000, "1回〜5回", "https://www.alesta-do.jp/price.html", "1回22,000円・3回55,000円・5回88,000円"),
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://www.alesta-do.jp/price.html"),
+      t("whitening_dual", 60_500, 60_500, "オフィス2回とホーム", "https://www.alesta-do.jp/price.html"),
+      t("ortho_aligner", 660_000, 825_000, "記載なし", "https://www.alesta-do.jp/price.html", "全顎（非抜歯〜抜歯）。精密検査22,000円・シミュレーション11,000円・リテーナー16,000円は別"),
+      t("ortho_partial", 495_000, 495_000, "記載なし", "https://www.alesta-do.jp/price.html", "マウスピースの部分矯正。精密検査22,000円・シミュレーション11,000円は別"),
+    ],
+  }),
+  shinjuku1031({
+    id: id(39), slug: "shinjuku-orange-dental", name: "新宿オランジェ歯科・矯正歯科",
+    address: "東京都新宿区新宿4-2-1 ライオンズマンション新宿御苑1F", walk_minutes: 5, website_url: "https://www.sdc-shinjuku.com/",
+    features: ["weekend"],
+    catch_copy: "JR新宿駅南口・東南口から徒歩5分。土日も診療（水曜・祝日休診）",
+    treatments: [
+      t("ortho_wire", 550_000, 1_000_000, "記載なし", "https://www.sdc-shinjuku.com/price", `難易度により増減。検査・診断料・調節料・リテーナー代を含む定額制。舌側やマウスピースを選ぶと200,000〜330,000円の加算。${NO_TAX}`),
+      t("ortho_aligner", 220_000, 330_000, "記載なし", "https://www.sdc-shinjuku.com/price", `マウスピース型矯正（片顎）。${NO_TAX}`),
+      t("ortho_partial", 150_000, 330_000, "記載なし", "https://www.sdc-shinjuku.com/price", `検査・診断料・調節料・リテーナー代を含む定額制。${NO_TAX}`),
+    ],
+  }),
+  shinjuku1031({
+    id: id(40), slug: "komori-kyousei-shinjuku", name: "小森矯正歯科",
+    address: "東京都新宿区西新宿1-3-3 品川ステーションビル6F", walk_minutes: 3, website_url: "https://www.komori-kyoseisika.com/",
+    features: ["weekend"],
+    catch_copy: "新宿駅西口から徒歩3分。平日は20時まで、土日も診療",
+    treatments: [
+      t("ortho_wire", 320_000, 640_000, "記載なし", "https://www.komori-kyoseisika.com/charge/orthodontic.html", "メタル・クリアブラケット320,000円、クリアティ・デーモンブラケット640,000円。精密検査は無料、調整料はトータルフィーに含む"),
+      t("ortho_lingual", 890_000, 1_440_000, "記載なし", "https://www.komori-kyoseisika.com/charge/orthodontic.html", "ハーフリンガル890,000円〜全部裏側（STb）1,440,000円。精密検査は無料、調整料はトータルフィーに含む"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(41), slug: "ikebukuro-kinoshita-dental", name: "池袋きのした歯科・矯正歯科",
+    address: "東京都豊島区東池袋1-15-1 菱山ビル6階", walk_minutes: 3, website_url: "https://ikebukurokdc.com/",
+    features: ["weekend"],
+    catch_copy: "JR池袋駅東口から徒歩3分。日曜も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 16_500, 27_500, "記載なし", "https://ikebukurokdc.com/menu/medical02/", "ベストスマイル16,500円・プラチナ27,500円"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://ikebukurokdc.com/menu/medical02/"),
+      t("ortho_aligner", 880_000, 880_000, "記載なし", "https://ikebukurokdc.com/price/", "マウスピースの全顎矯正。矯正検査・診断料33,000円・再診費用5,500円は別"),
+      t("ortho_partial", 495_000, 495_000, "記載なし", "https://ikebukurokdc.com/price/", "マウスピースの部分矯正。矯正検査・診断料33,000円・再診費用5,500円は別"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(42), slug: "tokyo-ikebukuro-kyousei", name: "東京池袋矯正歯科",
+    address: "東京都豊島区西池袋1-1-30 東武ホープセンター ノースゾーン B1F", walk_minutes: 1, website_url: "https://tokyo-ikebukuro-kyousei.com/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅直結。土日祝も10時〜19時に診療。マウスピース矯正の定額プラン",
+    treatments: [
+      t("ortho_aligner", 660_000, 880_000, "約6ヶ月（Pro・中央値）", "https://tokyo-ikebukuro-kyousei.com/price/", "Pro（上下24本）660,000円・インビザライン コンプリヘンシブ880,000円。診察・検査は無料。リテーナー（上下11,000円）は別"),
+      t("ortho_partial", 150_000, 330_000, "約2〜4ヶ月（中央値）", "https://tokyo-ikebukuro-kyousei.com/price/", "前歯12本。Lite 150,000円（軽度のみ）・Basic 330,000円。リテーナー（上下11,000円）は別"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(43), slug: "natural-smile-dental-ikebukuro", name: "ナチュラルスマイルデンタルクリニック",
+    address: "東京都豊島区南池袋1-17-13 ゴールデンプラザビル4F", walk_minutes: 1, website_url: "https://dental-esthetic.net/",
+    features: ["access", "weekend"],
+    catch_copy: "池袋駅東口から徒歩1分。日曜・祝日も診療（水・土休診）",
+    treatments: [
+      t("ortho_aligner", 385_000, 385_000, "最長3年", "https://dental-esthetic.net/cost/", "片顎・両顎とも同額。精密検査5,000円・調整料1,000円/回は別"),
+      t("ortho_wire", 418_000, 418_000, "記載なし", "https://dental-esthetic.net/cost/", "審美ブラケット（上下）。精密検査33,000円・調整料2,500円/回（土日祝は+1,000円）は別"),
+      t("ortho_lingual", 649_000, 880_000, "記載なし", "https://dental-esthetic.net/cost/", "ハーフリンガル649,000円・裏側880,000円（上下）。精密検査33,000円・調整料3,500〜4,500円/回は別"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(44), slug: "ikebukuro-first-dental", name: "池袋ファースト歯科クリニック",
+    address: "東京都豊島区南池袋1-17-3 前島ビル1F", walk_minutes: 1, website_url: "https://ikebukuro-first-dental.jp/",
+    features: ["price", "access", "weekend"],
+    catch_copy: "JR池袋駅から徒歩1分。土曜は午前診療（日曜・祝日休診）",
+    treatments: [
+      t("whitening_office", 10_560, 10_560, "1回", "https://ikebukuro-first-dental.jp/17777002838664", `ポリリン酸ホワイトニング。${NO_TAX}`),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(45), slug: "metropolitan-dental-ikebukuro", name: "メトロポリタンデンタルクリニック",
+    address: "東京都豊島区西池袋1-11-1 メトロポリタンプラザビル10階（ルミネ池袋10階）", walk_minutes: 1, website_url: "https://metropolitan-dc.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR池袋駅直結・西口から徒歩1分。平日21時まで、土日祝も診療",
+    treatments: [
+      t("whitening_office", 25_300, 25_300, "記載なし", "https://metropolitan-dc.com/menu/aesthe/"),
+      t("whitening_home", 36_300, 36_300, "記載なし", "https://metropolitan-dc.com/menu/aesthe/"),
+      t("whitening_dual", 58_300, 58_300, "記載なし", "https://metropolitan-dc.com/menu/aesthe/"),
+      t("ortho_wire", 1_069_200, 1_465_200, "記載なし", "https://metropolitan-dc.com/menu/ortho/", "総額（相談料・精密検査料・装置料・調整料・保定料を含む）"),
+      t("ortho_lingual", 1_322_200, 1_498_200, "記載なし", "https://metropolitan-dc.com/menu/ortho/", "総額。マウスピース型矯正は公式サイトの総額表記が崩れているため載せていません"),
+    ],
+  }),
+  ikebukuro1031({
+    id: id(46), slug: "ikebukuro-kyousei-clinic", name: "池袋矯正歯科クリニック",
+    address: "東京都豊島区東池袋1-14-12 第二SSビル7階", walk_minutes: 3, website_url: "https://www.ikebukuro-c.com/",
+    features: [],
+    catch_copy: "池袋駅東口から徒歩3分。調整料なしの料金表示（水・日・祝休診）",
+    treatments: [
+      t("ortho_wire", 902_000, 957_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別820,000円・870,000円）。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
+      t("ortho_lingual", 1_342_000, 1_342_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "税別1,220,000円に消費税10%を加えた額。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
+      t("ortho_aligner", 957_000, 957_000, "記載なし", "https://www.ikebukuro-c.com/cost.php", "税別870,000円に消費税10%を加えた額。精密検査33,000円（税別30,000円）は別、調整料はかからない"),
     ],
   }),
 ];
