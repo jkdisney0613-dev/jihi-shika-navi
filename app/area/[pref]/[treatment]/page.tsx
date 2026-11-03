@@ -7,6 +7,7 @@ import { PRICE_DISCLAIMER } from "@/lib/compliance";
 import { CATEGORY_SLUGS, PREF_SLUGS, getPublishedClinics, priceStats } from "@/lib/data";
 import { siteUrl } from "@/lib/cron-auth";
 import { BUDGETS, CATEGORIES, OPTIONS, formatPrice } from "@/lib/options";
+import { jsonLdString } from "@/lib/safe-html";
 
 export const revalidate = 86400;
 
@@ -63,7 +64,7 @@ export default async function AreaPage({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
       <h1 className="text-2xl font-bold text-gray-900">{r.prefecture}の{r.label}　費用相場と予算別の歯科医院</h1>
       <p className="mt-3 text-gray-700">
         当サイトが掲載している{r.prefecture}の{stats.clinicCount}院の公式料金をもとにした、{r.label}の費用の目安です（

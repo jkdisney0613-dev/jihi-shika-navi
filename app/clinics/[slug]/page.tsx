@@ -5,6 +5,7 @@ import { PRICE_DISCLAIMER } from "@/lib/compliance";
 import { getActiveSponsors, getPublishedClinics } from "@/lib/data";
 import { CONSULT_ENABLED } from "@/lib/demo";
 import { OPTIONS, formatPriceRange } from "@/lib/options";
+import { jsonLdString } from "@/lib/safe-html";
 
 export const revalidate = 86400;
 
@@ -40,7 +41,7 @@ export default async function ClinicPage({ params }: Props) {
   };
   return (
     <main className="mx-auto max-w-2xl px-4 py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
       {isSponsor && (
         <p className="mb-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-xs font-bold text-gray-600">PR：この医院からは広告掲載料をいただいています</p>
       )}

@@ -2,11 +2,17 @@
 // バケットは非公開。サイズと形式はバケット側の制限（5MB・画像のみ）でも弾く
 import { NextResponse } from "next/server";
 import { MAX_PHOTOS } from "@/lib/consult";
+import { hashIp } from "@/lib/community";
+import { rateLimited } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 const EXT: Record<string, string> = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/heic": "heic" };
 
 export async function POST(req: Request) {
+  // アップロード先の大量発行（無関係なファイルの置き場にされる）を防ぐ：同じ IP からは 1 時間に 20 回まで
+  if (rateLimited(`photo-url:${hashIp(req)}`, 20, 60 * 60_000)) {
+    return NextResponse.json({ error: "しばらく時間をおいてからお試しください" }, { status: 429 });
+  }
   const body = await req.json().catch(() => null);
   const types: unknown = body?.types;
   if (!Array.isArray(types) || types.length === 0 || types.length > MAX_PHOTOS || !types.every((t) => typeof t === "string" && t in EXT)) {

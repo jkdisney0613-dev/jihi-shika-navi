@@ -1,9 +1,9 @@
-import { marked } from "marked";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticle } from "@/lib/data";
 import { siteUrl } from "@/lib/cron-auth";
+import { jsonLdString, markdownToSafeHtml } from "@/lib/safe-html";
 
 export const revalidate = 86400;
 
@@ -45,12 +45,12 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
       <p className="text-sm text-gray-500">
         <Link href="/articles" className="hover:underline">記事一覧</Link>　更新日 {a.updated_at.slice(0, 10)}
       </p>
       <h1 className="mt-2 text-2xl font-bold text-gray-900">{a.title}</h1>
-      <article className="prose prose-sky mt-6 max-w-none" dangerouslySetInnerHTML={{ __html: await marked.parse(a.body_md) }} />
+      <article className="prose prose-sky mt-6 max-w-none" dangerouslySetInnerHTML={{ __html: await markdownToSafeHtml(a.body_md) }} />
       <section className="mt-10">
         <h2 className="mb-3 text-xl font-bold">よくある質問</h2>
         <dl className="space-y-4">
