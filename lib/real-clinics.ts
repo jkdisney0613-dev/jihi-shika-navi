@@ -39,6 +39,7 @@ const ikebukuro1031 = at("ikebukuro", "池袋駅", "豊島区", "2026-10-31");
 const ikebukuro1101 = at("ikebukuro", "池袋駅", "豊島区", "2026-11-01");
 const ikebukuro1102 = at("ikebukuro", "池袋駅", "豊島区", "2026-11-02");
 const ebisu1102 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-02");
+const ebisu1103 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-03");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -814,6 +815,136 @@ export const REAL_CLINICS: Clinic[] = [
       t("whitening_home", 13_200, 15_400, "記載なし", "https://www.ebisu-hiroo-shika.com/pricelist", "ホームホワイトニングキット プラチナ13,200円・通常15,400円"),
       t("ortho_wire", 924_000, 924_000, "記載なし", "https://www.ebisu-hiroo-shika.com/pricelist", "セラミックブラケット。矯正事前検査46,200円・調整料6,050円/回・リテーナー30,800円/片顎は別"),
       t("ortho_aligner", 1_270_500, 1_617_000, "記載なし", "https://www.ebisu-hiroo-shika.com/pricelist", "インビザライン基本治療費（装置代・調整料を含む）1,270,500円〜難易度加算3 1,617,000円。矯正事前検査46,200円・リテーナーは別"),
+    ],
+  }),
+  ebisu1103({
+    id: id(67), slug: "river-clinic-dental-ebisu", name: "RIVER CLINIC DENTAL 恵比寿",
+    address: "東京都渋谷区恵比寿西1-7-4 5F", walk_minutes: 1, website_url: "https://river-clinic-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "恵比寿駅から徒歩1分。土日・祝日も診療（月曜・隔週日曜休診）",
+    treatments: [
+      t("whitening_office", 21_800, 43_800, "1回", "https://river-clinic-dental.com/price/", "スタンダード21,800円・アドバンス32,800円・アペックス43,800円（各1回）。3回コースは59,840〜121,500円"),
+      t("whitening_home", 32_800, 32_800, "記載なし", "https://river-clinic-dental.com/price/", "マウスピース＋ジェル4本"),
+      t("whitening_dual", 65_800, 109_800, "オフィス2回＋ホーム", "https://river-clinic-dental.com/price/"),
+      t("ortho_aligner", 330_000, 660_000, "記載なし", "https://river-clinic-dental.com/price/", "インビザライン エクスプレス〜フル。検査代33,000円・保定装置32,780円は別"),
+      t("ortho_wire", 605_000, 660_000, "記載なし", "https://river-clinic-dental.com/price/", "全顎・表側（非抜歯605,000円・抜歯660,000円）。検査代33,000円・調整料5,500円/月・保定装置32,780円は別"),
+      t("ortho_lingual", 770_000, 825_000, "記載なし", "https://river-clinic-dental.com/price/", "ハーフリンガル全顎（非抜歯770,000円・抜歯825,000円）。検査代33,000円・調整料5,500円/月・保定装置32,780円は別"),
+      t("ortho_partial", 275_000, 547_800, "記載なし", "https://river-clinic-dental.com/price/", "前歯部分矯正（表側275,000〜440,000円・裏側上385,000円・ハーフリンガル547,800円）。検査代33,000円・調整料・保定装置は別"),
+    ],
+  }),
+  ebisu1103({
+    id: id(68), slug: "ebisu-is-shika-kyousei", name: "恵比寿I's歯科・矯正歯科",
+    address: "東京都渋谷区恵比寿西1-10-10 若葉西ビル3F", walk_minutes: 2, website_url: "https://www.ebisudc.com/",
+    features: ["access", "weekend"],
+    catch_copy: "恵比寿駅西口から徒歩2分。土日も診療（木・祝休診）",
+    treatments: [
+      t("whitening_office", 22_000, 88_000, "1〜5回", "https://www.ebisudc.com/price/", "1回22,000円・3回55,000円・5回88,000円"),
+      t("whitening_home", 29_700, 29_700, "記載なし", "https://www.ebisudc.com/price/", "上下トレー＋ジェル4本"),
+      t("ortho_aligner", 660_000, 880_000, "記載なし", "https://www.ebisudc.com/price/", "インビザライン。検査・診断費33,000円・調整料5,500円/月は別"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.ebisudc.com/price/", "全顎矯正。白いブラケット・白いワイヤーは各+44,000円。検査・診断費33,000円・調整料5,500円/月は別"),
+      t("ortho_partial", 165_000, 440_000, "記載なし", "https://www.ebisudc.com/price/", "ワイヤー部分矯正165,000〜440,000円・マウスピース部分矯正220,000〜440,000円。検査・診断費33,000円・調整料5,500円/月は別"),
+    ],
+  }),
+  ebisu1103({
+    id: id(69), slug: "ebisu-kyousei-shika", name: "えびす矯正歯科",
+    address: "東京都渋谷区恵比寿南2-1-12 サトウビル3F", walk_minutes: 2, website_url: "https://ebisu-japan.com/",
+    features: ["access"],
+    catch_copy: "JR恵比寿駅西口から徒歩2分。土曜も診療（木・日・祝休診）",
+    treatments: [
+      t("whitening_office", 27_500, 27_500, "1回（60分）", "https://ebisu-japan.com/price_1.html", `${NO_TAX}。3回66,000円・5回96,000円のコースあり`),
+      t("whitening_home", 47_300, 47_300, "記載なし", "https://ebisu-japan.com/price_1.html", NO_TAX),
+      t("whitening_dual", 66_000, 66_000, "記載なし", "https://ebisu-japan.com/price_1.html", NO_TAX),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://ebisu-japan.com/price_1.html", "成人の矯正基本料（メタル装置0円、白いセラミック装置は片顎+55,000円）。料金表に「消費税込」と「消費税別途」の両方の記載があるため記載額のまま。精密検査料33,000円・調整料5,500円/月・保定管理料55,000円は別"),
+      t("ortho_lingual", 1_430_000, 1_430_000, "記載なし", "https://ebisu-japan.com/price_1.html", "矯正基本料880,000円＋裏側装置（上下）550,000円。料金表に「消費税込」と「消費税別途」の両方の記載があるため記載額のまま。精密検査料・調整料・保定管理料は別"),
+      t("ortho_aligner", 660_000, 880_000, "記載なし", "https://ebisu-japan.com/price_1.html", "インビザライン ライト660,000円〜包括880,000円。料金表に「消費税込」と「消費税別途」の両方の記載があるため記載額のまま。精密検査料33,000円・調整料・保定管理料は別"),
+      t("ortho_partial", 110_000, 550_000, "記載なし", "https://ebisu-japan.com/price_1.html", "部分矯正の基本料（前歯2本110,000円〜片顎550,000円、税込と記載）。白い装置・裏側装置は別料金"),
+    ],
+  }),
+  ebisu1103({
+    id: id(70), slug: "toyomaki-kyousei-shika", name: "とよまき矯正歯科",
+    address: "東京都渋谷区恵比寿4-3-1 3F", walk_minutes: 1, website_url: "https://www.toyo-ddc.com/",
+    features: ["access"],
+    catch_copy: "JR恵比寿駅から徒歩1分。土曜も診療",
+    treatments: [
+      t("ortho_wire", 840_400, 994_400, "記載なし", "https://www.toyo-ddc.com/flow/", "透明の装置（上下・表側）。公式サイトは税別表記のため、消費税10%を加えた額にしています（税別764,000〜904,000円）。精密検査料29,700円（税別27,000円）は別。調整料・保定管理料は治療費に含む"),
+      t("ortho_lingual", 1_097_800, 1_686_300, "記載なし", "https://www.toyo-ddc.com/flow/", "ハーフリンガル税別998,000〜1,283,000円・上下裏側税別1,128,000〜1,533,000円に消費税10%を加えた額。精密検査料は別。調整料・保定管理料は治療費に含む"),
+      t("ortho_aligner", 840_400, 994_400, "記載なし", "https://www.toyo-ddc.com/flow/", "インビザライン税別764,000〜904,000円に消費税10%を加えた額。精密検査料は別。調整料・保定管理料は治療費に含む"),
+      t("ortho_partial", 253_000, 385_000, "記載なし", "https://www.toyo-ddc.com/flow/", "片顎の部分矯正（表側税別230,000円・マウスピース税別255,000円・裏側税別350,000円）に消費税10%を加えた額"),
+    ],
+  }),
+  ebisu1103({
+    id: id(71), slug: "ebisu-est-kyousei", name: "恵比寿エスト矯正歯科",
+    address: "東京都渋谷区恵比寿1-20-27 エストエビス2F", walk_minutes: 2, website_url: "https://ebis888.com/",
+    features: ["access", "weekend"],
+    catch_copy: "恵比寿駅東口から徒歩2分。土日も診療（月・祝休診）",
+    treatments: [
+      t("ortho_wire", 385_000, 462_000, "記載なし", "https://ebis888.com/hiyou/", `${NO_TAX}。片顎の料金（メタル385,000円・セラミック/デーモン462,000円）。検査料33,000円・診断料5,500円・調整料5,500円/月・リテーナー（上下）33,000円は別`),
+      t("ortho_lingual", 660_000, 660_000, "記載なし", "https://ebis888.com/hiyou/", `${NO_TAX}。片顎の料金。検査料33,000円・診断料5,500円・調整料5,500円/月・リテーナーは別`),
+      t("ortho_aligner", 924_000, 924_000, "記載なし", "https://ebis888.com/hiyou/", `${NO_TAX}。インビザライン（両顎）。検査料33,000円・診断料5,500円・調整料5,500円/月・リテーナーは別`),
+    ],
+  }),
+  ebisu1103({
+    id: id(72), slug: "ebisu-masuda-kyousei", name: "恵比寿ますだ矯正歯科",
+    address: "東京都渋谷区恵比寿1-11-3 アキックスエビスビル4F", walk_minutes: 1, website_url: "https://www.masuda-kyousei.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR恵比寿駅東口から徒歩1分。21時まで診療",
+    treatments: [
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.masuda-kyousei.com/price-list/", "上下のホーム用マウスピース"),
+      t("ortho_wire", 990_000, 1_045_000, "記載なし", "https://www.masuda-kyousei.com/price-list/", "表側セラミックブラケット（シルバーワイヤー990,000円・ホワイトワイヤー1,045,000円）。毎月の調整料を含む。相談料2,200円・検査料33,000円・診断料5,500円は別"),
+      t("ortho_lingual", 1_309_000, 1_474_000, "記載なし", "https://www.masuda-kyousei.com/price-list/", "ハーフリンガル1,309,000円・上下裏側1,474,000円。毎月の調整料を含む。相談料・検査料33,000円・診断料5,500円は別"),
+      t("ortho_aligner", 1_309_000, 1_309_000, "記載なし", "https://www.masuda-kyousei.com/price-list/", "インビザライン。毎月の調整料を含む。相談料・検査料33,000円・診断料5,500円は別"),
+    ],
+  }),
+  ebisu1103({
+    id: id(73), slug: "makino-shika-kyousei-ebisu", name: "牧野歯科・矯正歯科",
+    address: "東京都渋谷区恵比寿1-9-5 恵比寿STビル4F", walk_minutes: 1, website_url: "https://mk-dental.jp/",
+    features: ["access"],
+    catch_copy: "JR恵比寿駅東口から徒歩1分（水・祝休診）",
+    treatments: [
+      t("whitening_office", 33_000, 59_400, "1〜2回", "https://mk-dental.jp/price-general/", "1回33,000円・2回59,400円"),
+      t("whitening_home", 38_500, 38_500, "記載なし", "https://mk-dental.jp/price-general/"),
+      t("whitening_dual", 71_500, 71_500, "記載なし", "https://mk-dental.jp/price-general/"),
+      t("ortho_wire", 990_000, 1_210_000, "12〜24ヵ月の目安", "https://mk-dental.jp/price-orthodontic/", "審美ブラケット（上下表側）。通院ごとの再診料がかからないトータルフィー。検査・診断料33,000円は別"),
+      t("ortho_lingual", 1_100_000, 1_540_000, "12〜24ヵ月の目安", "https://mk-dental.jp/price-orthodontic/", "ハーフリンガル1,100,000〜1,320,000円・上下裏側1,210,000〜1,540,000円。検査・診断料33,000円は別"),
+      t("ortho_aligner", 1_210_000, 1_210_000, "記載なし", "https://mk-dental.jp/price-orthodontic/", "インビザライン フル。検査・診断料33,000円は別"),
+      t("ortho_partial", 330_000, 990_000, "記載なし", "https://mk-dental.jp/price-orthodontic/", "表側330,000〜660,000円・インビザライン ライト440,000〜990,000円・裏側660,000〜990,000円。検査・診断料33,000円は別"),
+    ],
+  }),
+  ebisu1103({
+    id: id(74), slug: "ebisu-mika-shika", name: "恵比寿ミカ歯科クリニック",
+    address: "東京都渋谷区恵比寿1-22-23 ヴェラハイツ恵比寿104", walk_minutes: 3, website_url: "https://ebisu-smile.jp/",
+    features: ["access"],
+    catch_copy: "JR恵比寿駅東口から徒歩3分（木・日・祝休診）",
+    treatments: [
+      t("whitening_office", 18_700, 18_700, "1回（照射3回）", "https://ebisu-smile.jp/price/"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://ebisu-smile.jp/price/", "トレーの料金。ジェルは1本3,300円で別"),
+      t("ortho_aligner", 220_000, 825_000, "記載なし", "https://ebisu-smile.jp/price/", "インビザライン・アソアライナー。資料採取55,000円・調整料6,600円/月・リテーナー55,000円・保定観察料4,400円/回は別"),
+      t("ortho_wire", 550_000, 550_000, "記載なし", "https://ebisu-smile.jp/price/", "表側ブラケット。資料採取55,000円・調整料6,600円/月・リテーナー55,000円・保定観察料4,400円/回は別"),
+      t("ortho_lingual", 825_000, 825_000, "記載なし", "https://ebisu-smile.jp/price/", "裏側ブラケット。資料採取55,000円・調整料6,600円/月・リテーナー55,000円・保定観察料4,400円/回は別"),
+    ],
+  }),
+  ebisu1103({
+    id: id(75), slug: "anti-aging-dental-ebisu", name: "アンチエイジングデンタルクリニック恵比寿",
+    address: "東京都渋谷区恵比寿西1-4-1 VANDAビル2F", walk_minutes: 2, website_url: "https://a-a-d-c.com/",
+    features: ["access"],
+    catch_copy: "JR恵比寿駅西口から徒歩2分（日・祝休診）",
+    treatments: [
+      t("whitening_office", 13_200, 44_000, "1回", "https://a-a-d-c.com/price", "ホワイトニング1回13,200円・スーパーホワイトニング39,600円・クリアホワイト44,000円。3回のパーフェクトコース95,040円"),
+      t("ortho_aligner", 385_000, 1_100_000, "記載なし", "https://a-a-d-c.com/price", "インビザライン（調整料・装置装着料・追加治療を含むトータルフィー）。矯正精密検査・診断料33,000円は別"),
+      t("ortho_wire", 880_000, 990_000, "記載なし", "https://a-a-d-c.com/price", "表側ワイヤー上下全体。矯正精密検査・診断料33,000円・調整料5,500円・保定装置22,000円/片顎は別"),
+      t("ortho_partial", 275_000, 440_000, "記載なし", "https://a-a-d-c.com/price", "前歯の部分矯正（片顎・表側275,000〜440,000円・裏側440,000円）。矯正精密検査・診断料33,000円は別"),
+    ],
+  }),
+  ebisu1103({
+    id: id(76), slug: "amelie-shika-kyousei-ebisu", name: "アメリ歯科・矯正歯科 恵比寿",
+    address: "東京都渋谷区恵比寿1-6-4 ミレニエ恵比寿1F", walk_minutes: 2, website_url: "https://www.amelie-ebisu.com/",
+    features: ["access", "weekend"],
+    catch_copy: "恵比寿駅西口から徒歩2分。土日も診療（火・祝休診）",
+    treatments: [
+      t("ortho_wire", 800_000, 800_000, "記載なし", "https://www.amelie-ebisu.com/price.html", `${NO_TAX}。精密検査・分析料35,000円・調整料3,000〜7,000円/回は別`),
+      t("ortho_lingual", 1_200_000, 1_200_000, "記載なし", "https://www.amelie-ebisu.com/price.html", `${NO_TAX}。精密検査・分析料35,000円・調整料3,000〜7,000円/回は別`),
+      t("ortho_aligner", 900_000, 900_000, "記載なし", "https://www.amelie-ebisu.com/price.html", `${NO_TAX}。インビザライン。精密検査・分析料35,000円・調整料3,000〜7,000円/回は別`),
+      t("ortho_partial", 165_000, 440_000, "記載なし", "https://www.amelie-ebisu.com/price.html", "公式サイトは税抜表記のため、消費税10%を加えた額にしています（ワイヤー税抜150,000〜350,000円・マウスピース税抜200,000〜400,000円）"),
     ],
   }),
 ];
