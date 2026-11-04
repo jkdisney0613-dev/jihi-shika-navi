@@ -40,6 +40,8 @@ const ikebukuro1101 = at("ikebukuro", "池袋駅", "豊島区", "2026-11-01");
 const ikebukuro1102 = at("ikebukuro", "池袋駅", "豊島区", "2026-11-02");
 const ebisu1102 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-02");
 const ebisu1103 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-03");
+const ebisu1104 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-04");
+const harajuku1104 = at("harajuku", "原宿駅", "渋谷区", "2026-11-04");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -945,6 +947,106 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_lingual", 1_200_000, 1_200_000, "記載なし", "https://www.amelie-ebisu.com/price.html", `${NO_TAX}。精密検査・分析料35,000円・調整料3,000〜7,000円/回は別`),
       t("ortho_aligner", 900_000, 900_000, "記載なし", "https://www.amelie-ebisu.com/price.html", `${NO_TAX}。インビザライン。精密検査・分析料35,000円・調整料3,000〜7,000円/回は別`),
       t("ortho_partial", 165_000, 440_000, "記載なし", "https://www.amelie-ebisu.com/price.html", "公式サイトは税抜表記のため、消費税10%を加えた額にしています（ワイヤー税抜150,000〜350,000円・マウスピース税抜200,000〜400,000円）"),
+    ],
+  }),
+  ebisu1104({
+    id: id(77), slug: "takara-dental-ebisu", name: "タカラデンタルクリニック",
+    address: "東京都渋谷区恵比寿4-20-3 恵比寿ガーデンプレイスYGPタワー4F", walk_minutes: 5, website_url: "https://takara-dental.com/",
+    features: ["weekend"],
+    catch_copy: "JR恵比寿駅東口からスカイウォーク経由で徒歩5分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("ortho_wire", 880_000, 1_320_000, "記載なし", "https://takara-dental.com/price/", "全顎治療の基本施術料・装置料（片顎440,000〜660,000円）。裏側・偏位は220,000〜440,000円加算。検査・診断料35,200円・調整料7,700円/月・保定装置66,000円は別"),
+      t("ortho_aligner", 220_000, 440_000, "記載なし", "https://takara-dental.com/price/", "料金表の「マウスピース矯正、MTM」の額。検査・診断料35,200円・調整料7,700円/月は別"),
+    ],
+  }),
+  ebisu1104({
+    id: id(78), slug: "daikanyama-kyousei-shika", name: "代官山矯正歯科",
+    address: "東京都渋谷区恵比寿西1-30-14 エコー代官山2F", walk_minutes: 4, website_url: "https://www.e-egao.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR恵比寿駅から徒歩4分。土曜も診療（木・日休診、月1回日曜診療）",
+    treatments: [
+      t("ortho_wire", 990_000, 1_023_000, "記載なし", "https://www.e-egao.jp/price/", "表側の目立たない装置990,000円・デイモンクリア装置1,023,000円（税別900,000〜930,000円）。精密検査・診断料44,000円・保定管理料66,000円は別。月々の調整料なし"),
+      t("ortho_aligner", 1_144_000, 1_144_000, "記載なし", "https://www.e-egao.jp/price/", "インビザラインまたはスパーク（税別1,040,000円）。精密検査・診断料44,000円・保定管理料66,000円は別。月々の調整料なし"),
+    ],
+  }),
+  harajuku1104({
+    id: id(79), slug: "harajuku-acqua-shika", name: "原宿アクア歯科 神宮前",
+    address: "東京都渋谷区神宮前1-20-12 原宿フォース2F", walk_minutes: 2, website_url: "https://harajukuacqua.com/",
+    features: ["access"],
+    catch_copy: "JR原宿駅竹下口から徒歩2分",
+    treatments: [
+      t("ortho_wire", 880_000, 1_320_000, "記載なし", "https://harajukuacqua.com/price.html", "成人矯正（表側）。検査・診断22,000〜44,000円・診察料5,500円は別。動的治療後の保定装置は治療費に含む"),
+      t("ortho_lingual", 1_210_000, 1_650_000, "記載なし", "https://harajukuacqua.com/price.html", "成人矯正（裏側）。検査・診断22,000〜44,000円・診察料5,500円は別"),
+      t("ortho_aligner", 330_000, 660_000, "記載なし", "https://harajukuacqua.com/price.html", "検査・診断22,000〜44,000円・診察料5,500円は別"),
+      t("ortho_partial", 330_000, 660_000, "記載なし", "https://harajukuacqua.com/price.html", "検査・診断22,000〜44,000円・診察料5,500円は別"),
+    ],
+  }),
+  harajuku1104({
+    id: id(80), slug: "k-braces-harajuku", name: "K Braces矯正歯科 原宿駅前",
+    address: "東京都渋谷区神宮前1-14-24 原宿TWビル5F", walk_minutes: 1, website_url: "https://kawaii-kyousei.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR原宿駅から徒歩1分。土曜・祝日も診療（木・日休診）",
+    treatments: [
+      t("ortho_wire", 990_000, 990_000, "記載なし", "https://kawaii-kyousei.com/price.php", "表側矯正（全体）。精密検査料55,000円・調整料5,000円/回は別。保定装置は治療費に含む"),
+      t("ortho_lingual", 1_210_000, 1_210_000, "記載なし", "https://kawaii-kyousei.com/price.php", "裏側全体矯正。精密検査料55,000円は別。保定装置は治療費に含む"),
+      t("ortho_aligner", 1_100_000, 1_100_000, "記載なし", "https://kawaii-kyousei.com/price.php", "マウスピース矯正（全体）。精密検査料55,000円は別。保定装置は治療費に含む"),
+      t("ortho_partial", 605_000, 605_000, "記載なし", "https://kawaii-kyousei.com/price.php", "表側部分矯正。精密検査料55,000円・調整料5,000円/回は別"),
+    ],
+  }),
+  harajuku1104({
+    id: id(81), slug: "omotesando-dental-office", name: "表参道デンタルオフィス",
+    address: "東京都渋谷区神宮前3-22-1 神宮前スクエア201", walk_minutes: 5, website_url: "https://omotesando-dental.com/",
+    features: [],
+    catch_copy: "JR原宿駅から徒歩約5分",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "記載なし", "https://omotesando-dental.com/price/", "公式サイトは税抜表記のため、消費税10%を加えた額にしています（税抜30,000円）"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://omotesando-dental.com/price/", "公式サイトは税抜表記のため、消費税10%を加えた額にしています（税抜30,000円）"),
+      t("ortho_wire", 770_000, 1_100_000, "記載なし", "https://omotesando-dental.com/price/", "全顎矯正。公式サイトは税抜表記のため、消費税10%を加えた額にしています（税抜700,000〜1,000,000円）。調整料5,500円は別。検査・診断料は記載なし"),
+      t("ortho_aligner", 660_000, 1_100_000, "記載なし", "https://omotesando-dental.com/price/", "公式サイトは税抜表記のため、消費税10%を加えた額にしています（税抜600,000〜1,000,000円）。調整料5,500円は別"),
+      t("ortho_partial", 88_000, 330_000, "記載なし", "https://omotesando-dental.com/price/", "公式サイトは税抜表記のため、消費税10%を加えた額にしています（税抜80,000〜300,000円）。調整料5,500円は別"),
+    ],
+  }),
+  harajuku1104({
+    id: id(82), slug: "harajuku-gaien-kyousei", name: "原宿外苑矯正歯科",
+    address: "東京都渋谷区千駄ヶ谷3-63-2 MJ原宿ビル4F", walk_minutes: 2, website_url: "https://s-hgo.com/",
+    features: ["access", "weekend"],
+    catch_copy: "原宿駅から徒歩2分。水・金・土曜に診療",
+    treatments: [
+      t("ortho_wire", 1_045_000, 1_155_000, "記載なし", "https://s-hgo.com/cost/", "唇側（表側）。検査66,000円（診断込み）・調整費・観察費3,300〜6,600円・リテーナー38,500円/片顎は別"),
+      t("ortho_lingual", 1_540_000, 1_650_000, "記載なし", "https://s-hgo.com/cost/", "舌側（上下）。検査66,000円・リテーナー38,500円/片顎は別"),
+      t("ortho_aligner", 1_265_000, 1_375_000, "記載なし", "https://s-hgo.com/cost/", "検査66,000円・リテーナー38,500円/片顎は別"),
+      t("ortho_partial", 550_000, 1_045_000, "記載なし", "https://s-hgo.com/cost/", "状況により異なる。検査66,000円・リテーナー38,500円/片顎は別"),
+    ],
+  }),
+  harajuku1104({
+    id: id(83), slug: "jingumae-kyousei-shika", name: "神宮前矯正歯科",
+    address: "東京都渋谷区神宮前3-23-3 トリニティビル8F", walk_minutes: 4, website_url: "https://yoiha.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR原宿駅から徒歩4分。土日・祝日も診療",
+    treatments: [
+      t("ortho_lingual", 1_210_000, 1_430_000, "記載なし", "https://yoiha.jp/price/", "上顎舌側・下顎唇側1,210,000円〜、上下顎舌側1,430,000円〜。検査・診断料55,000円・調整料6,600〜12,100円・保定観察料5,500円は別"),
+    ],
+  }),
+  harajuku1104({
+    id: id(84), slug: "harajuku-dental-clinic", name: "原宿デンタルクリニック",
+    address: "東京都渋谷区神宮前6-29-3 原宿KYビル7F", walk_minutes: 4, website_url: "https://www.harajuku-dental.jp/",
+    features: ["access"],
+    catch_copy: "JR原宿駅から徒歩4分（土・日・祝休診）",
+    treatments: [
+      t("whitening_office", 30_250, 30_250, "1回（上下20歯）", "https://www.harajuku-dental.jp/whitening.html", "1か月以内の2回目は18,150円"),
+      t("whitening_home", 24_200, 24_200, "記載なし", "https://www.harajuku-dental.jp/whitening.html", "上下マウスピース＋薬剤代"),
+      t("whitening_dual", 48_400, 48_400, "オフィス1回＋ホーム", "https://www.harajuku-dental.jp/whitening.html"),
+    ],
+  }),
+  harajuku1104({
+    id: id(85), slug: "harada-dental-office-omotesando", name: "原田デンタルオフィス表参道",
+    address: "東京都渋谷区神宮前6-2-9 ミナガワビル3F", walk_minutes: 5, website_url: "https://harada-dental-office.com/",
+    features: [],
+    catch_copy: "JR原宿駅から徒歩5分（日・祝休診、土曜は不定休）",
+    treatments: [
+      t("whitening_office", 35_200, 35_200, "1回（3回照射）", "https://harada-dental-office.com/price/", "税抜32,000円"),
+      t("whitening_home", 31_900, 31_900, "記載なし", "https://harada-dental-office.com/price/", "上下トレー＋ジェル4本（税抜29,000円）"),
+      t("ortho_aligner", 495_000, 495_000, "記載なし", "https://harada-dental-office.com/price/", "インビザラインGo 495,000円〜。検査代27,500円・毎回の診察料は別"),
     ],
   }),
 ];
