@@ -42,6 +42,9 @@ const ebisu1102 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-02");
 const ebisu1103 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-03");
 const ebisu1104 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-04");
 const harajuku1104 = at("harajuku", "原宿駅", "渋谷区", "2026-11-04");
+const ebisu1105 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-05");
+const harajuku1105 = at("harajuku", "原宿駅", "渋谷区", "2026-11-05");
+const takadanobaba1105 = at("takadanobaba", "高田馬場駅", "新宿区", "2026-11-05");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -1047,6 +1050,108 @@ export const REAL_CLINICS: Clinic[] = [
       t("whitening_office", 35_200, 35_200, "1回（3回照射）", "https://harada-dental-office.com/price/", "税抜32,000円"),
       t("whitening_home", 31_900, 31_900, "記載なし", "https://harada-dental-office.com/price/", "上下トレー＋ジェル4本（税抜29,000円）"),
       t("ortho_aligner", 495_000, 495_000, "記載なし", "https://harada-dental-office.com/price/", "インビザラインGo 495,000円〜。検査代27,500円・毎回の診察料は別"),
+    ],
+  }),
+  ebisu1105({
+    id: id(86), slug: "maeda-shika-ebisu", name: "前田歯科医院",
+    address: "東京都渋谷区恵比寿西1-2-7 恵比寿UKビル2F", walk_minutes: 2, website_url: "https://www.6480.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "恵比寿駅から徒歩2分。平日20時まで、土曜は午前診療",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "2回", "https://www.6480.jp/whitening/", "2回分の合計額。追加の施術は16,500円"),
+      t("whitening_home", 46_200, 46_200, "記載なし", "https://www.6480.jp/whitening/", "マウスピースとジェルのセット。追加ジェル1本4,620円"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.6480.jp/orthodontic-fee/", "上下全体。基本検査料33,000円・診断料22,000円（必要な場合）・診察料5,500円/回・保定装置22,000円は別"),
+      t("ortho_aligner", 1_045_000, 1_045_000, "記載なし", "https://www.6480.jp/orthodontic-fee/", "インビザライン上下全体。基本検査料33,000円・クリンチェック料2,200円・診察料5,500円/回・保定装置22,000円は別"),
+      t("ortho_partial", 110_000, 220_000, "記載なし", "https://www.6480.jp/orthodontic-fee/", "部分的矯正・床装置。基本検査料33,000円・診察料5,500円/回は別"),
+    ],
+  }),
+  harajuku1105({
+    id: id(87), slug: "parthenon-shika", name: "パルテノン歯科",
+    address: "東京都渋谷区千駄ヶ谷3-55-11 ヴィラパルテノンアネックス101", walk_minutes: 4, website_url: "https://www.parthenon-shika.jp/",
+    features: [],
+    catch_copy: "JR原宿駅竹下口から徒歩4分（日・祝休診）",
+    treatments: [
+      t("whitening_office", 5_000, 5_000, "記載なし", "https://www.parthenon-shika.jp/own-expense/whitening", "1歯あたりの料金"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.parthenon-shika.jp/own-expense/whitening"),
+    ],
+  }),
+  takadanobaba1105({
+    id: id(88), slug: "hamille-takada88", name: "歯科ハミール高田88",
+    address: "東京都新宿区高田馬場1-27-6 KIビル4F", walk_minutes: 1, website_url: "https://hamille-takada88.com/",
+    features: ["access", "weekend"],
+    catch_copy: "高田馬場駅から徒歩1分。土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 33_000, 82_500, "1回〜3回", "https://hamille-takada88.com/menu/aesthetic/whitening/", "1回33,000円・3回コース82,500円"),
+      t("whitening_home", 22_000, 33_000, "記載なし", "https://hamille-takada88.com/menu/aesthetic/whitening/", "片顎22,000円・上下33,000円。追加ジェル2本4,400円"),
+      t("whitening_dual", 104_500, 104_500, "記載なし", "https://hamille-takada88.com/menu/aesthetic/whitening/", "オフィス3回コースとホームのセット"),
+    ],
+  }),
+  takadanobaba1105({
+    id: id(89), slug: "takadanobaba-nitta-shika", name: "高田馬場 新田歯科医院",
+    address: "東京都新宿区高田馬場1-29-4", walk_minutes: 4, website_url: "http://2th.jp/",
+    features: ["weekend"],
+    catch_copy: "JR高田馬場駅から徒歩2〜4分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 38_500, 38_500, "1回（3回照射）", "http://2th.jp/menu/aesthetic/", "同日のPMTCは3,300円追加"),
+      t("whitening_home", 22_000, 22_000, "記載なし", "http://2th.jp/menu/aesthetic/", "追加ジェル2本6,600円"),
+      t("whitening_dual", 55_000, 55_000, "記載なし", "http://2th.jp/menu/aesthetic/"),
+    ],
+  }),
+  takadanobaba1105({
+    id: id(90), slug: "shinmi-takadanobaba", name: "しんみ歯科高田馬場",
+    address: "東京都新宿区高田馬場2-17-6 ゆう文ビル10F", walk_minutes: 1, website_url: "https://shinmi-takadanobaba.com/",
+    features: ["access", "weekend"],
+    catch_copy: "高田馬場駅から徒歩1分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 19_800, 19_800, "記載なし", "https://shinmi-takadanobaba.com/price/"),
+      t("whitening_home", 9_900, 9_900, "記載なし", "https://shinmi-takadanobaba.com/price/"),
+      t("whitening_dual", 29_700, 29_700, "記載なし", "https://shinmi-takadanobaba.com/price/", "公式サイトの表記は「19,800円＋9,900円」"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://shinmi-takadanobaba.com/price/", "保定装置33,000円・調整料3,300〜6,600円・自費の診察料800円は別"),
+      t("ortho_aligner", 440_000, 1_100_000, "記載なし", "https://shinmi-takadanobaba.com/price/", "保定装置33,000円・調整料3,300〜6,600円は別"),
+      t("ortho_partial", 200_000, 200_000, "記載なし", "https://shinmi-takadanobaba.com/price/", "200,000円〜。保定装置33,000円・調整料3,300〜6,600円は別"),
+    ],
+  }),
+  takadanobaba1105({
+    id: id(91), slug: "takadanobaba-kyousei", name: "高田馬場矯正歯科",
+    address: "東京都新宿区高田馬場2-13-7 エスワンビル2F", walk_minutes: 5, website_url: "https://www.takadanobaba.info/",
+    features: ["weekend"],
+    catch_copy: "JR高田馬場駅から徒歩約5分。土日は隔週で診療（火・木・祝休診）",
+    treatments: [
+      t("ortho_wire", 715_000, 715_000, "記載なし", "https://www.takadanobaba.info/lp2/price/", "上下目立たない白い装置。矯正精密検査38,500円は別"),
+      t("ortho_lingual", 1_045_000, 1_320_000, "記載なし", "https://www.takadanobaba.info/lp2/price/", "上顎のみ裏側1,045,000円・すべて裏側1,320,000円。矯正精密検査38,500円は別"),
+      t("ortho_aligner", 660_000, 990_000, "記載なし", "https://www.takadanobaba.info/lp2/price/", "矯正精密検査38,500円は別"),
+      t("ortho_partial", 330_000, 660_000, "記載なし", "https://www.takadanobaba.info/lp2/price/", "矯正精密検査38,500円は別"),
+    ],
+  }),
+  takadanobaba1105({
+    id: id(92), slug: "takadanobaba-dental", name: "高田馬場歯科・矯正歯科",
+    address: "東京都新宿区高田馬場2-17-4 ベッセルイン高田馬場駅前 B1F", walk_minutes: 1, website_url: "https://takadanobaba-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "高田馬場駅から徒歩1分。土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 33_000, 82_500, "1回〜3回", "https://takadanobaba-dental.com/menu/aesthetic/whitening", "1セット33,000円・3回コース82,500円"),
+      t("whitening_home", 22_000, 33_000, "記載なし", "https://takadanobaba-dental.com/menu/aesthetic/whitening", "片顎22,000円・上下33,000円"),
+      t("whitening_dual", 104_500, 104_500, "記載なし", "https://takadanobaba-dental.com/menu/aesthetic/whitening", "オフィス3回コースとホームのセット"),
+      t("ortho_aligner", 495_000, 1_012_000, "記載なし", "https://takadanobaba-dental.com/menu/orthodontics/", "インビザライン ライト〜プレミアム。精密検査料44,000円・クリンチェック料33,000円・調整料3,300円/回・保定装置55,000円は別"),
+    ],
+  }),
+  takadanobaba1105({
+    id: id(93), slug: "wellness-shika-takadanobaba", name: "ウェルネス歯科高田馬場",
+    address: "東京都新宿区高田馬場1-33-6 2F", walk_minutes: 1, website_url: "https://wellness-shika.tokyo/",
+    features: ["access", "weekend"],
+    catch_copy: "JR高田馬場駅戸山口から徒歩30秒。土曜も診療（水・日・祝休診）",
+    treatments: [
+      t("whitening_office", 50_600, 50_600, "3回", "https://wellness-shika.tokyo/whitening.html", "3回コース（税別46,000円）"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://wellness-shika.tokyo/whitening.html", "税別30,000円"),
+    ],
+  }),
+  takadanobaba1105({
+    id: id(94), slug: "inage-dental", name: "いなげ歯科",
+    address: "東京都新宿区高田馬場1-21-10 豊電ビル3F", walk_minutes: 3, website_url: "https://www.inage-dental.com/",
+    features: ["weekend"],
+    catch_copy: "JR高田馬場駅戸山口から徒歩約2〜3分。土曜午前も診療",
+    treatments: [
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.inage-dental.com/white/", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別30,000円）。追加ジェル1本3,300円（税別3,000円）"),
     ],
   }),
 ];
