@@ -45,6 +45,8 @@ const harajuku1104 = at("harajuku", "原宿駅", "渋谷区", "2026-11-04");
 const ebisu1105 = at("ebisu", "恵比寿駅", "渋谷区", "2026-11-05");
 const harajuku1105 = at("harajuku", "原宿駅", "渋谷区", "2026-11-05");
 const takadanobaba1105 = at("takadanobaba", "高田馬場駅", "新宿区", "2026-11-05");
+const takadanobaba1106 = at("takadanobaba", "高田馬場駅", "新宿区", "2026-11-06");
+const takadanobabaToshima1106 = at("takadanobaba", "高田馬場駅", "豊島区", "2026-11-06");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -1152,6 +1154,62 @@ export const REAL_CLINICS: Clinic[] = [
     catch_copy: "JR高田馬場駅戸山口から徒歩約2〜3分。土曜午前も診療",
     treatments: [
       t("whitening_home", 33_000, 33_000, "記載なし", "https://www.inage-dental.com/white/", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別30,000円）。追加ジェル1本3,300円（税別3,000円）"),
+    ],
+  }),
+  takadanobaba1106({
+    id: id(95), slug: "takadanobaba-ribon-shika", name: "高田馬場リボン歯科・矯正歯科",
+    address: "東京都新宿区高田馬場2-13-2 プライムゲート3F", walk_minutes: 3, website_url: "https://ribon-shika.jp/takadanobaba/",
+    features: ["weekend"],
+    catch_copy: "JR山手線高田馬場駅から徒歩3分。日曜も診療（金・祝休診）",
+    treatments: [
+      t("whitening_office", 22_000, 33_000, "記載なし", "https://ribon-shika.jp/esthetic/", "1回目の料金。片顎22,000円・上下33,000円。グループ共通の料金ページの記載"),
+      t("whitening_home", 27_500, 55_000, "記載なし", "https://ribon-shika.jp/esthetic/", "片顎27,500円・上下55,000円。追加ジェル（1週間分）11,000円。グループ共通の料金ページの記載"),
+      t("whitening_dual", 47_300, 71_500, "記載なし", "https://ribon-shika.jp/esthetic/", "片顎47,300円・上下71,500円。グループ共通の料金ページの記載"),
+      t("ortho_aligner", 1_034_000, 1_067_000, "記載なし", "https://ribon-shika.jp/orthodontic/invisalign/", "3年アカウント1,034,000円・5年アカウント1,067,000円。基本精密検査33,000円・アキシオグラフ33,000円・矯正管理費6,600円/回・保定装置22,000〜66,000円は別。グループ共通の料金ページの記載"),
+      t("ortho_partial", 330_000, 440_000, "記載なし", "https://ribon-shika.jp/orthodontic/invisalign/", "前歯のマウスピース部分矯正。片顎330,000円・上下440,000円。基本精密検査33,000円・矯正管理費6,600円/回は別。グループ共通の料金ページの記載"),
+    ],
+  }),
+  takadanobaba1106({
+    id: id(96), slug: "takadanobaba-dc", name: "デンタルケアステーション高田馬場歯科",
+    address: "東京都新宿区高田馬場4-3-12 2F", walk_minutes: 1, website_url: "https://takadanobaba-dc.com/",
+    features: ["access"],
+    catch_copy: "JR高田馬場駅改札から徒歩10秒（予約制）",
+    treatments: [
+      t("whitening_office", 48_400, 121_000, "1回〜3回（3ヶ月以内）", "https://takadanobaba-dc.com/price/", "1回48,400円・3回セット121,000円"),
+      t("whitening_home", 38_500, 38_500, "記載なし", "https://takadanobaba-dc.com/price/", "追加ジェル1本2,300円"),
+      t("ortho_wire", 825_000, 1_210_000, "記載なし", "https://takadanobaba-dc.com/price/", "公式サイトの表記は「成人矯正」（装置の種類の記載なし）。検査診断料33,000〜55,000円は別"),
+      t("ortho_partial", 110_000, 550_000, "記載なし", "https://takadanobaba-dc.com/price/", "検査診断料33,000〜55,000円は別"),
+    ],
+  }),
+  takadanobaba1106({
+    id: id(97), slug: "takadanobaba-ekimae-dental", name: "高田馬場駅前デンタルクリニック",
+    address: "東京都新宿区高田馬場2-16-2 1F", walk_minutes: 1, website_url: "https://www.ohori-dental.or.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR高田馬場駅から徒歩1分。土日祝も診療",
+    treatments: [
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://www.ohori-dental.or.jp/price.php", "マウスピース上下とジェル2本。PMTCとのセットは30,800円"),
+      t("ortho_wire", 990_000, 990_000, "記載なし", "https://www.ohori-dental.or.jp/price.php", "セラミックブラケット（全顎）。相談料3,300円は別"),
+      t("ortho_lingual", 660_000, 660_000, "記載なし", "https://www.ohori-dental.or.jp/price.php", "片顎の料金。相談料3,300円は別"),
+      t("ortho_aligner", 1_100_000, 1_100_000, "記載なし", "https://www.ohori-dental.or.jp/price.php", "インビザライン（全顎）。相談料3,300円は別"),
+      t("ortho_partial", 110_000, 110_000, "記載なし", "https://www.ohori-dental.or.jp/price.php", "部分矯正（MTM）1本あたりの料金。相談料3,300円は別"),
+    ],
+  }),
+  takadanobaba1106({
+    id: id(98), slug: "sudo-shika-takadanobaba", name: "すどう歯科医院",
+    address: "東京都新宿区高田馬場4-11-9 三協ビル3F", walk_minutes: 3, website_url: "https://www.sudo-shika.jp/",
+    features: ["weekend"],
+    catch_copy: "高田馬場駅から徒歩3分。土曜も診療（木・日・祝休診、予約制）",
+    treatments: [
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://www.sudo-shika.jp/price.html", "公式サイトは税別表記のため、消費税10%を加えた額にしています（初期費用 税別25,000円）。追加の薬液は約5,500円（税別約5,000円）"),
+    ],
+  }),
+  takadanobabaToshima1106({
+    id: id(99), slug: "yamashita-dentalclinic-takada", name: "山下歯科クリニック",
+    address: "東京都豊島区高田3-13-7 サンユービル1F", walk_minutes: 3, website_url: "http://www.yamashita-dentalclinic.jp/",
+    features: ["weekend"],
+    catch_copy: "高田馬場駅から徒歩3分。土曜も診療（日・祝・第3木曜休診）",
+    treatments: [
+      t("whitening_home", 33_000, 33_000, "記載なし", "http://www.yamashita-dentalclinic.jp/perio.html", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別30,000円）。追加ジェル11,000円（税別10,000円）"),
     ],
   }),
 ];
