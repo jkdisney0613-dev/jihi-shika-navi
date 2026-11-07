@@ -47,6 +47,8 @@ const harajuku1105 = at("harajuku", "原宿駅", "渋谷区", "2026-11-05");
 const takadanobaba1105 = at("takadanobaba", "高田馬場駅", "新宿区", "2026-11-05");
 const takadanobaba1106 = at("takadanobaba", "高田馬場駅", "新宿区", "2026-11-06");
 const takadanobabaToshima1106 = at("takadanobaba", "高田馬場駅", "豊島区", "2026-11-06");
+const tokyo1107 = at("tokyo", "東京駅", "千代田区", "2026-11-07");
+const tokyoChuo1107 = at("tokyo", "東京駅", "中央区", "2026-11-07");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -1210,6 +1212,116 @@ export const REAL_CLINICS: Clinic[] = [
     catch_copy: "高田馬場駅から徒歩3分。土曜も診療（日・祝・第3木曜休診）",
     treatments: [
       t("whitening_home", 33_000, 33_000, "記載なし", "http://www.yamashita-dentalclinic.jp/perio.html", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別30,000円）。追加ジェル11,000円（税別10,000円）"),
+    ],
+  }),
+  tokyo1107({
+    id: id(100), slug: "marunouchi-dental-office", name: "丸の内デンタルオフィス",
+    address: "東京都千代田区丸の内1-8-1 丸の内トラストタワーN館2階", walk_minutes: 3, website_url: "https://perfectsmile-tokyo.com/",
+    features: ["access"],
+    catch_copy: "JR東京駅八重洲北口から徒歩約1〜3分。完全予約制（土日祝休診）",
+    treatments: [
+      t("whitening_office", 22_000, 22_000, "記載なし", "https://perfectsmile-tokyo.com/price/"),
+      t("whitening_home", 24_200, 24_200, "記載なし", "https://perfectsmile-tokyo.com/price/", "追加ジェル3,300円〜"),
+      t("whitening_dual", 55_000, 55_000, "記載なし", "https://perfectsmile-tokyo.com/price/", "公式サイトの表記は「ホワイトニングコース（デュアル）」"),
+      t("ortho_aligner", 957_000, 1_045_000, "記載なし", "https://shika.tokyo/price/", "インビザライン フル870,000円・フルヘビー950,000円（いずれも税別）に消費税10%を加えた額。処置料6,600円/回（税別6,000円）・3Dシミュレーション55,000円（税別50,000円）は別。保定装置は料金に含むとの記載と別料金（1組16,500円）の記載があります。矯正は同院の矯正サイトの記載"),
+      t("ortho_partial", 385_000, 605_000, "記載なし", "https://shika.tokyo/price/", "インビザライン i7（7回まで）350,000円・ライト（14回まで）550,000円（いずれも税別）に消費税10%を加えた額。処置料6,600円/回（税別6,000円）・3Dシミュレーション55,000円（税別50,000円）は別。矯正は同院の矯正サイトの記載"),
+    ],
+  }),
+  tokyo1107({
+    id: id(101), slug: "marunouchi-eiraku-dental", name: "丸の内永楽ビル総合歯科・矯正歯科",
+    address: "東京都千代田区丸の内1-4-1 丸の内永楽ビル iiyo B1", walk_minutes: 3, website_url: "https://smiline.biz/",
+    features: ["access", "weekend"],
+    catch_copy: "JR東京駅丸の内北口改札から徒歩3分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 16_500, 22_000, "記載なし", "https://smiline.biz/price/", "初回の料金（ポリリン16,500円・ビヨンド22,000円）。2回目以降は13,200円"),
+      t("whitening_home", 5_500, 5_500, "記載なし", "https://smiline.biz/price/", "トレー作製費（片顎・ケース付き）の料金。ジェル1本1,980〜2,640円は別"),
+      t("whitening_dual", 41_130, 45_100, "記載なし", "https://smiline.biz/price/", "ポリリンデュアル41,130円・ビヨンドデュアル45,100円"),
+      t("ortho_wire", 935_000, 935_000, "記載なし", "https://smiline.biz/price/", "935,000円〜。公式サイトの表記は「成人矯正」（装置の種類の記載なし）。検査料・調整料・保定装置の記載なし"),
+      t("ortho_aligner", 385_000, 385_000, "記載なし", "https://smiline.biz/price/", "385,000円〜。検査料・調整料・保定装置の記載なし"),
+      t("ortho_partial", 110_000, 110_000, "記載なし", "https://smiline.biz/price/", "110,000円〜。検査料・調整料・保定装置の記載なし"),
+    ],
+  }),
+  tokyo1107({
+    id: id(102), slug: "pcp-marunouchi-dental", name: "PCP丸の内総合歯科・矯正歯科",
+    address: "東京都千代田区丸の内1-11-1 パシフィックセンチュリープレイス丸の内 2F", walk_minutes: 3, website_url: "https://smiline.org/",
+    features: ["access", "weekend"],
+    catch_copy: "JR東京駅八重洲南口から徒歩3分。日・祝休診",
+    treatments: [
+      t("whitening_home", 5_500, 5_500, "記載なし", "https://smiline.org/price/", "トレー作製費（片顎・ケース付き）の料金。ジェル1本1,980〜2,640円は別。オフィスホワイトニングは料金表とよくある質問で金額が違うため載せていません"),
+      t("whitening_dual", 45_100, 45_100, "記載なし", "https://smiline.org/price/"),
+      t("ortho_wire", 935_000, 935_000, "記載なし", "https://smiline.org/price/", "935,000円〜。公式サイトの表記は「成人矯正」（装置の種類の記載なし）。検査料・調整料・保定装置の記載なし"),
+      t("ortho_aligner", 385_000, 385_000, "記載なし", "https://smiline.org/price/", "385,000円〜。検査料・調整料・保定装置の記載なし"),
+      t("ortho_partial", 110_000, 110_000, "記載なし", "https://smiline.org/price/", "110,000円〜。検査料・調整料・保定装置の記載なし"),
+    ],
+  }),
+  tokyo1107({
+    id: id(103), slug: "grantokyo-swan-dental", name: "グラントウキョウスワン歯科・矯正歯科",
+    address: "東京都千代田区丸の内1-9-2 グラントウキョウサウスタワー2F", walk_minutes: 1, website_url: "https://www.grantokyo-swan.com/",
+    features: ["access", "weekend"],
+    catch_copy: "東京駅八重洲南口直結・徒歩1分。土曜・祝日も時間短縮で診療（木・日休診）",
+    treatments: [
+      t("whitening_office", 77_000, 77_000, "2回", "https://www.grantokyo-swan.com/price", "2回セットの料金"),
+      t("whitening_home", 48_000, 48_000, "記載なし", "https://www.grantokyo-swan.com/price", "トレーとジェル12本分を含む"),
+      t("ortho_aligner", 599_500, 899_800, "記載なし", "https://www.grantokyo-swan.com/price", "インビザライン モデレート（両顎）599,500円・コンプリヘンシブ899,800円。精密検査38,500円・調整料5,500円（発生する場合）・リテーナー88,000円は別"),
+      t("ortho_partial", 330_000, 440_000, "記載なし", "https://www.grantokyo-swan.com/price", "インビザライン エクスプレス330,000円・ライト片顎330,000円／両顎440,000円。精密検査38,500円・リテーナー88,000円は別"),
+    ],
+  }),
+  tokyoChuo1107({
+    id: id(104), slug: "chiyoda-shika-yaesu", name: "千代田歯科",
+    address: "東京都中央区八重洲1-4-20 東京八重洲ビル3F", walk_minutes: 2, website_url: "https://www.shoukoukai.info/",
+    features: ["access", "weekend"],
+    catch_copy: "東京駅八重洲北口から徒歩2分。土曜午前も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 3_300, 3_300, "記載なし", "https://www.shoukoukai.info/expenses.html", "1歯あたりの料金。公式サイトは税別表記のため、消費税10%を加えた額にしています（税別3,000円）"),
+      t("whitening_home", 16_500, 16_500, "記載なし", "https://www.shoukoukai.info/expenses.html", "片顎の料金。公式サイトは税別表記のため、消費税10%を加えた額にしています（税別15,000円）"),
+      t("ortho_aligner", 110_000, 550_000, "記載なし", "https://www.shoukoukai.info/expenses.html", "片顎のマウスピース矯正。公式サイトは税別表記のため、消費税10%を加えた額にしています（税別100,000〜500,000円）。検査料・調整料・保定装置の記載なし"),
+    ],
+  }),
+  tokyoChuo1107({
+    id: id(105), slug: "yaesu-chuo-shika", name: "八重洲中央歯科",
+    address: "東京都中央区日本橋3-5-11 八重洲中央ビル4F", walk_minutes: 5, website_url: "https://www.mydentist.jp/",
+    features: ["weekend"],
+    catch_copy: "東京駅八重洲中央口から徒歩5分。土曜も診療（水・日・祝休診）",
+    treatments: [
+      t("whitening_office", 38_500, 38_500, "約90分", "https://www.mydentist.jp/cost/whitening/", "上下前歯と第一小臼歯（16本）。タッチアップは22,000円"),
+      t("whitening_home", 33_000, 35_200, "10〜14日間", "https://www.mydentist.jp/cost/whitening/", "スターターセット（トレー・ケース・ジェル）。ティオン プラチナ33,000円・ティオン ウィズ35,200円"),
+    ],
+  }),
+  tokyoChuo1107({
+    id: id(106), slug: "tokyo-yaesu-dc", name: "東京八重洲デンタルクリニック",
+    address: "東京都中央区日本橋3-1-17 日本橋ヒロセビル9F", walk_minutes: 3, website_url: "https://www.tydc.jp/",
+    features: ["access"],
+    catch_copy: "JR東京駅から徒歩3分",
+    treatments: [
+      t("ortho_wire", 495_000, 1_045_000, "6ヶ月〜2年", "https://www.tydc.jp/menu/orthodontic/price-kyousei", "上下顎の表側（クリスタル矯正）。非抜歯495,000〜715,000円・抜歯880,000〜1,045,000円。処置料5,500〜7,700円/回は別。検査料・保定装置の記載なし"),
+      t("ortho_lingual", 825_000, 1_375_000, "6ヶ月〜2年", "https://www.tydc.jp/menu/orthodontic/price-kyousei", "上下顎の表側の料金（495,000〜1,045,000円）にフルリンガル（上下裏側）330,000円を加えた額。ハーフリンガルは＋165,000円。処置料5,500円/回は別"),
+      t("ortho_aligner", 440_000, 1_100_000, "1年〜3年", "https://www.tydc.jp/menu/orthodontic/price-kyousei", "インビザライン。アクアシステムは275,000〜825,000円（4ヶ月〜1年）"),
+      t("ortho_partial", 396_000, 396_000, "6ヶ月", "https://www.tydc.jp/menu/orthodontic/price-kyousei", "上顎または下顎のみ・非抜歯6ヶ月の表側矯正。処置料5,500〜7,700円/回は別"),
+    ],
+  }),
+  tokyoChuo1107({
+    id: id(107), slug: "tokyo-iccho-nihonbashi", name: "東京ICCHO日本橋歯科・矯正歯科",
+    address: "東京都中央区日本橋1-3-13 東京建物日本橋ビル1F", walk_minutes: 5, website_url: "https://smiline.net/",
+    features: [],
+    catch_copy: "JR東京駅日本橋口から徒歩5分・八重洲北口から徒歩6分",
+    treatments: [
+      t("whitening_home", 5_500, 5_500, "記載なし", "https://smiline.net/price/", "トレー作製費（片顎・ケース付き）の料金。ジェル1本1,980〜2,640円は別。オフィスホワイトニングは料金表とよくある質問で金額が違うため載せていません"),
+      t("whitening_dual", 45_100, 45_100, "記載なし", "https://smiline.net/price/", "オフィス2回・ホームトレー上下・10%ジェル2本"),
+      t("ortho_wire", 935_000, 935_000, "記載なし", "https://smiline.net/price/", "935,000円〜。公式サイトの表記は「成人矯正」（装置の種類の記載なし）。検査料・調整料・保定装置の記載なし"),
+      t("ortho_aligner", 385_000, 385_000, "記載なし", "https://smiline.net/price/", "385,000円〜。検査料・調整料・保定装置の記載なし"),
+      t("ortho_partial", 110_000, 110_000, "記載なし", "https://smiline.net/price/", "110,000円〜。検査料・調整料・保定装置の記載なし"),
+    ],
+  }),
+  tokyoChuo1107({
+    id: id(108), slug: "tokyo-maru-dental-nihonbashi", name: "東京マール歯科 日本橋院",
+    address: "東京都中央区日本橋3-2-15 ザ・レジデンス東京駅前 1階", walk_minutes: 1, website_url: "https://www.maru-dental.com/",
+    features: ["access"],
+    catch_copy: "東京駅22番出口から徒歩1分",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "1回", "https://www.maru-dental.com/price/"),
+      t("whitening_home", 33_000, 33_000, "2週間分", "https://www.maru-dental.com/price/"),
+      t("whitening_dual", 66_000, 66_000, "記載なし", "https://www.maru-dental.com/price/", "オフィス1回＋ホーム2週間分"),
+      t("ortho_aligner", 462_000, 462_000, "記載なし", "https://www.maru-dental.com/price/", "精密検査55,000円・調整料3,300円/回・リテーナー55,000円は別"),
     ],
   }),
 ];
