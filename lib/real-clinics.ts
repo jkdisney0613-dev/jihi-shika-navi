@@ -49,6 +49,8 @@ const takadanobaba1106 = at("takadanobaba", "高田馬場駅", "新宿区", "202
 const takadanobabaToshima1106 = at("takadanobaba", "高田馬場駅", "豊島区", "2026-11-06");
 const tokyo1107 = at("tokyo", "東京駅", "千代田区", "2026-11-07");
 const tokyoChuo1107 = at("tokyo", "東京駅", "中央区", "2026-11-07");
+const tokyo1108 = at("tokyo", "東京駅", "千代田区", "2026-11-08");
+const tokyoChuo1108 = at("tokyo", "東京駅", "中央区", "2026-11-08");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -1322,6 +1324,115 @@ export const REAL_CLINICS: Clinic[] = [
       t("whitening_home", 33_000, 33_000, "2週間分", "https://www.maru-dental.com/price/"),
       t("whitening_dual", 66_000, 66_000, "記載なし", "https://www.maru-dental.com/price/", "オフィス1回＋ホーム2週間分"),
       t("ortho_aligner", 462_000, 462_000, "記載なし", "https://www.maru-dental.com/price/", "精密検査55,000円・調整料3,300円/回・リテーナー55,000円は別"),
+    ],
+  }),
+  tokyoChuo1108({
+    id: id(109), slug: "ha-no-clinic-tokyo", name: "歯のクリニック 東京",
+    address: "東京都中央区京橋1-2-4 YNB 7F", walk_minutes: 3, website_url: "https://www.st-dental.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR東京駅から徒歩3分。土曜も診療（金・日・祝休診）",
+    treatments: [
+      t("ortho_wire", 792_000, 792_000, "記載なし", "https://www.st-dental.jp/price/", "公式サイトの表記は「成人矯正」（装置の種類の記載なし）。精密検査・診断費33,000円・調整費5,500円/回・保定装置22,000円（片顎）は別"),
+      t("ortho_aligner", 638_000, 638_000, "記載なし", "https://www.st-dental.jp/price/", "インビザライン638,000円〜。精密検査・診断費33,000円・調整費5,500円/回・保定装置22,000円（片顎）は別"),
+      t("ortho_lingual", 1_320_000, 1_320_000, "記載なし", "https://www.st-dental.jp/price/", "精密検査・診断費33,000円・調整費5,500円/回・保定装置22,000円（片顎）は別"),
+      t("ortho_partial", 275_000, 275_000, "記載なし", "https://www.st-dental.jp/price/", "調整料5,500円/回は別"),
+    ],
+  }),
+  tokyoChuo1108({
+    id: id(110), slug: "kyobashi-shika-iin", name: "京橋歯科医院",
+    address: "東京都中央区京橋1-6-12 NS京橋ビル1F", walk_minutes: 5, website_url: "https://www.kyobashi-dc.com/",
+    features: [],
+    catch_copy: "JR東京駅八重洲口から徒歩5分",
+    treatments: [
+      t("ortho_aligner", 880_000, 880_000, "記載なし", "https://www.kyobashi-dc.com/aligner/", "マウスピース矯正（全体）。期間や症例により費用が変わる場合ありと記載。検査料・調整料・保定装置の記載なし"),
+      t("ortho_partial", 660_000, 660_000, "記載なし", "https://www.kyobashi-dc.com/aligner/", "部分矯正（前歯）。期間や症例により費用が変わる場合ありと記載"),
+    ],
+  }),
+  tokyoChuo1108({
+    id: id(111), slug: "oral-clinic-kyobashi", name: "オーラルクリニック京橋",
+    address: "東京都中央区京橋2-8-21 仁大ビルB1階", walk_minutes: 6, website_url: "https://www.oral-ck.jp/",
+    features: [],
+    catch_copy: "JR東京駅八重洲南口から徒歩約6分（土・日・祝休診）",
+    treatments: [
+      t("whitening_home", 25_000, 25_000, "記載なし", "https://www.oral-ck.jp/price/", "上下全体のセット（検査・デモ・経過管理を含む）"),
+    ],
+  }),
+  tokyo1108({
+    id: id(112), slug: "otemachi-dental-clinic", name: "大手町デンタルクリニック",
+    address: "東京都千代田区大手町1-5-1 大手町ファーストスクエアWEST1階", walk_minutes: 4, website_url: "https://www.ootemachi.biz/",
+    features: [],
+    catch_copy: "JR東京駅丸の内北口から徒歩4分",
+    treatments: [
+      t("whitening_office", 5_500, 5_500, "記載なし", "https://www.ootemachi.biz/468.html", "1本あたりの料金（税別5,000円）"),
+      t("whitening_home", 38_500, 38_500, "2週間分", "https://www.ootemachi.biz/468.html", "1口腔（税別35,000円）"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.ootemachi.biz/468.html", "表側の装置（税別800,000円）。検査料・調整料・保定装置の記載なし"),
+      t("ortho_lingual", 1_430_000, 1_430_000, "記載なし", "https://www.ootemachi.biz/468.html", "税別1,300,000円。検査料・調整料・保定装置の記載なし"),
+      t("ortho_aligner", 1_045_000, 1_045_000, "記載なし", "https://www.ootemachi.biz/468.html", "税別950,000円。検査料・調整料・保定装置の記載なし"),
+      t("ortho_partial", 165_000, 440_000, "記載なし", "https://www.ootemachi.biz/468.html", "小矯正（MTM）。動かす歯の本数・難易度で変わる（税別150,000〜400,000円）"),
+    ],
+  }),
+  tokyo1108({
+    id: id(113), slug: "kuribayashi-dc-marunouchi", name: "栗林歯科医院 丸の内",
+    address: "東京都千代田区丸の内1-6-5 丸の内北口ビルディング（丸の内オアゾ）地下1階", walk_minutes: 3, website_url: "https://kuribayashi-dc-tokyo.com/",
+    features: ["access"],
+    catch_copy: "JR東京駅丸の内北口から徒歩約3分（土曜は月1回のみ診療、日・祝休診）",
+    treatments: [
+      t("whitening_office", 23_100, 23_100, "1回", "https://kuribayashi-dc-tokyo.com/payment/"),
+      t("whitening_home", 38_500, 38_500, "記載なし", "https://kuribayashi-dc-tokyo.com/payment/", "マウスピース・薬剤込み"),
+      t("ortho_aligner", 990_000, 990_000, "記載なし", "https://kuribayashi-dc-tokyo.com/payment/", "全顎。精密検査・診断料110,000円・調整料5,500円/回は別。保定装置の記載なし"),
+      t("ortho_wire", 990_000, 990_000, "記載なし", "https://kuribayashi-dc-tokyo.com/payment/", "表側・全顎。精密検査・診断料110,000円・調整料5,500円/回は別。保定装置の記載なし"),
+    ],
+  }),
+  tokyo1108({
+    id: id(114), slug: "marunouchi-myplaza-shika", name: "丸の内MYPLAZA歯科",
+    address: "東京都千代田区丸の内2-1-1 丸の内マイプラザ3階（明治安田ヴィレッジ丸の内）", walk_minutes: 5, website_url: "https://www.marunouchi-dc.com/",
+    features: [],
+    catch_copy: "JR東京駅丸の内南口から徒歩5分",
+    treatments: [
+      t("whitening_office", 22_000, 55_000, "1〜3回", "https://www.marunouchi-dc.com/price/", "1回22,000円・3回券55,000円（3回法を推奨と記載）"),
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://www.marunouchi-dc.com/price/", "ジェル薬液のみ2,200円"),
+      t("ortho_aligner", 990_000, 990_000, "記載なし", "https://www.marunouchi-dc.com/price/", "インビザライン990,000円〜。検査料・調整料・保定装置の記載なし"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.marunouchi-dc.com/price/", "880,000円〜。検査料・調整料・保定装置の記載なし"),
+      t("ortho_partial", 550_000, 550_000, "記載なし", "https://www.marunouchi-dc.com/price/", "550,000円〜。検査料・調整料・保定装置の記載なし"),
+    ],
+  }),
+  tokyoChuo1108({
+    id: id(115), slug: "yaesu-shika-shinryojo", name: "八重洲歯科診療所",
+    address: "東京都中央区八重洲2-1 八重洲地下街中1号", walk_minutes: 3, website_url: "https://www.yaesu-dental-clinic.or.jp/",
+    features: ["access"],
+    catch_copy: "JR東京駅八重洲口から徒歩3分。八重洲地下街の中",
+    treatments: [
+      t("whitening_office", 38_500, 49_500, "90〜120分", "https://www.yaesu-dental-clinic.or.jp/whitening/", `90分38,500円・120分49,500円。${NO_TAX}`),
+      t("whitening_home", 22_000, 33_000, "記載なし", "https://www.yaesu-dental-clinic.or.jp/whitening/", `片顎22,000円・上下顎33,000円。${NO_TAX}`),
+      t("whitening_dual", 60_500, 71_500, "記載なし", "https://www.yaesu-dental-clinic.or.jp/whitening/", `オフィス90分・120分で変わる。${NO_TAX}`),
+    ],
+  }),
+  tokyoChuo1108({
+    id: id(116), slug: "yaesu-minamiguchi-shika", name: "八重洲南口歯科",
+    address: "東京都中央区八重洲2-1 八重洲地下街中1号", walk_minutes: 1, website_url: "https://www.yaesuminami.com/",
+    features: ["access"],
+    catch_copy: "JR東京駅八重洲南口から徒歩1分。八重洲地下街の中（日・祝休診）",
+    treatments: [
+      t("whitening_office", 16_500, 16_500, "1時間", "https://www.yaesuminami.com/esthe.html", "プラチナポリリン酸ホワイトニングの施術料金（1時間）"),
+    ],
+  }),
+  tokyo1108({
+    id: id(117), slug: "marunouchi-seito-shika", name: "丸の内 清藤歯科医院（新丸ビル10階歯科）",
+    address: "東京都千代田区丸の内1-5-1 新丸の内ビルディング10F", walk_minutes: 1, website_url: "https://www.shinmaru-bldg.com/",
+    features: ["access"],
+    catch_copy: "JR東京駅から徒歩1分。新丸ビル10階（土・日・祝休診）",
+    treatments: [
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://www.shinmaru-bldg.com/white/", `キット（ホワイトニング材4本付・トレー製作費込み）。追加ホワイトニング材1本1,650円。${NO_TAX}`),
+    ],
+  }),
+  tokyo1108({
+    id: id(118), slug: "fujino-dental-shinmaru", name: "藤野歯科医院",
+    address: "東京都千代田区丸の内1-5-1 新丸の内ビルディング11F", walk_minutes: 1, website_url: "https://fujino-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR東京駅丸の内北口から徒歩1分。第1・第3土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 45_000, 45_000, "記載なし", "https://fujino-dental.com/medical/", NO_TAX),
+      t("whitening_home", 40_000, 40_000, "記載なし", "https://fujino-dental.com/medical/", NO_TAX),
     ],
   }),
 ];
