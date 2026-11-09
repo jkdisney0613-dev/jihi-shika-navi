@@ -51,6 +51,7 @@ const tokyo1107 = at("tokyo", "東京駅", "千代田区", "2026-11-07");
 const tokyoChuo1107 = at("tokyo", "東京駅", "中央区", "2026-11-07");
 const tokyo1108 = at("tokyo", "東京駅", "千代田区", "2026-11-08");
 const tokyoChuo1108 = at("tokyo", "東京駅", "中央区", "2026-11-08");
+const shinagawa1109 = at("shinagawa", "品川駅", "港区", "2026-11-09");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -1433,6 +1434,100 @@ export const REAL_CLINICS: Clinic[] = [
     treatments: [
       t("whitening_office", 45_000, 45_000, "記載なし", "https://fujino-dental.com/medical/", NO_TAX),
       t("whitening_home", 40_000, 40_000, "記載なし", "https://fujino-dental.com/medical/", NO_TAX),
+    ],
+  }),
+  shinagawa1109({
+    id: id(119), slug: "shinagawa-konan-shika-kyousei", name: "品川港南歯科・矯正歯科クリニック",
+    address: "東京都港区港南2-5-11 大三洋行品川ビル4F", walk_minutes: 3, website_url: "https://sks-clinic.jp/",
+    features: ["access"],
+    catch_copy: "JR品川駅港南口から徒歩3分",
+    treatments: [
+      t("whitening_office", 19_900, 25_400, "10分×1回", "https://sks-clinic.jp/price/", "前歯12本19,900円・ライトが届く範囲すべて25,400円"),
+      t("whitening_home", 19_900, 19_900, "1週間分", "https://sks-clinic.jp/price/", "マウスピース＋ジェル2本。追加ジェル1,980円〜"),
+      t("whitening_dual", 79_000, 118_000, "記載なし", "https://sks-clinic.jp/price/", "ライト（オフィス2回・ホーム1か月・クリーニング1回）79,000円〜3回コース118,000円"),
+      t("ortho_aligner", 825_000, 935_000, "記載なし", "https://sks-clinic.jp/price/", "インビザライン（全体）。精密検査33,000円・診察調整料3,300円/回は別、抜歯症例は110,000円加算。保定装置の記載なし"),
+      t("ortho_partial", 440_000, 660_000, "記載なし", "https://sks-clinic.jp/price/", "インビザライン部分矯正。精密検査33,000円・診察調整料3,300円/回は別。保定装置の記載なし"),
+    ],
+  }),
+  shinagawa1109({
+    id: id(120), slug: "takanawa-clinic-shinagawa", name: "高輪クリニック",
+    address: "東京都港区高輪4-23-6 ハイホーム高輪201", walk_minutes: 7, website_url: "https://takanawa-clinic.com/",
+    features: [],
+    catch_copy: "JR品川駅高輪口から徒歩7分（祝日休診）",
+    treatments: [
+      t("whitening_office", 33_000, 99_000, "記載なし", "https://takanawa-clinic.com/price", "LEDホワイトニング33,000円〜・オフィスホワイトニング3回99,000円〜"),
+      t("whitening_home", 11_000, 33_000, "記載なし", "https://takanawa-clinic.com/dental/whitening", `マウスピース型（ジェル1本）11,000円・PBMホームホワイトニング（ペン3本）33,000円。${NO_TAX}`),
+      t("ortho_aligner", 330_000, 1_100_000, "記載なし", "https://takanawa-clinic.com/price", "軽度330,000円〜・中等度440,000〜660,000円・重度770,000〜1,100,000円。相談〜診断33,000円〜は別。調整料・保定装置の記載なし"),
+    ],
+  }),
+  shinagawa1109({
+    id: id(121), slug: "shinagawa-dental-care-clinic", name: "品川デンタルケアクリニック 品川院",
+    address: "東京都港区港南2-6-3 シントミビル4F", walk_minutes: 4, website_url: "https://www.shinagawa-dental.com/clinic/shinagawa/",
+    features: ["access", "weekend"],
+    catch_copy: "JR品川駅港南口から徒歩4分。土日も診療",
+    treatments: [
+      t("whitening_office", 19_800, 27_500, "30〜45分", "https://www.shinagawa-dental.com/price/", "ルミエール（30分）19,800円・ルミエールプラス（45分）27,500円。上下12本"),
+      t("whitening_home", 25_300, 25_300, "2週間分", "https://www.shinagawa-dental.com/price/", "マウスピース・ケース・ジェル2週間分込み"),
+      t("ortho_aligner", 198_000, 539_000, "6か月〜2年", "https://www.shinagawa-dental.com/price/", "クリアコレクト（品川院限定）MINI198,000円・ONE484,000円・TWO539,000円。3Dデータ作成費55,000円は別。調整料・保定装置の記載なし"),
+    ],
+  }),
+  shinagawa1109({
+    id: id(122), slug: "shinagawa-lien-shika", name: "品川駅直結リアン歯科・矯正歯科",
+    address: "東京都港区港南2-16-1 品川イーストワンタワー3F", walk_minutes: 3, website_url: "https://www.shinagawa-lien.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR品川駅港南口（東口）から徒歩3分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 44_000, 44_000, "記載なし", "https://www.shinagawa-lien.com/price/", "上下。通常料金（キャンペーン価格は除く）"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.shinagawa-lien.com/price/", "片顎。通常料金（キャンペーン価格は除く）。追加ジェル1本2,750円"),
+      t("whitening_dual", 77_000, 77_000, "記載なし", "https://www.shinagawa-lien.com/price/", "Wホワイトニング（オフィス＋ホーム）。通常料金（キャンペーン価格は除く）"),
+      t("ortho_aligner", 352_000, 1_056_000, "記載なし", "https://www.shinagawa-lien.com/price/", "インビザライン プライマリー352,000円〜コンプリート1,056,000円。調整料3,300〜5,500円/月は別。検査料・保定装置の記載なし"),
+      t("ortho_wire", 330_000, 330_000, "記載なし", "https://www.shinagawa-lien.com/price/", "表側矯正・片顎330,000円〜。調整料3,300〜5,500円/月は別。検査料・保定装置の記載なし"),
+      t("ortho_lingual", 660_000, 660_000, "記載なし", "https://www.shinagawa-lien.com/price/", "舌側矯正・片顎660,000円〜。調整料3,300〜5,500円/月は別。検査料・保定装置の記載なし"),
+      t("ortho_partial", 275_000, 275_000, "記載なし", "https://www.shinagawa-lien.com/price/", "部分矯正275,000円〜。調整料3,300〜5,500円/月は別。検査料・保定装置の記載なし"),
+    ],
+  }),
+  shinagawa1109({
+    id: id(123), slug: "shinagawa-higashiguchi-shika", name: "品川東口歯科",
+    address: "東京都港区港南2-4-7 石橋ビル2F", walk_minutes: 4, website_url: "https://shdo.jp/",
+    features: ["access"],
+    catch_copy: "JR品川駅から徒歩4分（日曜休診）",
+    treatments: [
+      t("whitening_office", 44_000, 99_000, "1〜3回", "https://shdo.jp/price/", "上下44,000円・3回セット99,000円。2回目以降33,000円"),
+      t("whitening_home", 38_500, 44_000, "記載なし", "https://shdo.jp/price/", "片顎38,500円・上下顎44,000円"),
+      t("whitening_dual", 77_000, 77_000, "記載なし", "https://shdo.jp/price/"),
+    ],
+  }),
+  shinagawa1109({
+    id: id(124), slug: "shinagawa-kyousei-shika-takanawa", name: "品川矯正歯科",
+    address: "東京都港区高輪4-22-11 Village高輪 B1F", walk_minutes: 4, website_url: "https://shinagawa-ortho.com/",
+    features: ["access"],
+    catch_copy: "品川駅高輪口から徒歩4分。矯正歯科",
+    treatments: [
+      t("ortho_wire", 935_000, 1_155_000, "記載なし", "https://shinagawa-ortho.com/fee", "表側。公式サイトは税別表記のため、消費税10%を加えた額にしています（税別850,000〜1,050,000円）。検査・診断55,000円（税別50,000円）・保定装置片顎22,000円（税別20,000円）は別"),
+      t("ortho_lingual", 1_430_000, 1_650_000, "記載なし", "https://shinagawa-ortho.com/fee", "上下裏側。税別1,300,000〜1,500,000円に消費税10%を加えた額。ハーフリンガルは税別1,100,000〜1,300,000円。検査・診断55,000円・保定装置片顎22,000円は別"),
+      t("ortho_aligner", 550_000, 1_210_000, "記載なし", "https://shinagawa-ortho.com/fee", "インビザライン ライト〜フル。税別500,000〜1,100,000円に消費税10%を加えた額。検査・診断55,000円は別"),
+      t("ortho_partial", 110_000, 110_000, "記載なし", "https://shinagawa-ortho.com/fee", "1歯あたり。税別100,000円に消費税10%を加えた額。検査・診断55,000円は別"),
+    ],
+  }),
+  shinagawa1109({
+    id: id(125), slug: "anzai-shika-shinagawa", name: "安斎歯科",
+    address: "東京都港区港南2-16-3 品川グランドセントラルタワー1F", walk_minutes: 5, website_url: "https://anzaisika.info/",
+    features: ["access"],
+    catch_copy: "JR品川駅港南口から徒歩5分（土・日・祝休診）",
+    treatments: [
+      t("whitening_office", 33_000, 44_000, "記載なし", "https://anzaisika.info/treatment/whitening/", "初回44,000円・2回目以降33,000円"),
+      t("whitening_home", 44_000, 44_000, "記載なし", "https://anzaisika.info/treatment/whitening/", "初回。追加薬剤5,500円"),
+    ],
+  }),
+  shinagawa1109({
+    id: id(126), slug: "takanawa-kyousei-shika-iin", name: "高輪矯正歯科医院",
+    address: "東京都港区高輪3-25-23 京急第2ビル5F", walk_minutes: 2, website_url: "https://www.gold.or.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "品川駅高輪口から徒歩2分。土曜も診療（木・日・祝休診）",
+    treatments: [
+      t("ortho_wire", 800_000, 1_000_000, "記載なし", "https://www.gold.or.jp/charge/", "成人（2期治療）ラビアル。コンビネーション1,150,000円。検査料・調整料・保定装置の記載なし"),
+      t("ortho_lingual", 1_350_000, 1_350_000, "記載なし", "https://www.gold.or.jp/charge/", "成人（2期治療）リンガル。検査料・調整料・保定装置の記載なし"),
+      t("ortho_aligner", 950_000, 1_000_000, "記載なし", "https://www.gold.or.jp/charge/", "インビザライン。検査料・調整料・保定装置の記載なし"),
     ],
   }),
 ];
