@@ -52,6 +52,10 @@ const tokyoChuo1107 = at("tokyo", "東京駅", "中央区", "2026-11-07");
 const tokyo1108 = at("tokyo", "東京駅", "千代田区", "2026-11-08");
 const tokyoChuo1108 = at("tokyo", "東京駅", "中央区", "2026-11-08");
 const shinagawa1109 = at("shinagawa", "品川駅", "港区", "2026-11-09");
+const akihabara1110 = at("akihabara", "秋葉原駅", "千代田区", "2026-11-10");
+const akihabaraTaito1110 = at("akihabara", "秋葉原駅", "台東区", "2026-11-10");
+const akihabara1111 = at("akihabara", "秋葉原駅", "千代田区", "2026-11-11");
+const ueno1111 = at("ueno", "上野駅", "台東区", "2026-11-11");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -1528,6 +1532,215 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_wire", 800_000, 1_000_000, "記載なし", "https://www.gold.or.jp/charge/", "成人（2期治療）ラビアル。コンビネーション1,150,000円。検査料・調整料・保定装置の記載なし"),
       t("ortho_lingual", 1_350_000, 1_350_000, "記載なし", "https://www.gold.or.jp/charge/", "成人（2期治療）リンガル。検査料・調整料・保定装置の記載なし"),
       t("ortho_aligner", 950_000, 1_000_000, "記載なし", "https://www.gold.or.jp/charge/", "インビザライン。検査料・調整料・保定装置の記載なし"),
+    ],
+  }),
+  akihabaraTaito1110({
+    id: id(127), slug: "akihabara-sogo-shika", name: "秋葉原総合歯科クリニック",
+    address: "東京都台東区秋葉原1-9 1階", walk_minutes: 5, website_url: "https://akbtotaldc.com/",
+    features: ["weekend"],
+    catch_copy: "JR秋葉原駅中央改札から徒歩5分。土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 19_800, 118_800, "1〜8回", "https://akbtotaldc.com/fee/", "上下顎1回19,800円・4回コース59,400円・8回コース118,800円"),
+      t("ortho_wire", 770_000, 880_000, "記載なし", "https://akbtotaldc.com/fee/", "メタルワイヤー770,000円・ホワイトワイヤー880,000円。矯正検査33,000円・調整料5,500円・保定装置4,400〜11,000円は別"),
+      t("ortho_aligner", 550_000, 880_000, "記載なし", "https://akbtotaldc.com/fee/", "インビザライン ライト550,000円・ミドル750,000円・フル880,000円。矯正検査33,000円・調整料5,500円・保定装置4,400〜11,000円は別"),
+    ],
+  }),
+  akihabara1110({
+    id: id(128), slug: "akihabara-lyondor-kyousei", name: "秋葉原リヨンドール歯列矯正歯科クリニック",
+    address: "東京都千代田区神田佐久間町3-29-2", walk_minutes: 3, website_url: "https://www.akb-ortho.com/",
+    features: ["access", "weekend"],
+    catch_copy: "秋葉原駅から徒歩3分。土日も診療（水・木・祝休診）。マウスピース矯正",
+    treatments: [
+      t("ortho_aligner", 330_000, 1_100_000, "記載なし", "https://www.akb-ortho.com/price/", "インビザライン プチプラン385,000円・ライトプラン770,000円・フルプラン1,100,000円、アンジェラライナー330,000〜880,000円。検査・診断料55,000円〜は別。調整料・保定管理料は0円と記載"),
+    ],
+  }),
+  akihabara1110({
+    id: id(129), slug: "oral-design-clinic-akihabara", name: "オーラルデザインクリニック秋葉原 歯科＆矯正歯科",
+    address: "東京都千代田区外神田1-13-1 Akiba1131ビル4F", walk_minutes: 1, website_url: "https://oraldesign.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR秋葉原駅電気街口から徒歩1分。土曜も診療（金・日休診）",
+    treatments: [
+      t("whitening_office", 38_500, 38_500, "1回", "https://oraldesign.jp/price/", "スピードレーザーホワイトニング（1回・照射2回）"),
+      t("whitening_home", 12_000, 20_000, "記載なし", "https://oraldesign.jp/price/", "マウスピース片顎12,000円・上下20,000円。ジェル4,400円"),
+      t("ortho_wire", 990_000, 1_100_000, "記載なし", "https://oraldesign.jp/price/", "表側（クリア装置）990,000円・ハーフリンガル1,100,000円（通常価格。モニター価格は除く）。矯正検査33,000円・シミュレーション模型22,000円・毎回の診察料は別。保定装置の記載なし"),
+      t("ortho_lingual", 1_320_000, 1_320_000, "記載なし", "https://oraldesign.jp/price/", "裏側矯正（通常価格。モニター価格は除く）。矯正検査33,000円・シミュレーション模型22,000円・毎回の診察料は別。保定装置の記載なし"),
+      t("ortho_aligner", 605_000, 1_155_000, "記載なし", "https://oraldesign.jp/price/", "インビザライン ライト605,000円〜コンボ（抜歯・ワイヤー併用）1,155,000円（通常価格。モニター価格は除く）。矯正検査33,000円・毎回の診察料は別"),
+      t("ortho_partial", 110_000, 495_000, "記載なし", "https://oraldesign.jp/price/", "表側の部分矯正。初月110,000円・2か月目以降55,000円/月、上限495,000円（裏側は上限605,000円）。矯正検査33,000円は別"),
+    ],
+  }),
+  akihabara1110({
+    id: id(130), slug: "akihabara-harada-shika", name: "秋葉原原田歯科クリニック",
+    address: "東京都千代田区神田和泉町1-1-13 蓼沼ビル2F", walk_minutes: 1, website_url: "https://www.harada-dc.com/",
+    features: ["access"],
+    catch_copy: "JR秋葉原駅から徒歩1分（土・日・祝休診）",
+    treatments: [
+      t("whitening_office", 22_000, 22_000, "1回", "https://www.harada-dc.com/fee/", "公式サイトは税別表記のため、消費税10%を加えた額にしています（税別20,000円/回）"),
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://www.harada-dc.com/fee/", "税別20,000円に消費税10%を加えた額。ジェル1か月分は税別5,000円"),
+      t("ortho_partial", 418_000, 418_000, "記載なし", "https://www.harada-dc.com/fee/", "前歯部のみ（インビザラインiGO）。税別380,000円に消費税10%を加えた額。精密検査税別30,000円・fixリテーナー税別12,000円は別"),
+    ],
+  }),
+  akihabara1110({
+    id: id(131), slug: "grace-dental-akihabara", name: "グレイスデンタルクリニック",
+    address: "東京都千代田区神田松永町11 AT第一ビル2F", walk_minutes: 1, website_url: "https://www.grace-dc.info/",
+    features: ["access"],
+    catch_copy: "JR秋葉原駅中央改札口から徒歩1分（土・日・祝休診）",
+    treatments: [
+      t("whitening_office", 38_500, 38_500, "記載なし", "https://www.grace-dc.info/price/", "TiON オフィスホワイトニング"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.grace-dc.info/price/", "TiON ホームホワイトニング"),
+    ],
+  }),
+  akihabara1110({
+    id: id(132), slug: "suehirocho-shika-kyousei", name: "末広町歯科・矯正歯科",
+    address: "東京都千代田区外神田6-14-9 秋葉原MFビル28号館1階", walk_minutes: 6, website_url: "https://suehirodc.com/",
+    features: ["weekend"],
+    catch_copy: "JR秋葉原駅電気街口から徒歩6分。土日も診療（月・木・祝休診）",
+    treatments: [
+      t("whitening_office", 22_000, 66_000, "1〜4回", "https://suehirodc.com/price/", `上下顎1回22,000円・4回コース66,000円。${NO_TAX}`),
+      t("whitening_home", 20_000, 20_000, "記載なし", "https://suehirodc.com/price/", NO_TAX),
+      t("ortho_wire", 880_000, 950_000, "記載なし", "https://suehirodc.com/price/", `メタルワイヤー880,000円・ホワイトワイヤー950,000円。検査・診断33,000円・CT診断33,000円・調整料5,500円・保定装置4,400〜33,000円（片顎）は別。${NO_TAX}`),
+      t("ortho_aligner", 550_000, 880_000, "記載なし", "https://suehirodc.com/price/", `インビザライン ライト550,000円・ミドル750,000円・フル880,000円。検査・診断33,000円・CT診断33,000円・調整料5,500円・保定装置は別。${NO_TAX}`),
+      t("ortho_partial", 330_000, 550_000, "記載なし", "https://suehirodc.com/price/", `ブラケット前歯のみ330,000円・片顎450,000円、インビザライン片顎330,000円・上下顎550,000円。検査・診断33,000円・調整料5,500円・保定装置は別。${NO_TAX}`),
+    ],
+  }),
+  akihabara1110({
+    id: id(133), slug: "shiraishi-kyousei-shika", name: "白石矯正歯科",
+    address: "東京都千代田区神田和泉町1-2-19 石井ビル3F", walk_minutes: 3, website_url: "https://shiraishi-ortho.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR秋葉原駅昭和通り口から徒歩3分。土曜も診療（木・日休診）。矯正歯科",
+    treatments: [
+      t("ortho_wire", 935_000, 1_100_000, "記載なし", "https://shiraishi-ortho.com/about/treatmentfee.html", "表側。公式サイトは税別表記のため、消費税10%を加えた額にしています（税別850,000〜1,000,000円）。毎回の処置費0円・保定装置は治療費に含むと記載。検査・診断料の記載なし"),
+      t("ortho_lingual", 1_375_000, 1_529_000, "記載なし", "https://shiraishi-ortho.com/about/treatmentfee.html", "舌側。税別1,250,000〜1,390,000円に消費税10%を加えた額。毎回の処置費0円・保定装置は治療費に含むと記載。検査・診断料の記載なし"),
+    ],
+  }),
+  akihabara1110({
+    id: id(134), slug: "akihabara-kyousei-shika", name: "秋葉原矯正歯科",
+    address: "東京都千代田区神田佐久間町3-35 178ビル2階", walk_minutes: 3, website_url: "https://www.akihabara-kyousei.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR秋葉原駅から徒歩3分。土曜・第1日曜も診療（火・木・祝休診）。矯正歯科",
+    treatments: [
+      t("ortho_wire", 715_000, 715_000, "24〜30か月", "https://www.akihabara-kyousei.jp/cost/", "表側ブラケット。初診相談料2,200円・検査診断料33,000円・調整料5,500円/回・保定装置料33,000円は別"),
+      t("ortho_lingual", 1_155_000, 1_155_000, "24〜30か月", "https://www.akihabara-kyousei.jp/cost/", "舌側矯正装置。初診相談料2,200円・検査診断料33,000円・調整料5,500円/回・保定装置料33,000円は別"),
+      t("ortho_aligner", 990_000, 990_000, "記載なし", "https://www.akihabara-kyousei.jp/cost/", "マウスピース型矯正装置。初診相談料2,200円・検査診断料33,000円・調整料5,500円/回・保定装置料33,000円は別"),
+    ],
+  }),
+  akihabara1110({
+    id: id(135), slug: "kamijo-shika-iwamotocho", name: "上條歯科医院",
+    address: "東京都千代田区岩本町3-7-16 井門岩本町第2ビル2階", walk_minutes: 5, website_url: "https://www.e-kamijo.com/",
+    features: ["weekend"],
+    catch_copy: "JR秋葉原駅から徒歩5分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 30_800, 38_500, "1〜3回", "https://www.e-kamijo.com/price/", "1回30,800円・2回35,200円・3回38,500円"),
+      t("whitening_home", 33_000, 55_000, "記載なし", "https://www.e-kamijo.com/price/", "片顎（ジェル2本）33,000円・上下顎（ジェル3本）55,000円。追加ジェル1本3,300円"),
+      t("ortho_aligner", 330_000, 825_000, "記載なし", "https://www.e-kamijo.com/price/", "インビザライン マウスピース7枚まで330,000円〜枚数無制限825,000円。クリンチェック作成33,000円・スキャン2,200円・チェック料3,300円（1〜3か月毎）・リテーナー33,000円は別"),
+    ],
+  }),
+  akihabara1110({
+    id: id(136), slug: "nakagawa-shika-akihabara", name: "中川歯科クリニック",
+    address: "東京都千代田区神田和泉町1-3-4 青木ビル2F", walk_minutes: 3, website_url: "https://www.nakagawadent.net/",
+    features: ["access", "weekend"],
+    catch_copy: "JR秋葉原駅昭和通り口から徒歩3分。土曜も診療（木・日・祝休診）",
+    treatments: [
+      t("whitening_office", 39_600, 48_400, "記載なし", "https://nakagawadent.net/price/", "両顎。4-4（39,600円）・5-5（48,400円）"),
+      t("ortho_aligner", 825_000, 880_000, "記載なし", "https://nakagawadent.net/price/", "インビザライン 3年プラン825,000円・5年プラン880,000円。クリンチェック33,000円・リテーナー（全顎）33,000円は別。調整料の記載なし"),
+      t("ortho_partial", 440_000, 660_000, "記載なし", "https://nakagawadent.net/price/", "インビザラインGO（5-5）440,000円・GO Plus（6-6）660,000円。クリンチェック33,000円・GOリテーナー上下33,000円は別"),
+    ],
+  }),
+  akihabara1111({
+    id: id(137), slug: "oi-shika-akihabara", name: "大井歯科",
+    address: "東京都千代田区神田和泉町1-2-3 エクシト秋葉原 1階", walk_minutes: 2, website_url: "https://www.oi-dental.net/",
+    features: ["access", "weekend"],
+    catch_copy: "秋葉原駅昭和通り口から徒歩2分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 44_000, 44_000, "2回", "https://www.oi-dental.net/price/index.htm", `オフィスホワイトニング2回セット。公式サイトは「40,000円(44,000円)」と併記しており、括弧内の額を載せています。${NO_TAX}`),
+      t("whitening_home", 22_000, 33_000, "記載なし", "https://www.oi-dental.net/price/index.htm", `マウスピースオーダーメイドのセット33,000円・既製品（オパールエッセンスGO 上下10回分）22,000円。括弧内の額を載せています。${NO_TAX}`),
+      t("whitening_dual", 55_000, 55_000, "オフィス2回＋ホーム剤2本", "https://www.oi-dental.net/price/index.htm", `公式サイトは「50,000円(55,000円)」と併記しており、括弧内の額を載せています。${NO_TAX}`),
+    ],
+  }),
+  akihabara1111({
+    id: id(138), slug: "sotokanda-dental-office-tokyo", name: "外神田デンタルオフィス東京",
+    address: "東京都千代田区外神田1-9-1 住友不動産秋葉原ファーストビル・テラス2F", walk_minutes: 3, website_url: "https://www.sekokai-sotokanda.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR秋葉原駅電気街改札口から徒歩3分。土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 33_000, 55_000, "1〜3回", "https://www.sekokai-sotokanda.com/price/", "1回目33,000円（2回目11,000円）・Tionオフィスホワイトニング（3回）55,000円"),
+      t("whitening_home", 22_000, 33_000, "記載なし", "https://www.sekokai-sotokanda.com/price/", "片顎22,000円・上下33,000円。ホワイトニング材単品5,500円"),
+      t("whitening_dual", 55_000, 66_000, "記載なし", "https://www.sekokai-sotokanda.com/price/", "オフィス1回＋ホーム55,000円・ガムピーリング付き66,000円"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.sekokai-sotokanda.com/price/", "相談料（初診）8,800円・調整料8,800円/回は別。検査料・保定装置の記載なし"),
+      t("ortho_aligner", 660_000, 880_000, "記載なし", "https://www.sekokai-sotokanda.com/price/", "インビザライン ライト660,000円・モデレート770,000円・コンプリヘンシブ880,000円。調整料8,800円/回は別"),
+      t("ortho_partial", 220_000, 440_000, "記載なし", "https://www.sekokai-sotokanda.com/price/", "ワイヤー部分矯正。調整料8,800円/回は別"),
+    ],
+  }),
+  ueno1111({
+    id: id(139), slug: "senga-dental-ueno-marui", name: "千賀デンタルクリニック 上野マルイ医院",
+    address: "東京都台東区上野6-15-1 上野マルイ3階", walk_minutes: 2, website_url: "https://www.senga-dc-ueno.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR上野駅から徒歩2分。年中無休（ビルの休館日に準じる）",
+    treatments: [
+      t("whitening_office", 93_500, 93_500, "オフィス3回", "https://www.senga-dc-ueno.com/whitening/", "GLOW PLAN（オフィス3回）の料金（セルフ診断利用時の特別価格は除く）"),
+      t("whitening_home", 36_300, 36_300, "マウスピースとジェル6本", "https://www.senga-dc-ueno.com/whitening/", "DAILY PLANの料金（特別価格は除く）"),
+      t("whitening_dual", 60_500, 60_500, "オフィス1回とホームキット", "https://www.senga-dc-ueno.com/whitening/", "PERFECT PLANの料金（特別価格は除く）"),
+    ],
+  }),
+  ueno1111({
+    id: id(140), slug: "higashi-ueno-white-dental", name: "東上野ホワイトデンタル",
+    address: "東京都台東区東上野2-22-5 上野TSビル1階", walk_minutes: 4, website_url: "https://higashi-ueno-whitedental.com/",
+    features: ["weekend"],
+    catch_copy: "JR上野駅から徒歩4分。土曜も診療（金・日・祝休診）",
+    treatments: [
+      t("whitening_office", 36_300, 36_300, "記載なし", "https://higashi-ueno-whitedental.com/treatment/index.html", "オフィスプレミアムホワイトニング。自費初診料3,300円・再診料1,100円は別"),
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://higashi-ueno-whitedental.com/treatment/index.html", "自費初診料3,300円・再診料1,100円は別"),
+      t("whitening_dual", 63_800, 63_800, "記載なし", "https://higashi-ueno-whitedental.com/treatment/index.html", "デュアルプレミアムホワイトニング。自費初診料3,300円・再診料1,100円は別"),
+    ],
+  }),
+  ueno1111({
+    id: id(141), slug: "hitoshi-dental-ueno", name: "ひとしデンタルクリニック",
+    address: "東京都台東区上野2-11-10 小島ビル2F・8F", walk_minutes: 5, website_url: "https://hitoshi-dentalclinic.com/",
+    features: [],
+    catch_copy: "JR上野駅不忍口から徒歩5分",
+    treatments: [
+      t("whitening_office", 23_100, 23_100, "記載なし", "https://hitoshi-dentalclinic.com/ryoukin", "全歯・上下。公式サイトは税抜表記のため、消費税10%を加えた額にしています（税抜21,000円）"),
+      t("whitening_home", 56_100, 56_100, "記載なし", "https://hitoshi-dentalclinic.com/ryoukin", "税抜51,000円に消費税10%を加えた額"),
+      t("ortho_aligner", 400_000, 700_000, "記載なし", "https://hitoshi-dentalclinic.com/ryoukin", `インビザライン ファースト400,000円〜・フル700,000円。検査・診断料30,000円・調整料5,000円/月・リテーナー60,000円は別。${NO_TAX}`),
+      t("ortho_partial", 165_000, 275_000, "記載なし", "https://hitoshi-dentalclinic.com/ryoukin", "MTM矯正（部分矯正）。税抜150,000〜250,000円に消費税10%を加えた額"),
+    ],
+  }),
+  ueno1111({
+    id: id(142), slug: "ueno-shinagawa-shika-kyousei", name: "上野品川歯科・矯正歯科",
+    address: "東京都台東区上野6-16-21 西入ビル8F", walk_minutes: 2, website_url: "https://www.uenoshinagawa.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR上野駅から徒歩2分。土日も診療（木曜休診）",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "記載なし", "https://www.uenoshinagawa.com/price.html", `オパールエッセンスBOOST。${NO_TAX}`),
+      t("whitening_home", 44_000, 44_000, "記載なし", "https://www.uenoshinagawa.com/price.html", `初回44,000円・2クール目以降16,500円。${NO_TAX}`),
+      t("whitening_dual", 77_000, 77_000, "オフィス2回＋ホーム1回", "https://www.uenoshinagawa.com/price.html", NO_TAX),
+      t("ortho_wire", 1_100_000, 1_100_000, "記載なし", "https://www.uenoshinagawa.com/price.html", `ブラケット矯正。精密検査・診断料55,000円は別。調整料0円と記載。セラミックブラケット・ホワイトワイヤーは上下110,000円追加。${NO_TAX}`),
+      t("ortho_aligner", 1_320_000, 1_320_000, "記載なし", "https://www.uenoshinagawa.com/price.html", `インビザライン全顎。精密検査・診断料55,000円は別。調整料0円と記載。${NO_TAX}`),
+      t("ortho_partial", 495_000, 880_000, "記載なし", "https://www.uenoshinagawa.com/price.html", `インビザラインGO 片顎495,000円・上下660,000円、GO Plus 片顎660,000円・上下880,000円。部分の検査・診断11,000円は別。${NO_TAX}`),
+    ],
+  }),
+  ueno1111({
+    id: id(143), slug: "higashi-ueno-shika", name: "東上野歯科クリニック",
+    address: "東京都台東区東上野3-18-7 上野駅前ビル3F", walk_minutes: 1, website_url: "https://higashiueno.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR上野駅から徒歩1分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 22_000, 33_000, "記載なし", "https://higashiueno.com/price/", "片顎22,000円・全顎33,000円"),
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://higashiueno.com/price/", "全顎。追加の薬剤5,500円"),
+      t("whitening_dual", 55_000, 55_000, "記載なし", "https://higashiueno.com/price/"),
+      t("ortho_wire", 1_045_000, 1_045_000, "記載なし", "https://higashiueno.com/price/", "マルチブラケット（Ⅱ期治療）。検査・診断50,600円・調整料5,500円/回・保定装置11,000円は別"),
+      t("ortho_aligner", 1_320_000, 1_320_000, "記載なし", "https://higashiueno.com/price/", "インビザライン（Ⅱ期治療）。検査・診断50,600円・調整料5,500円/回・保定装置11,000円は別"),
+      t("ortho_partial", 495_000, 495_000, "記載なし", "https://higashiueno.com/price/", "片顎の部分矯正（MTM）。検査・診断50,600円・調整料5,500円/回は別"),
+    ],
+  }),
+  ueno1111({
+    id: id(144), slug: "suzuki-shika-ueno", name: "鈴木歯科",
+    address: "東京都台東区東上野3-35-1 鈴木ビル2F", walk_minutes: 5, website_url: "https://suzukishika-ueno.com/",
+    features: ["weekend"],
+    catch_copy: "JR上野駅から徒歩5分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 19_900, 33_000, "1回", "https://suzukishika-ueno.com/whitening/", "上下1回26,400円（クリーニング込み33,000円）・片顎13,200〜16,500円。前歯12本のオフィスホワイトニングプロ19,900円"),
+      t("whitening_home", 19_900, 66_000, "4週間分", "https://suzukishika-ueno.com/whitening/", "マウスピース製作込み。片顎38,500円・上下66,000円、全歯のスターターキット19,900円。追加ジェル1,320円/本"),
+      t("whitening_dual", 82_500, 110_000, "記載なし", "https://suzukishika-ueno.com/whitening/", "上下。オフィス1回＋ホーム82,500円・オフィス3回＋ホーム110,000円"),
     ],
   }),
 ];
