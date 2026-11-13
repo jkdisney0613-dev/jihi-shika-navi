@@ -59,6 +59,8 @@ const ueno1111 = at("ueno", "上野駅", "台東区", "2026-11-11");
 const ueno1112 = at("ueno", "上野駅", "台東区", "2026-11-12");
 const uenoBunkyo1112 = at("ueno", "上野駅", "文京区", "2026-11-12");
 const shimbashi1112 = at("shimbashi", "新橋駅", "港区", "2026-11-12");
+const shimbashi1113 = at("shimbashi", "新橋駅", "港区", "2026-11-13");
+const shimbashiChuo1113 = at("shimbashi", "新橋駅", "中央区", "2026-11-13");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -1864,6 +1866,72 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_wire", 660_000, 990_000, "記載なし", "https://boston-hanarabi.tokyo/price/", "上下。症例の難易度で変わります。片顎は半額。精密検査22,000円・調整料5,500円/回・保定装置66,000円（上下3セット）は別"),
       t("ortho_aligner", 550_000, 968_000, "記載なし", "https://boston-hanarabi.tokyo/price/", "インビザライン上下。症例の難易度で変わります。精密検査22,000円・保定装置66,000円は別。調整料は無料と記載"),
       t("ortho_partial", 330_000, 440_000, "記載なし", "https://boston-hanarabi.tokyo/price/", "ワイヤーの部分矯正。マウスピースの片顎（14枚まで）は330,000円"),
+    ],
+  }),
+  shimbashi1113({
+    id: id(155), slug: "tezuka-shika-clinic-shimbashi", name: "テヅカ歯科クリニック",
+    address: "東京都港区新橋3-4-8 昌栄ビル2F", walk_minutes: 5, website_url: "https://tezuka-dc.com/",
+    features: ["weekend"],
+    catch_copy: "JR新橋駅から徒歩約5分。土曜も診療（水・日・祝休診）",
+    treatments: [
+      t("whitening_office", 5_000, 5_000, "記載なし", "https://tezuka-dc.com/price", `クリーニング費用は別。${NO_TAX}`),
+      t("whitening_home", 13_000, 13_000, "記載なし", "https://tezuka-dc.com/price", `マウスピースとホワイトニング薬液2本のセット（13,000円〜）。${NO_TAX}`),
+    ],
+  }),
+  shimbashi1113({
+    id: id(156), slug: "inoue-shika-clinic-works-tokyo", name: "井上歯科CLINIC&WORKS TOKYO",
+    address: "東京都港区新橋5-8-2", walk_minutes: 5, website_url: "https://www.inouedental.tokyo/",
+    features: ["weekend"],
+    catch_copy: "JR新橋駅から徒歩5分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("ortho_aligner", 1_452_000, 1_452_000, "記載なし", "https://www.inouedental.tokyo/invisalign/", "インビザライン上下 税別1,320,000円〜に消費税10%を加えた額。保定装置は最初の費用に含むと記載。検査料の金額は記載なし"),
+      t("ortho_partial", 594_000, 594_000, "記載なし", "https://www.inouedental.tokyo/invisalign/", "インビザラインGO（上下）税別540,000円〜に消費税10%を加えた額"),
+    ],
+  }),
+  shimbashi1113({
+    id: id(157), slug: "healthylife-dental-clinic-shimbashi", name: "ヘルシーライフデンタルクリニック",
+    address: "東京都港区新橋1-17-2 ダイワロイネットホテル新橋B1F", walk_minutes: 3, website_url: "https://healthylife-dental.com/",
+    features: ["access"],
+    catch_copy: "JR新橋駅日比谷口から徒歩3分",
+    treatments: [
+      t("whitening_office", 22_000, 27_500, "2〜3クール", "https://healthylife-dental.com/medical/price.html", "BASIC（2クール）22,000円・HYPER（3クール）27,500円"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://healthylife-dental.com/medical/price.html", "ホームホワイトニングセット"),
+      t("whitening_dual", 44_000, 55_000, "記載なし", "https://healthylife-dental.com/medical/price.html", "トレー作成不要（オパールエッセンスGO）44,000円・トレー作成（オパールエッセンス）55,000円"),
+      t("ortho_aligner", 550_000, 1_099_200, "記載なし", "https://healthylife-dental.com/medical/price.html", "インビザライン全顎676,800〜1,099,200円、クリアコレクト全顎550,000円〜約983,400円（ステップ数で変動）。矯正処置料5,555円/回は別"),
+      t("ortho_wire", 1_100_000, 1_210_000, "記載なし", "https://healthylife-dental.com/medical/price.html", "ワイヤーによる全顎矯正。術前診査49,500円は別"),
+      t("ortho_partial", 330_000, 385_000, "記載なし", "https://healthylife-dental.com/medical/price.html", "前歯部矯正"),
+    ],
+  }),
+  shimbashi1113({
+    id: id(158), slug: "kato-shika-iin-nishishimbashi", name: "かとう歯科医院",
+    address: "東京都港区西新橋2-13-16 町田ビル1階", walk_minutes: 7, website_url: "https://www.03-3597-6480.com/",
+    features: ["weekend"],
+    catch_copy: "JR新橋駅烏森口から徒歩7分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 30_000, 30_000, "記載なし", "https://www.03-3597-6480.com/fee/index.html", "上下16本。通常料金（初回限定の割引価格は除く）"),
+      t("whitening_home", 30_000, 30_000, "1クール", "https://www.03-3597-6480.com/fee/index.html", "上下1クール"),
+      t("ortho_wire", 700_000, 700_000, "記載なし", "https://www.03-3597-6480.com/fee/index.html", "ブラケット矯正（全顎）700,000円〜"),
+      t("ortho_partial", 150_000, 150_000, "記載なし", "https://www.03-3597-6480.com/fee/index.html", "ブラケット矯正（部分矯正）150,000円〜"),
+    ],
+  }),
+  shimbashi1113({
+    id: id(159), slug: "koku-kaikan-tanaka-shika", name: "航空会館 田中歯科",
+    address: "東京都港区新橋1-18-1 航空会館6F", walk_minutes: 4, website_url: "https://tanakashikaclinic.jp/",
+    features: [],
+    catch_copy: "JR新橋駅から徒歩4分。土・日休診（第4土曜は診療）",
+    treatments: [
+      t("whitening_home", 39_600, 39_600, "上下12回分ずつ", "https://tanakashikaclinic.jp/price/", "ホームホワイトニング（上下顎12回分ずつ）"),
+    ],
+  }),
+  shimbashiChuo1113({
+    id: id(160), slug: "ginza-namikidori-sayumi-kyousei", name: "銀座並木通りさゆみ矯正歯科デンタルクリニック81",
+    address: "東京都中央区銀座7-5-5 長谷第一ビル6B", walk_minutes: 6, website_url: "https://www.ginza-soc.com/",
+    features: ["weekend"],
+    catch_copy: "JR新橋駅から徒歩6分。土曜も診療（水・日・祝休診）",
+    treatments: [
+      t("ortho_aligner", 550_000, 1_100_000, "記載なし", "https://www.ginza-soc.com/price/", "マウスピース矯正。検査33,000円〜・診断33,000円〜・保定装置44,000円（片顎）は別"),
+      t("ortho_wire", 880_000, 1_210_000, "記載なし", "https://www.ginza-soc.com/price/", "表側。検査33,000円〜・診断33,000円〜・保定装置44,000円（片顎）は別"),
+      t("ortho_lingual", 1_320_000, 1_540_000, "記載なし", "https://www.ginza-soc.com/price/", "裏側。ハーフは1,320,000〜1,430,000円。検査・診断・保定装置は別"),
     ],
   }),
 ];
