@@ -61,6 +61,8 @@ const uenoBunkyo1112 = at("ueno", "上野駅", "文京区", "2026-11-12");
 const shimbashi1112 = at("shimbashi", "新橋駅", "港区", "2026-11-12");
 const shimbashi1113 = at("shimbashi", "新橋駅", "港区", "2026-11-13");
 const shimbashiChuo1113 = at("shimbashi", "新橋駅", "中央区", "2026-11-13");
+const yurakucho1114 = at("yurakucho", "有楽町駅", "千代田区", "2026-11-14");
+const yurakuchoChuo1114 = at("yurakucho", "有楽町駅", "中央区", "2026-11-14");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -1932,6 +1934,123 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_aligner", 550_000, 1_100_000, "記載なし", "https://www.ginza-soc.com/price/", "マウスピース矯正。検査33,000円〜・診断33,000円〜・保定装置44,000円（片顎）は別"),
       t("ortho_wire", 880_000, 1_210_000, "記載なし", "https://www.ginza-soc.com/price/", "表側。検査33,000円〜・診断33,000円〜・保定装置44,000円（片顎）は別"),
       t("ortho_lingual", 1_320_000, 1_540_000, "記載なし", "https://www.ginza-soc.com/price/", "裏側。ハーフは1,320,000〜1,430,000円。検査・診断・保定装置は別"),
+    ],
+  }),
+  yurakucho1114({
+    id: id(161), slug: "tokyo-ginza-yurakucho-kyousei", name: "東京銀座有楽町矯正歯科",
+    address: "東京都千代田区有楽町2-10-1 東京交通会館2F", walk_minutes: 0, website_url: "https://www.tokyo-ginza-yurakucho-kyousei.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR有楽町駅直結。平日・土日祝とも10〜19時診療（完全予約制）",
+    treatments: [
+      t("ortho_aligner", 660_000, 880_000, "約6ヶ月〜（中央値）", "https://www.tokyo-ginza-yurakucho-kyousei.com/price/", "Pro（上下24本）660,000円・コンプリヘンシブ（全体）880,000円。初回の相談・3Dスキャン・レントゲン・診断は無料と記載。新しい保定装置は上下11,000円"),
+      t("ortho_partial", 150_000, 330_000, "約2〜4ヶ月（中央値）", "https://www.tokyo-ginza-yurakucho-kyousei.com/price/", "上下の前歯12本。Lite（軽度のみ・14枚まで）150,000円・Basic 330,000円"),
+    ],
+  }),
+  yurakucho1114({
+    id: id(162), slug: "alba-shika-yurakucho-marui", name: "ALBA歯科&矯正歯科 有楽町マルイ院",
+    address: "東京都千代田区有楽町2-7-1 有楽町マルイ5階", walk_minutes: 1, website_url: "https://alba-dental.com/yurakuchomarui/",
+    features: ["access", "weekend"],
+    catch_copy: "JR有楽町駅から徒歩約1分。月〜土は20時まで、日・祝も診療",
+    treatments: [
+      t("whitening_office", 27_500, 33_000, "60分", "https://alba-dental.com/price01/", "上下5番〜5番。ポリリン酸27,500円・ブースト33,000円"),
+      t("whitening_home", 16_500, 16_500, "記載なし", "https://alba-dental.com/price01/", "トレー片顎の料金。ジェルは1本1,100円"),
+      t("ortho_aligner", 435_000, 825_000, "記載なし", "https://alba-dental.com/price01/", "インビザライン ライト435,000円〜コンプリヘンシブ825,000円。精密検査55,000円・調整料3,300円/回は別"),
+    ],
+  }),
+  yurakucho1114({
+    id: id(163), slug: "yurakucho-dental-office", name: "有楽町デンタルオフィス",
+    address: "東京都千代田区有楽町1-7-1 有楽町電気ビルヂング北館3階", walk_minutes: 1, website_url: "https://yurakucho.or.jp/",
+    features: ["access"],
+    catch_copy: "JR有楽町駅から徒歩1分。土・日・祝休診",
+    treatments: [
+      t("whitening_office", 55_000, 55_000, "記載なし", "https://yurakucho.or.jp/price/", NO_TAX),
+      t("whitening_home", 55_000, 55_000, "記載なし", "https://yurakucho.or.jp/price/", `クリーニング・トレー・薬剤4本を含む。${NO_TAX}`),
+      t("ortho_wire", 880_000, 990_000, "記載なし", "https://yurakucho.or.jp/price/", `本格矯正。検査44,000円・診断11,000円・処置料5,500円/回は別。${NO_TAX}`),
+      t("ortho_aligner", 990_000, 990_000, "記載なし", "https://yurakucho.or.jp/price/", `検査44,000円・診断11,000円・処置料5,500円/回は別。${NO_TAX}`),
+      t("ortho_partial", 440_000, 440_000, "記載なし", "https://yurakucho.or.jp/price/", `検査44,000円・診断11,000円は別。${NO_TAX}`),
+    ],
+  }),
+  yurakucho1114({
+    id: id(164), slug: "whitewhite-lumine-yurakucho", name: "ホワイトホワイト ルミネ有楽町院",
+    address: "東京都千代田区有楽町2-5-1 LUMINE有楽町8階", walk_minutes: 1, website_url: "https://www.whitewhite.jp/iin_yurakucho/",
+    features: ["access", "weekend"],
+    catch_copy: "JR有楽町駅から徒歩1分。11時〜19時30分診療（月曜休診）",
+    treatments: [
+      t("whitening_dual", 77_814, 130_284, "オフィス3〜4回＋ホーム", "https://www.whitewhite.jp/white/price.html", "12本の場合。ベーシック3回77,814円〜ブライダル4回130,284円。歯の本数・回数で変わります"),
+      t("whitening_home", 16_500, 30_800, "記載なし", "https://www.whitewhite.jp/white/price.html", "トレー片顎＋ジェル2本16,500円・上下＋ジェル4本30,800円"),
+    ],
+  }),
+  yurakucho1114({
+    id: id(165), slug: "clear-shika-tokyo", name: "クリア歯科 東京院",
+    address: "東京都千代田区有楽町1-2-12 ダイハツ有楽町ビル3F", walk_minutes: 5, website_url: "https://clear-dental.jp/clinic/tokyo/",
+    features: ["weekend"],
+    catch_copy: "JR有楽町駅から徒歩5分。土曜も診療（水・日・祝休診）",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "1回約1〜2時間", "https://clear-dental.jp/aesthetic/whitening/", "上下"),
+      t("whitening_home", 28_600, 38_500, "約2週間", "https://clear-dental.jp/aesthetic/whitening/", "上下。レギュラー28,600円・クイック38,500円"),
+      t("whitening_dual", 44_000, 50_600, "記載なし", "https://clear-dental.jp/aesthetic/whitening/", "オフィス＋ホーム（上下）"),
+      t("ortho_wire", 528_000, 638_000, "約1〜3.5年", "https://clear-dental.jp/reform/bracket", "全顎。メタル528,000円・クリア638,000円。検査・保定装置を含む。調整料3,850円/回は別"),
+      t("ortho_lingual", 1_100_000, 1_100_000, "約2〜4年", "https://clear-dental.jp/reform/bracket", "全顎1,100,000円〜。調整料3,850円/回は別"),
+      t("ortho_aligner", 748_000, 748_000, "約1〜5年", "https://clear-dental.jp/reform/mouthpiece", "インビザライン全顎。診断・保定を含み、調整料は無料と記載"),
+      t("ortho_partial", 385_000, 385_000, "約6ヶ月〜1年", "https://clear-dental.jp/reform/mouthpiece", "インビザラインGO（前歯・軽度）"),
+    ],
+  }),
+  yurakuchoChuo1114({
+    id: id(166), slug: "purerio-shika-ginza-yurakucho", name: "ピュアリオ歯科・矯正歯科 銀座有楽町院",
+    address: "東京都中央区銀座1-4-8 銀座ビックウエストビル5号館5F", walk_minutes: 4, website_url: "https://purerio-ginza.com/",
+    features: ["weekend"],
+    catch_copy: "JR有楽町駅から徒歩約3〜4分。土日祝も診療（月・木休診）",
+    treatments: [
+      t("ortho_aligner", 440_000, 1_200_000, "記載なし", "https://purerio-ginza.com/price/", "枚数管理型（中等度〜）440,000〜1,056,000円、MINATOメソッド770,000〜1,200,000円。治療計画・シミュレーション71,500〜93,500円は別。調整料・保定管理料は無料と記載"),
+      t("ortho_partial", 176_000, 440_000, "記載なし", "https://purerio-ginza.com/price/", "枚数管理型の極軽度・軽度。治療計画・シミュレーション71,500円は別"),
+      t("whitening_office", 39_800, 39_800, "記載なし", "https://purerio-ginza.com/price/"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://purerio-ginza.com/price/"),
+    ],
+  }),
+  yurakuchoChuo1114({
+    id: id(167), slug: "ginza-shirayuri-shika", name: "銀座しらゆり歯科",
+    address: "東京都中央区銀座2-4-18 アルボーレ銀座5F", walk_minutes: 4, website_url: "https://www.shirayurishika.com/",
+    features: ["weekend"],
+    catch_copy: "JR有楽町駅から徒歩4分。平日は20時まで、土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 29_700, 29_700, "LED照射2〜3回", "https://www.shirayurishika.com/hiyou/whitening.html", "トリートメント込み。処置前クリーニング3,300円は別"),
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://www.shirayurishika.com/hiyou/whitening.html", "上下・ジェル2本"),
+      t("ortho_aligner", 550_000, 935_000, "記載なし", "https://www.shirayurishika.com/cost/ortho/", "インビザライン全体。初診・検査診断22,000円は別。調整・管理・保定装置の費用は総額に含むと記載"),
+      t("ortho_wire", 770_000, 1_155_000, "記載なし", "https://www.shirayurishika.com/cost/ortho/", "メタル77万〜99万円・クリア88万〜110万円・審美装置93.5万〜115.5万円。初診・検査診断22,000円は別"),
+      t("ortho_lingual", 990_000, 1_650_000, "記載なし", "https://www.shirayurishika.com/cost/ortho/", "ハーフリンガル99万〜132万円・フルリンガル110万〜165万円"),
+      t("ortho_partial", 220_000, 330_000, "記載なし", "https://www.shirayurishika.com/cost/ortho/", "インビザライン片顎（ライト330,000円・エクスプレス220,000円）"),
+    ],
+  }),
+  yurakuchoChuo1114({
+    id: id(168), slug: "miyamoto-shika-ginza", name: "宮本歯科",
+    address: "東京都中央区銀座3-2-12 銀座偕成ビル3F", walk_minutes: 3, website_url: "https://www.miyamotodental.com/",
+    features: [],
+    catch_copy: "JR有楽町駅から徒歩約3分。土・日・祝休診",
+    treatments: [
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.miyamotodental.com/fee", "ホームホワイトニングキット1キット。追加ジェル1本4,400円"),
+    ],
+  }),
+  yurakuchoChuo1114({
+    id: id(169), slug: "ginza-ku-shika", name: "銀座KU歯科",
+    address: "東京都中央区銀座6-2-3 Daiwa銀座アネックスビル3F", walk_minutes: 8, website_url: "https://www.ku-ginza.com/",
+    features: ["weekend"],
+    catch_copy: "JR有楽町駅から徒歩約8分。土曜も診療",
+    treatments: [
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.ku-ginza.com/treatment/orthodontics.html", "成人・表側（クリアブラケット）。調整料5,500円/回・保定装置33,000〜55,000円は別"),
+      t("ortho_lingual", 1_320_000, 1_650_000, "記載なし", "https://www.ku-ginza.com/treatment/orthodontics.html", "調整料8,800円/回・保定装置33,000〜55,000円は別"),
+      t("ortho_aligner", 770_000, 990_000, "記載なし", "https://www.ku-ginza.com/treatment/orthodontics.html", "上下。非抜歯770,000〜880,000円・抜歯935,000〜990,000円。保定装置33,000円は別"),
+      t("ortho_partial", 330_000, 385_000, "記載なし", "https://www.ku-ginza.com/treatment/orthodontics.html", "マウスピース片顎"),
+    ],
+  }),
+  yurakuchoChuo1114({
+    id: id(170), slug: "ginza-aoyama-you-kyousei-ginza", name: "銀座青山You矯正歯科 銀座医院",
+    address: "東京都中央区銀座5-5-18 銀座藤小西ビル5F", walk_minutes: 1, website_url: "https://www.bubunkyousei.com/you-ginza/",
+    features: ["weekend"],
+    catch_copy: "JR有楽町駅から徒歩1分。水・金・土曜に診療",
+    treatments: [
+      t("ortho_partial", 231_000, 396_000, "約6ヶ月", "https://www.bubunkyousei.com/you-ginza/", `表側ワイヤーの部分矯正（片顎の目安）。${NO_TAX}`),
+      t("ortho_aligner", 231_000, 1_210_000, "記載なし", "https://www.bubunkyousei.com/you-ginza/", `両顎。枚数（8〜30個）で変わり、非抜歯難症例・抜歯は1,210,000円。${NO_TAX}`),
+      t("ortho_wire", 990_000, 1_430_000, "記載なし", "https://www.bubunkyousei.com/you-ginza/", "メタルブラケットで上下全体（非抜歯）。難易度で変わります。セラミックブラケットは片側55,000円の追加"),
     ],
   }),
 ];
