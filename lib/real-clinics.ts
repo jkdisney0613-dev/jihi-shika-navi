@@ -64,6 +64,7 @@ const shimbashiChuo1113 = at("shimbashi", "新橋駅", "中央区", "2026-11-13"
 const yurakucho1114 = at("yurakucho", "有楽町駅", "千代田区", "2026-11-14");
 const yurakuchoChuo1114 = at("yurakucho", "有楽町駅", "中央区", "2026-11-14");
 const yurakuchoChuo1115 = at("yurakucho", "有楽町駅", "中央区", "2026-11-15");
+const osaki1116 = at("osaki", "大崎駅", "品川区", "2026-11-16");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -2166,6 +2167,98 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_wire", 1_100_000, 1_100_000, "記載なし", "https://www.ginzakyousei.com/treatment-guide/price/", "唇側矯正（一般）1,100,000円〜。基本検査55,000円は別。調整料・保定装置1セットは料金に含むと記載"),
       t("ortho_lingual", 1_320_000, 1_485_000, "記載なし", "https://www.ginzakyousei.com/treatment-guide/price/", "ハーフリンガル1,320,000円〜・裏側1,485,000円〜（一般）。基本検査55,000円は別"),
       t("ortho_aligner", 1_265_000, 1_265_000, "記載なし", "https://www.ginzakyousei.com/treatment-guide/price/", "1,265,000円〜。基本検査55,000円は別"),
+    ],
+  }),
+  osaki1116({
+    id: id(180), slug: "osaki-dental-office", name: "大崎デンタルオフィス",
+    address: "東京都品川区大崎1-11-1 ゲートシティ大崎ウエストタワー3F", walk_minutes: 1, website_url: "https://www.housei-kai.or.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR大崎駅から徒歩1分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 38_500, 38_500, "1回（照射10分×3回）", "https://www.housei-kai.or.jp/services/", "税別35,000円に消費税10%を足した額"),
+      t("ortho_lingual", 1_045_000, 1_045_000, "約24〜30ヶ月", "https://www.housei-kai.or.jp/orthodontics/", "税別950,000円に消費税10%を足した額。調整料 税別5,000円/月は別"),
+      t("ortho_partial", 440_000, 660_000, "約3〜6ヶ月", "https://www.housei-kai.or.jp/orthodontics/", "インビザラインGO。税別400,000〜600,000円に消費税10%を足した額。調整料 税別5,000円/月は別"),
+    ],
+  }),
+  osaki1116({
+    id: id(181), slug: "b-smile-shika-kyousei-shika", name: "Bスマイル歯科・矯正歯科",
+    address: "東京都品川区大崎2-7-17", walk_minutes: 5, website_url: "https://www.bunsmile.com/",
+    features: [],
+    catch_copy: "JR大崎駅南口・西口から徒歩約5分。一般歯科と矯正歯科",
+    treatments: [
+      t("whitening_office", 25_000, 25_000, "1回", "https://www.bunsmile.com/fee.html", NO_TAX),
+      t("whitening_home", 25_000, 25_000, "記載なし", "https://www.bunsmile.com/fee.html", NO_TAX + "。追加の薬剤5,000円"),
+      t("ortho_wire", 660_000, 880_000, "記載なし", "https://www.bunsmile.com/fee.html", "税別600,000〜800,000円（年齢で変わる）に消費税10%を足した額。検査 税別20,000円・診断 税別5,000円は別。動的治療中の調整料と保定1年目までは料金に含むと記載"),
+      t("ortho_lingual", 1_210_000, 1_430_000, "記載なし", "https://www.bunsmile.com/fee.html", "表側の料金＋上下の裏側 税別500,000円に消費税10%を足した額。検査・診断料は別"),
+      t("ortho_aligner", 990_000, 990_000, "記載なし", "https://www.bunsmile.com/fee.html", "インビザライン 税別900,000円に消費税10%を足した額。検査・診断料は別"),
+      t("ortho_partial", 110_000, 330_000, "記載なし", "https://www.bunsmile.com/fee.html", "税別100,000〜300,000円程度に消費税10%を足した額。検査・診断料は別"),
+    ],
+  }),
+  osaki1116({
+    id: id(182), slug: "osaki-oval-court-shika", name: "大崎オーバルコート歯科・矯正歯科室",
+    address: "東京都品川区東五反田2-16-1 ザ・パークタワー1F", walk_minutes: 4, website_url: "https://oval-dc.net/",
+    features: ["weekend"],
+    catch_copy: "JR大崎駅北口から徒歩約4分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 18_150, 18_150, "記載なし", "https://oval-dc.net/price", "前歯6本の料金"),
+      t("whitening_home", 38_500, 38_500, "記載なし", "https://oval-dc.net/price", "上下"),
+      t("whitening_dual", 51_150, 51_150, "記載なし", "https://oval-dc.net/price"),
+      t("ortho_aligner", 759_000, 880_000, "記載なし", "https://oval-dc.net/price", "全体。クリアコレクト759,000〜869,000円・インビザライン770,000〜880,000円。精密検査11,000円（クリアコレクト）・33,000円（インビザライン）は別"),
+      t("ortho_partial", 319_000, 550_000, "記載なし", "https://oval-dc.net/price", "前歯のみのマウスピース矯正。精密検査11,000〜33,000円は別"),
+    ],
+  }),
+  osaki1116({
+    id: id(183), slug: "sr-dental-clinic-osaki", name: "エスアールデンタルクリニック",
+    address: "東京都品川区大崎2-11-1 大崎ウィズシティテラス203", walk_minutes: 2, website_url: "https://sr-dental.tokyo/",
+    features: ["access"],
+    catch_copy: "JR大崎駅から徒歩2分。自由診療の歯科医院",
+    treatments: [
+      t("whitening_home", 21_780, 21_780, "記載なし", "https://sr-dental.tokyo/cost/", "上下"),
+      t("ortho_wire", 825_000, 935_000, "2年半〜3年", "https://sr-dental.tokyo/cost/", "白い装置＋金属色ワイヤー825,000円・白いワイヤー935,000円。検査診断料38,500円、調整料2,200円/回（再診料別）は別"),
+      t("ortho_lingual", 1_320_000, 1_320_000, "2年半〜3年", "https://sr-dental.tokyo/cost/", "検査診断料38,500円、調整料2,200円/回（再診料別）は別"),
+      t("ortho_aligner", 330_000, 1_100_000, "記載なし", "https://sr-dental.tokyo/cost/", "部分〜全顎。検査診断料38,500円、調整料2,200円/回（再診料別）は別"),
+      t("ortho_partial", 330_000, 1_100_000, "記載なし", "https://sr-dental.tokyo/cost/", "検査診断料38,500円、調整料2,200円/回（再診料別）は別"),
+    ],
+  }),
+  osaki1116({
+    id: id(184), slug: "k-shika-clinic-nishishinagawa", name: "K歯科クリニック",
+    address: "東京都品川区西品川2-14-6", walk_minutes: 8, website_url: "https://k-dental-shinagawa.com/",
+    features: [],
+    catch_copy: "JR大崎駅新西口から徒歩8分",
+    treatments: [
+      t("ortho_wire", 660_000, 770_000, "記載なし", "https://k-dental-shinagawa.com/straight/", "メタル税別600,000円・白い装置 税別700,000円に消費税10%を足した額。精密検査・診断54,000円（税込）、調整料 税別5,000円/回は別"),
+      t("ortho_partial", 88_000, 220_000, "記載なし", "https://k-dental-shinagawa.com/straight/", "税別80,000〜200,000円に消費税10%を足した額。精密検査・診断54,000円（税込）は別"),
+    ],
+  }),
+  osaki1116({
+    id: id(185), slug: "nagashima-dental-office", name: "長嶋デンタルオフィス",
+    address: "東京都品川区西品川2-9-4", walk_minutes: 10, website_url: "https://dental-office-nagashima.com/",
+    features: [],
+    catch_copy: "JR大崎駅から徒歩10分",
+    treatments: [
+      t("ortho_wire", 1_100_000, 1_100_000, "記載なし", "https://dental-office-nagashima.com/medical/orthodontics/", "精密検査・診断料55,000円は別。X線写真などの検査も別途費用"),
+      t("ortho_aligner", 1_100_000, 1_100_000, "記載なし", "https://dental-office-nagashima.com/medical/orthodontics/", "クリアコレクト全体矯正。精密検査・診断料55,000円は別。X線写真などの検査も別途費用"),
+      t("ortho_partial", 220_000, 220_000, "記載なし", "https://dental-office-nagashima.com/medical/orthodontics/", "MTM。精密検査・診断料55,000円は別"),
+    ],
+  }),
+  osaki1116({
+    id: id(186), slug: "osaki-west-city-towers-shika", name: "大崎ウエストシティタワーズ歯科",
+    address: "東京都品川区大崎2-9-1 大崎ウエストシティタワーズ SB101", walk_minutes: 3, website_url: "https://owct-dental.jp/",
+    features: ["weekend"],
+    catch_copy: "JR大崎駅からデッキ直結で徒歩約3分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 27_500, 27_500, "1回", "https://owct-dental.jp/whitening/", "初回（第一小臼歯まで16本）。2回目以降は16,500円"),
+    ],
+  }),
+  osaki1116({
+    id: id(187), slug: "osaki-bright-tower-shika", name: "大崎ブライトタワー歯科クリニック",
+    address: "東京都品川区北品川5-6-1 大崎ブライトタワー2F", walk_minutes: 4, website_url: "https://www.osakibt-dental.com/",
+    features: [],
+    catch_copy: "JR大崎駅新東口から徒歩4分（土・日・祝休診）",
+    treatments: [
+      t("whitening_office", 37_400, 37_400, "記載なし", "https://www.osakibt-dental.com/price", "上下（上だけは28,600円）"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.osakibt-dental.com/price", "上下（上だけは22,000円、マウスピースがある場合22,000円）"),
+      t("whitening_dual", 60_500, 60_500, "記載なし", "https://www.osakibt-dental.com/price"),
     ],
   }),
 ];
