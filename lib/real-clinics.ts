@@ -65,6 +65,8 @@ const yurakucho1114 = at("yurakucho", "有楽町駅", "千代田区", "2026-11-1
 const yurakuchoChuo1114 = at("yurakucho", "有楽町駅", "中央区", "2026-11-14");
 const yurakuchoChuo1115 = at("yurakucho", "有楽町駅", "中央区", "2026-11-15");
 const osaki1116 = at("osaki", "大崎駅", "品川区", "2026-11-16");
+const osaki1117 = at("osaki", "大崎駅", "品川区", "2026-11-17");
+const gotanda1117 = at("gotanda", "五反田駅", "品川区", "2026-11-17");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -2259,6 +2261,126 @@ export const REAL_CLINICS: Clinic[] = [
       t("whitening_office", 37_400, 37_400, "記載なし", "https://www.osakibt-dental.com/price", "上下（上だけは28,600円）"),
       t("whitening_home", 33_000, 33_000, "記載なし", "https://www.osakibt-dental.com/price", "上下（上だけは22,000円、マウスピースがある場合22,000円）"),
       t("whitening_dual", 60_500, 60_500, "記載なし", "https://www.osakibt-dental.com/price"),
+    ],
+  }),
+  osaki1117({
+    id: id(188), slug: "osaki-square-shika-kyousei", name: "大崎スクエア歯科・矯正歯科",
+    address: "東京都品川区大崎1-5-1 大崎センタービル2階 201区画", walk_minutes: 3, website_url: "https://www.osaki-square-dc.com/",
+    features: [],
+    catch_copy: "JR大崎駅新東口から徒歩3分",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "記載なし", "https://www.osaki-square-dc.com/price", NO_TAX + "。上下"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.osaki-square-dc.com/price", NO_TAX + "。上下。追加ジェル2本3,300円"),
+      t("whitening_dual", 55_000, 55_000, "記載なし", "https://www.osaki-square-dc.com/price", NO_TAX),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://www.osaki-square-dc.com/price", NO_TAX + "。検査・診断30,000円、調整料5,500円/月、保定装置44,000円（上下）は別"),
+      t("ortho_lingual", 1_320_000, 1_320_000, "記載なし", "https://www.osaki-square-dc.com/price", NO_TAX + "。上下。検査・診断30,000円、調整料5,500円/月、保定装置44,000円は別"),
+      t("ortho_aligner", 935_000, 935_000, "記載なし", "https://www.osaki-square-dc.com/price", NO_TAX + "。インビザライン。検査・診断30,000円、調整料5,500円/月、保定装置44,000円は別"),
+      t("ortho_partial", 110_000, 550_000, "記載なし", "https://www.osaki-square-dc.com/price", NO_TAX + "。検査・診断30,000円は別"),
+    ],
+  }),
+  gotanda1117({
+    id: id(189), slug: "atre-gotanda-city-dental", name: "アトレ五反田シティデンタルクリニック",
+    address: "東京都品川区東五反田1-26-14 アトレ五反田1 5階", walk_minutes: 1, website_url: "https://www.gotanda-shika.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR五反田駅直結。年中無休で10:30〜20:30診療",
+    treatments: [
+      t("whitening_office", 27_500, 27_500, "記載なし", "https://www.gotanda-shika.com/treatment/", "上下。税別25,000円に消費税10%を足した額（片顎は税別15,000円）"),
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://www.gotanda-shika.com/treatment/", "上下。税別25,000円に消費税10%を足した額（片顎は税別15,000円）"),
+      t("whitening_dual", 44_000, 44_000, "記載なし", "https://www.gotanda-shika.com/treatment/", "上下。税別40,000円に消費税10%を足した額"),
+      t("ortho_wire", 770_000, 880_000, "記載なし", "https://www.gotanda-shika.com/treatment/", "税別700,000〜800,000円（装置で変わる）に消費税10%を足した額。精密検査・診断 税別30,000円、調整料 税別5,000円、保定装置 税別30,000円は別"),
+      t("ortho_aligner", 440_000, 935_000, "記載なし", "https://www.gotanda-shika.com/treatment/", "インビザライン両顎 税別400,000〜850,000円に消費税10%を足した額。精密検査・診断 税別30,000円、調整料 税別5,000円、保定装置 税別30,000円は別"),
+      t("ortho_partial", 110_000, 550_000, "記載なし", "https://www.gotanda-shika.com/treatment/", "税別100,000〜500,000円（症状で変わる）に消費税10%を足した額。精密検査・診断 税別30,000円は別"),
+    ],
+  }),
+  gotanda1117({
+    id: id(190), slug: "tsutsumi-shika-clinic", name: "ツツミ歯科クリニック",
+    address: "東京都品川区西五反田3-7-1", walk_minutes: 7, website_url: "https://www.t-dent.info/",
+    features: [],
+    catch_copy: "JR五反田駅から徒歩約7分（月・木休診）",
+    treatments: [
+      t("ortho_wire", 750_000, 890_000, "1年前後〜3年位", "https://www.t-dent.info/adult_correction/", NO_TAX + "。デーモンシステム750,000円・デーモンクリア890,000円。再診料5,500円は別"),
+      t("ortho_lingual", 1_400_000, 1_400_000, "1年前後〜3年位", "https://www.t-dent.info/adult_correction/", NO_TAX + "。上下。再診料5,500円は別"),
+      t("ortho_aligner", 500_000, 950_000, "記載なし", "https://www.t-dent.info/adult_correction/", NO_TAX + "。インビザライン（終了まで）。再診料5,500円は別"),
+    ],
+  }),
+  gotanda1117({
+    id: id(191), slug: "gotanda-shika-nishigotanda", name: "五反田歯科",
+    address: "東京都品川区西五反田7-24-1 1F", walk_minutes: 8, website_url: "https://www.gotandadental.com/",
+    features: [],
+    catch_copy: "JR五反田駅から徒歩8分",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "記載なし", "https://www.gotandadental.com/whitening/"),
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://www.gotandadental.com/whitening/", "上下（片顎11,000円）。ジェル代1,650〜2,750円は別"),
+      t("ortho_aligner", 880_000, 880_000, "記載なし", "https://www.gotandadental.com/kyousei/", "インビザライン全体矯正。治療完了までの費用を含むと記載"),
+      t("ortho_partial", 550_000, 550_000, "記載なし", "https://www.gotandadental.com/kyousei/", "インビザライン部分矯正。治療完了までの費用を含むと記載"),
+    ],
+  }),
+  gotanda1117({
+    id: id(192), slug: "gotanda-ekimae-haisha", name: "五反田駅前歯医者",
+    address: "東京都品川区西五反田1-5-2 トラヤビル3階", walk_minutes: 0, website_url: "https://gotanda-dc.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR五反田駅から徒歩0分。年末年始以外は診療",
+    treatments: [
+      t("whitening_office", 55_000, 55_000, "1回", "https://gotanda-dc.jp/price/"),
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://gotanda-dc.jp/price/"),
+      t("whitening_dual", 77_000, 77_000, "記載なし", "https://gotanda-dc.jp/price/"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://gotanda-dc.jp/price/", "検査・診断33,000円、調整・観察料5,500円/月、保定装置55,000円は別"),
+      t("ortho_lingual", 1_320_000, 1_320_000, "記載なし", "https://gotanda-dc.jp/price/", "検査・診断33,000円、調整・観察料5,500円/月、保定装置55,000円は別"),
+      t("ortho_aligner", 990_000, 1_100_000, "記載なし", "https://gotanda-dc.jp/price/", "インビザライン。検査・診断33,000円、調整・観察料5,500円/月、保定装置55,000円は別"),
+      t("ortho_partial", 660_000, 660_000, "記載なし", "https://gotanda-dc.jp/price/", "インビザラインGO。撮影・スキャン、診断、保定装置（ビベラ）を含む内訳で記載"),
+    ],
+  }),
+  gotanda1117({
+    id: id(193), slug: "okuchiplus-tokyo-gotanda", name: "お口プラス東京五反田院",
+    address: "東京都品川区西五反田1-23-7 五反田シティトラストビル1階", walk_minutes: 3, website_url: "https://okuchiplus.jp/clinic/gotanda/",
+    features: ["weekend"],
+    catch_copy: "JR五反田駅から徒歩3分。平日は20時まで、土曜も診療（日・祝休診）",
+    treatments: [
+      t("ortho_aligner", 300_000, 700_000, "約6ヶ月〜約5年", "https://okuchiplus.jp/clinic/gotanda/mouthpiece/", NO_TAX + "。クリアコレクトの目安費用（MINI 30万円〜UNLIMITED 70万円）"),
+    ],
+  }),
+  gotanda1117({
+    id: id(194), slug: "yokoyama-shika-clinic-gotanda", name: "横山歯科クリニック",
+    address: "東京都品川区東五反田5-27-10 第一野村ビル3階", walk_minutes: 1, website_url: "https://yokoyama-d-clinic.com/",
+    features: ["access"],
+    catch_copy: "JR五反田駅から徒歩1分",
+    treatments: [
+      t("ortho_wire", 605_000, 770_000, "記載なし", "https://yokoyama-d-clinic.com/adult_correct/", "装置で変わる。精密検査・診断55,000円、調整料5,500円/月、保定装置33,000円は別"),
+      t("ortho_aligner", 550_000, 715_000, "記載なし", "https://yokoyama-d-clinic.com/adult_correct/", "シュアスマイル（軽度〜重度）。精密検査・診断55,000円、調整料5,500円/月、保定装置33,000円は別"),
+      t("ortho_partial", 110_000, 352_000, "記載なし", "https://yokoyama-d-clinic.com/adult_correct/", "MTM1歯110,000円・前歯のみ352,000円。精密検査・診断55,000円は別"),
+    ],
+  }),
+  gotanda1117({
+    id: id(195), slug: "m-dental-office-gotanda", name: "エムデンタルオフィス",
+    address: "東京都品川区東五反田1-14-11 須賀ビル3階", walk_minutes: 1, website_url: "https://www.m-dental-office.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR五反田駅から徒歩1分。平日は20時まで、土曜も診療（水・日・祝休診）",
+    treatments: [
+      t("whitening_home", 55_000, 55_000, "記載なし", "https://www.m-dental-office.jp/price.html", "税別50,000円に消費税10%を足した額"),
+      t("ortho_wire", 660_000, 660_000, "記載なし", "https://www.m-dental-office.jp/price.html", "税別600,000円に消費税10%を足した額。診査代 税別50,000円、調整代 税別5,000円は別"),
+      t("ortho_partial", 110_000, 110_000, "記載なし", "https://www.m-dental-office.jp/price.html", "片側 税別100,000円〜に消費税10%を足した額"),
+    ],
+  }),
+  gotanda1117({
+    id: id(196), slug: "kosaka-kyousei-shika", name: "小坂矯正歯科",
+    address: "東京都品川区東五反田5-28-9 五反田第3花谷ビル3F", walk_minutes: 1, website_url: "https://www.kosaka-ortho.jp/",
+    features: ["access"],
+    catch_copy: "JR五反田駅東口から徒歩約1分。矯正歯科（木・日・祝休診）",
+    treatments: [
+      t("ortho_wire", 880_000, 935_000, "記載なし", "https://www.kosaka-ortho.jp/price/", "18歳以上・表側の全体治療。検査・診断49,500円、調整料5,250円/回は別"),
+      t("ortho_lingual", 1_100_000, 1_250_000, "記載なし", "https://www.kosaka-ortho.jp/price/", "ハーフ・フルリンガル。検査・診断49,500円、調整料6,300円/回は別"),
+      t("ortho_aligner", 330_000, 880_000, "記載なし", "https://www.kosaka-ortho.jp/price/", "検査・診断49,500円、調整料3,700円/回は別"),
+      t("ortho_partial", 275_000, 550_000, "記載なし", "https://www.kosaka-ortho.jp/price/", "部分治療の検査・診断27,500円、調整料5,250円/回は別"),
+    ],
+  }),
+  gotanda1117({
+    id: id(197), slug: "sato-shika-iin-gotanda", name: "佐藤歯科医院",
+    address: "東京都品川区東五反田1-12-12 落合ビル1F", walk_minutes: 3, website_url: "https://sato-sika.com/",
+    features: [],
+    catch_copy: "JR五反田駅東口から徒歩約3分",
+    treatments: [
+      t("whitening_office", 22_000, 22_000, "1回", "https://sato-sika.com/treatments/aesthetic/", "上下10本〜（1本2,200円）"),
+      t("whitening_home", 38_500, 38_500, "記載なし", "https://sato-sika.com/treatments/aesthetic/", "スターティングキット（上下）。追加ペースト5,500円"),
     ],
   }),
 ];
