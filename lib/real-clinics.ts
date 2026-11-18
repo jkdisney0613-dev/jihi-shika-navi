@@ -67,6 +67,7 @@ const yurakuchoChuo1115 = at("yurakucho", "有楽町駅", "中央区", "2026-11-
 const osaki1116 = at("osaki", "大崎駅", "品川区", "2026-11-16");
 const osaki1117 = at("osaki", "大崎駅", "品川区", "2026-11-17");
 const gotanda1117 = at("gotanda", "五反田駅", "品川区", "2026-11-17");
+const gotanda1118 = at("gotanda", "五反田駅", "品川区", "2026-11-18");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -2381,6 +2382,86 @@ export const REAL_CLINICS: Clinic[] = [
     treatments: [
       t("whitening_office", 22_000, 22_000, "1回", "https://sato-sika.com/treatments/aesthetic/", "上下10本〜（1本2,200円）"),
       t("whitening_home", 38_500, 38_500, "記載なし", "https://sato-sika.com/treatments/aesthetic/", "スターティングキット（上下）。追加ペースト5,500円"),
+    ],
+  }),
+  gotanda1118({
+    id: id(198), slug: "gotanda-na-shika", name: "五反田エヌ・エイ歯科",
+    address: "東京都品川区西五反田1-33-10 西五反田サインタワー2F", walk_minutes: 3, website_url: "https://na-dental-clinic.com/",
+    features: [],
+    catch_copy: "JR五反田駅から徒歩約3分",
+    treatments: [
+      t("whitening_office", 22_000, 22_000, "記載なし", "https://na-dental-clinic.com/cost"),
+      t("whitening_home", 16_000, 16_000, "記載なし", "https://na-dental-clinic.com/cost", "オパールエッセンスGO 10回分"),
+      t("ortho_aligner", 770_000, 880_000, "記載なし", "https://na-dental-clinic.com/cost", "アライナー型矯正（非抜歯軽度770,000円〜抜歯880,000円）。検査料16,500円・診断料33,000円は別。アンカースクリューなどの特殊加算は別"),
+    ],
+  }),
+  gotanda1118({
+    id: id(199), slug: "gotanda-t-smile-dental", name: "五反田 T smile デンタルクリニック",
+    address: "東京都品川区西五反田2-1-22 五反田プラネットビル1F", walk_minutes: 5, website_url: "https://tsmiledc.com/",
+    features: ["weekend"],
+    catch_copy: "JR五反田駅西口から徒歩約5分。土日も診療（木・祝休診）",
+    treatments: [
+      t("whitening_office", 27_500, 27_500, "記載なし", "https://tsmiledc.com/price-list/"),
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://tsmiledc.com/price-list/"),
+      t("ortho_aligner", 770_000, 880_000, "記載なし", "https://tsmiledc.com/price-list/", "マウスピース矯正。歯並びで変わり、検査後に確定すると記載"),
+    ],
+  }),
+  gotanda1118({
+    id: id(200), slug: "gotanda-mitome-shika", name: "五反田みとめ歯科",
+    address: "東京都品川区西五反田1-18-9 五反田NTビル1F", walk_minutes: 3, website_url: "https://www.mitome-dc.jp/",
+    features: ["weekend"],
+    catch_copy: "五反田駅から徒歩3分。土曜も診療（木・日・祝休診）",
+    treatments: [
+      t("whitening_office", 59_000, 59_000, "記載なし", "https://www.mitome-dc.jp/clinic/fee/", "全顎。60分のPMTC費用を含む"),
+      t("whitening_home", 49_000, 49_000, "記載なし", "https://www.mitome-dc.jp/clinic/fee/", "全顎。60分のPMTC費用を含む"),
+      t("whitening_dual", 85_000, 85_000, "記載なし", "https://www.mitome-dc.jp/clinic/fee/", "オフィス・ホーム同時2種契約（全顎）。60分のPMTC費用を含む"),
+    ],
+  }),
+  gotanda1118({
+    id: id(201), slug: "youkou-shika-clinic", name: "陽光歯科クリニック",
+    address: "東京都品川区西五反田8-4-15 東京モリスビル第二3階", walk_minutes: 4, website_url: "https://youkoudental.com/",
+    features: ["weekend"],
+    catch_copy: "山手線五反田駅から徒歩4分。土曜も診療（第4土・日・祝休診）",
+    treatments: [
+      t("whitening_office", 16_500, 38_500, "3回〜7回", "https://youkoudental.com/whitening.html", "3回コース 税別15,000円・7回コース 税別35,000円に消費税10%を足した額"),
+    ],
+  }),
+  gotanda1118({
+    id: id(202), slug: "gotanda-lumiria-kyousei", name: "五反田駅前ルミリア矯正歯科オーラルビューティー",
+    address: "東京都品川区東五反田5-27-5 5セントラルビル4F", walk_minutes: 1, website_url: "https://gotanda-kyousei-shika.clinic/",
+    features: ["access", "weekend"],
+    catch_copy: "JR五反田駅東口から徒歩1分。土日祝も診療（不定休）",
+    treatments: [
+      t("whitening_office", 38_500, 38_500, "記載なし", "https://gotanda-kyousei-shika.clinic/price/", "2回目以降33,000円"),
+      t("ortho_wire", 825_000, 880_000, "記載なし", "https://gotanda-kyousei-shika.clinic/price/", "メタル825,000円・ホワイトワイヤー880,000円。検査診断料33,000円、処置料5,500円、保定装置22,000〜33,000円（プレートは片顎33,000円）は別"),
+      t("ortho_lingual", 1_210_000, 1_540_000, "記載なし", "https://gotanda-kyousei-shika.clinic/price/", "ハーフリンガル1,210,000円・フルリンガル1,540,000円。検査診断料33,000円、処置料5,500円、保定装置は別"),
+      t("ortho_aligner", 990_000, 990_000, "記載なし", "https://gotanda-kyousei-shika.clinic/price/", "検査診断料33,000円、処置料5,500円、保定装置は別"),
+      t("ortho_partial", 385_000, 495_000, "記載なし", "https://gotanda-kyousei-shika.clinic/price/", "表側ワイヤー385,000円・マウスピース495,000円。検査診断料33,000円は別"),
+    ],
+  }),
+  gotanda1118({
+    id: id(203), slug: "suzuki-shika-gotanda-g-tower", name: "すずき歯科五反田Gタワークリニック",
+    address: "東京都品川区西五反田1-7-1 リビオ五反田プラグマGタワー3F", walk_minutes: 1, website_url: "https://www.gtower-dental.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "JR五反田駅西口から徒歩1分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 49_500, 49_500, "記載なし", "https://www.gtower-dental.jp/price.html", "全顎（上下10本ずつ計20本）。片顎24,750円"),
+      t("whitening_home", 33_000, 38_500, "記載なし", "https://www.gtower-dental.jp/price.html", "全顎。薬剤濃度10%は33,000円・16%は38,500円"),
+      t("whitening_dual", 77_000, 82_500, "記載なし", "https://www.gtower-dental.jp/price.html", "全顎。薬剤濃度10%は77,000円・16%は82,500円"),
+      t("ortho_wire", 770_000, 880_000, "記載なし", "https://www.gtower-dental.jp/price.html", "永久歯列期。金属の装置770,000円・セラミックの装置880,000円。検査・診断38,500円（別施設でのX線撮影11,000〜16,500円）、処置料5,500円/回、観察料3,300円/回は別"),
+      t("ortho_aligner", 1_210_000, 1_210_000, "記載なし", "https://www.gtower-dental.jp/price.html", "インビザライン（永久歯列期）。検査・診断38,500円、処置料5,500円/回、観察料3,300円/回は別"),
+    ],
+  }),
+  gotanda1118({
+    id: id(204), slug: "gotanda-maruoka-shika", name: "まるおか歯科",
+    address: "東京都品川区東五反田1-22-6 五反田さくらビル2F", walk_minutes: 5, website_url: "https://www.maruoka-dental.or.jp/",
+    features: ["weekend"],
+    catch_copy: "五反田駅から徒歩5分。月〜木は21時まで、土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 17_600, 44_000, "1回", "https://www.maruoka-dental.or.jp/treatment/whitening.html", "オフィスホワイトニング17,600円・VIPオフィスホワイトニング44,000円（各1回）"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.maruoka-dental.or.jp/treatment/whitening.html", "マウスピース作製のみの料金"),
+      t("ortho_wire", 770_000, 770_000, "記載なし", "https://www.maruoka-dental.or.jp/treatment/ortho.html", "全顎矯正の装置代 税別700,000円〜に消費税10%を足した額（最低額）。診断料 税別30,000円、調整料 税別5,000円/回は別"),
+      t("ortho_partial", 385_000, 385_000, "記載なし", "https://www.maruoka-dental.or.jp/treatment/ortho.html", "部分矯正の装置代 税別350,000円〜に消費税10%を足した額（最低額）。診断料 税別30,000円、調整料 税別5,000円/回は別"),
     ],
   }),
 ];
