@@ -68,6 +68,7 @@ const osaki1116 = at("osaki", "大崎駅", "品川区", "2026-11-16");
 const osaki1117 = at("osaki", "大崎駅", "品川区", "2026-11-17");
 const gotanda1117 = at("gotanda", "五反田駅", "品川区", "2026-11-17");
 const gotanda1118 = at("gotanda", "五反田駅", "品川区", "2026-11-18");
+const meguro1119 = at("meguro", "目黒駅", "品川区", "2026-11-19");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -2462,6 +2463,115 @@ export const REAL_CLINICS: Clinic[] = [
       t("whitening_home", 33_000, 33_000, "記載なし", "https://www.maruoka-dental.or.jp/treatment/whitening.html", "マウスピース作製のみの料金"),
       t("ortho_wire", 770_000, 770_000, "記載なし", "https://www.maruoka-dental.or.jp/treatment/ortho.html", "全顎矯正の装置代 税別700,000円〜に消費税10%を足した額（最低額）。診断料 税別30,000円、調整料 税別5,000円/回は別"),
       t("ortho_partial", 385_000, 385_000, "記載なし", "https://www.maruoka-dental.or.jp/treatment/ortho.html", "部分矯正の装置代 税別350,000円〜に消費税10%を足した額（最低額）。診断料 税別30,000円、調整料 税別5,000円/回は別"),
+    ],
+  }),
+  meguro1119({
+    id: id(205), slug: "meguro-matsui-dental", name: "目黒まついデンタルクリニック",
+    address: "東京都品川区上大崎2-27-3 目黒駅前山田ビル2F", walk_minutes: 1, website_url: "https://mm-dc.jp/",
+    features: ["access", "weekend"],
+    catch_copy: "目黒駅から徒歩1分。土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 19_800, 19_800, "1回", "https://mm-dc.jp/price/"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://mm-dc.jp/price/", "ホームホワイトニング スターターキット"),
+      t("whitening_dual", 50_000, 50_000, "記載なし", "https://mm-dc.jp/price/"),
+      t("ortho_wire", 715_000, 770_000, "記載なし", "https://mm-dc.jp/price/", "成人の表側矯正。メタルワイヤー715,000円・ホワイトワイヤー770,000円。検査診断33,000円、調整料5,500円/回、保定装置（リテーナー）55,000円は別"),
+      t("ortho_lingual", 935_000, 1_100_000, "記載なし", "https://mm-dc.jp/price/", "ハーフリンガル935,000円・フルリンガル1,100,000円。検査診断33,000円、調整料5,500円/回、保定装置55,000円は別"),
+      t("ortho_aligner", 440_000, 660_000, "記載なし", "https://mm-dc.jp/price/", "インビザラインGO 全顎440,000円・クリアコレクト（フル）660,000円。インビザラインGOは契約料22,000円が別、調整料5,500円は別"),
+      t("ortho_partial", 220_000, 330_000, "記載なし", "https://mm-dc.jp/price/", "クリアコレクト（部分矯正）220,000円〜・インビザラインGO 片顎330,000円。調整料5,500円は別"),
+    ],
+  }),
+  meguro1119({
+    id: id(206), slug: "meguro-is-shika-kyousei", name: "目黒I'S歯科・矯正歯科",
+    address: "東京都品川区上大崎3-1-1 目黒セントラルスクエア2F", walk_minutes: 1, website_url: "https://mgc-shika.com/",
+    features: ["access", "weekend"],
+    catch_copy: "目黒駅から徒歩1分。土日も診療（祝日休診）",
+    treatments: [
+      t("whitening_office", 22_000, 88_000, "1回〜5回", "https://mgc-shika.com/price/", "上下あごセット1回22,000円・3回55,000円・5回88,000円"),
+      t("whitening_home", 29_700, 29_700, "記載なし", "https://mgc-shika.com/price/", "マウスピース上下＋ジェル4本。追加ジェル4本7,700円"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://mgc-shika.com/price/", "全顎矯正。検査・診断費33,000円、通院時調整料5,500円/月は別"),
+      t("ortho_aligner", 660_000, 880_000, "記載なし", "https://mgc-shika.com/price/", "インビザライン。検査・診断費33,000円、通院時調整料5,500円/月は別"),
+      t("ortho_partial", 165_000, 440_000, "記載なし", "https://mgc-shika.com/price/", "ワイヤー165,000〜440,000円・マウスピース220,000〜440,000円。検査・診断費33,000円、通院時調整料5,500円/月は別"),
+    ],
+  }),
+  meguro1119({
+    id: id(207), slug: "ims-dental-clinic-meguro", name: "アイムスデンタルクリニック",
+    address: "東京都品川区上大崎2-18-3 レジディア目黒1F", walk_minutes: 5, website_url: "https://ims-dc.com/",
+    features: ["weekend"],
+    catch_copy: "目黒駅西口から徒歩約5分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "記載なし", "https://ims-dc.com/symptoms/whitening/"),
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://ims-dc.com/symptoms/whitening/", "追加ジェル1本1,500円"),
+      t("whitening_dual", 44_000, 44_000, "記載なし", "https://ims-dc.com/symptoms/whitening/"),
+      t("ortho_aligner", 275_000, 770_000, "記載なし", "https://www.ims-dc-invisalign.com/", "インビザライン両顎。エクスプレス275,000円・ライト495,000円・モデレート605,000円・コンプリヘンシブ770,000円。調整料3,520円/回、リテーナー両顎55,000円は別。精密検査は矯正を契約した場合のみ無料"),
+      t("ortho_partial", 165_000, 440_000, "記載なし", "https://www.ims-dc-invisalign.com/", "インビザライン片顎。エクスプレス165,000円・ライト330,000円・モデレート440,000円。調整料3,520円/回、リテーナーは別"),
+    ],
+  }),
+  meguro1119({
+    id: id(208), slug: "olive-shika-meguro", name: "オリーブ歯科",
+    address: "東京都品川区上大崎2-15-17 アセンド目黒駅前7F", walk_minutes: 0, website_url: "https://olive-dc.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR目黒駅から徒歩0分。土日祝も診療（年末年始休診）",
+    treatments: [
+      t("whitening_office", 44_000, 44_000, "記載なし", "https://olive-dc.com/price_list"),
+      t("whitening_home", 44_000, 44_000, "記載なし", "https://olive-dc.com/price_list"),
+      t("whitening_dual", 77_000, 77_000, "記載なし", "https://olive-dc.com/price_list"),
+      t("ortho_wire", 1_265_000, 1_375_000, "記載なし", "https://olive-dc.com/price_list", "セラミックブラケット＋ワイヤー。難易度により変わる。検査・診断料33,000円、矯正終了時検査11,000円、保定装置55,000円、調整料は別"),
+      t("ortho_aligner", 440_000, 1_100_000, "記載なし", "https://olive-dc.com/price_list", "インビザラインGO 440,000〜550,000円・インビザラインフル1,100,000円。検査・診断料33,000円、終了時資料採得料11,000円、リテーナー55,000円、調整料5,500円は別"),
+      t("ortho_partial", 110_000, 550_000, "記載なし", "https://olive-dc.com/price_list", "ワイヤーの部分矯正。検査・診断料33,000円は別"),
+    ],
+  }),
+  meguro1119({
+    id: id(209), slug: "meguro-ishimoto-shika", name: "目黒石本歯科クリニック",
+    address: "東京都品川区上大崎2-17-2 JR目黒グリーンビル5F", walk_minutes: 1, website_url: "https://ishimoto-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR目黒駅西口から徒歩1分。土曜も診療（木・日・祝休診）",
+    treatments: [
+      t("whitening_office", 66_000, 66_000, "3回", "https://ishimoto-dental.com/hiyou", "3回コース 税抜60,000円に消費税10%を足した額"),
+      t("whitening_home", 22_000, 22_000, "記載なし", "https://ishimoto-dental.com/hiyou", "トレー（上下顎）税抜20,000円に消費税10%を足した額。ジェルは1本 税抜2,000円で別"),
+      t("whitening_dual", 88_000, 88_000, "記載なし", "https://ishimoto-dental.com/hiyou", "オフィス3回＋ホーム用マウスピース上下のセット 税抜80,000円に消費税10%を足した額"),
+      t("ortho_wire", 880_000, 880_000, "記載なし", "https://ishimoto-dental.com/hiyou", "セラミックブラケット 税抜800,000円に消費税10%を足した額"),
+      t("ortho_aligner", 271_150, 907_500, "記載なし", "https://ishimoto-dental.com/hiyou", "インビザライン。エクスプレス 税抜246,500円〜・コンプリヘンシブ 税抜825,000円に消費税10%を足した額"),
+    ],
+  }),
+  meguro1119({
+    id: id(210), slug: "meguro-horie-shika", name: "堀江歯科クリニック",
+    address: "東京都品川区上大崎2-27-1 サンフェリスタ目黒2F", walk_minutes: 1, website_url: "https://www.horie-dental.net/",
+    features: ["access", "weekend"],
+    catch_copy: "目黒駅から徒歩1分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 40_700, 40_700, "1回", "https://www.horie-dental.net/price/", "上下20本"),
+      t("whitening_home", 31_900, 31_900, "記載なし", "https://www.horie-dental.net/price/", "フルキット（上下トレー付き）。リフィル4本入り6,380円"),
+      t("whitening_dual", 53_900, 65_340, "記載なし", "https://www.horie-dental.net/price/", "オフィス1回＋ホーム4回分53,900円・オフィス1回＋フルキット65,340円"),
+    ],
+  }),
+  meguro1119({
+    id: id(211), slug: "meguro-marushima-shika", name: "丸島歯科医院",
+    address: "東京都品川区上大崎3-3-5 新陽CKビル7階", walk_minutes: 2, website_url: "https://marushima-dental.com/",
+    features: ["weekend"],
+    catch_copy: "JR目黒駅東口から徒歩2分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 13_200, 13_200, "1回", "https://marushima-dental.com/whitening", "1回あたりの料金（税別12,000円）。通常は5〜6回でかなり白くなると記載"),
+    ],
+  }),
+  meguro1119({
+    id: id(212), slug: "meguro-yamazaki-shika", name: "やまざき歯科クリニック",
+    address: "東京都品川区上大崎2-24-18 2F", walk_minutes: 2, website_url: "https://www.yamazaki-dc.jp/",
+    features: ["weekend"],
+    catch_copy: "JR山手線目黒駅から徒歩2分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 12_100, 12_100, "3回照射", "https://www.yamazaki-dc.jp/fee/", "ポリリンクリーニング＋9分照射3回のセット"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.yamazaki-dc.jp/fee/"),
+      t("whitening_dual", 44_000, 44_000, "記載なし", "https://www.yamazaki-dc.jp/fee/", "オフィス＆ホーム併用 44,000円〜"),
+    ],
+  }),
+  meguro1119({
+    id: id(213), slug: "meguro-sofue-shika", name: "目黒そふえ歯科",
+    address: "東京都品川区上大崎4-4-9 グリーンパーム目黒1F", walk_minutes: 2, website_url: "https://megurosofue-dent.com/",
+    features: ["weekend"],
+    catch_copy: "JR山手線目黒駅から徒歩2分。土曜も診療（木・日・祝休診）",
+    treatments: [
+      t("whitening_office", 22_000, 22_000, "1回（約1時間30分）", "https://megurosofue-dent.com/menu/whitening/", NO_TAX + "。1回目（上下20本）の料金。3か月以内の2回目は16,500円"),
+      t("whitening_home", 38_500, 38_500, "約2週間", "https://megurosofue-dent.com/menu/whitening/", NO_TAX + "。上下トレー作製＋薬。追加薬（2本入り）3,300円"),
     ],
   }),
 ];
