@@ -69,6 +69,7 @@ const osaki1117 = at("osaki", "大崎駅", "品川区", "2026-11-17");
 const gotanda1117 = at("gotanda", "五反田駅", "品川区", "2026-11-17");
 const gotanda1118 = at("gotanda", "五反田駅", "品川区", "2026-11-18");
 const meguro1119 = at("meguro", "目黒駅", "品川区", "2026-11-19");
+const meguroMeguroku1120 = at("meguro", "目黒駅", "目黒区", "2026-11-20");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -2572,6 +2573,17 @@ export const REAL_CLINICS: Clinic[] = [
     treatments: [
       t("whitening_office", 22_000, 22_000, "1回（約1時間30分）", "https://megurosofue-dent.com/menu/whitening/", NO_TAX + "。1回目（上下20本）の料金。3か月以内の2回目は16,500円"),
       t("whitening_home", 38_500, 38_500, "約2週間", "https://megurosofue-dent.com/menu/whitening/", NO_TAX + "。上下トレー作製＋薬。追加薬（2本入り）3,300円"),
+    ],
+  }),
+  meguroMeguroku1120({
+    id: id(214), slug: "dynamis-kyousei-meguro", name: "デュナミス歯列矯正歯科",
+    address: "東京都目黒区下目黒2-23-1 ファムール目黒2F", walk_minutes: 6, website_url: "https://www.dynamis-kyousei.jp/",
+    features: [],
+    catch_copy: "目黒駅から徒歩6分。矯正の初診相談は無料",
+    treatments: [
+      t("ortho_wire", 700_000, 1_100_000, "1年半〜3年", "https://www.dynamis-kyousei.jp/price/", NO_TAX + "。成人の表側マルチブラケット。調整料込みのトータルフィー。検査・診断料38,500円（税込）は別"),
+      t("ortho_aligner", 800_000, 1_100_000, "記載なし", "https://www.dynamis-kyousei.jp/price/", NO_TAX + "。成人のマウスピース矯正。調整料込みのトータルフィー。検査・診断料38,500円（税込）は別"),
+      t("ortho_lingual", 1_100_000, 1_600_000, "2年〜3年半", "https://www.dynamis-kyousei.jp/price/", NO_TAX + "。ハーフリンガル110万〜140万円・上下裏側リンガル130万〜160万円（期間は上下裏側の目安）。調整料込みのトータルフィー。検査・診断料38,500円（税込）は別"),
     ],
   }),
 ];
