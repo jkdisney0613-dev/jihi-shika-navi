@@ -70,6 +70,7 @@ const gotanda1117 = at("gotanda", "五反田駅", "品川区", "2026-11-17");
 const gotanda1118 = at("gotanda", "五反田駅", "品川区", "2026-11-18");
 const meguro1119 = at("meguro", "目黒駅", "品川区", "2026-11-19");
 const meguroMeguroku1120 = at("meguro", "目黒駅", "目黒区", "2026-11-20");
+const shinOkubo1121 = at("shin-okubo", "新大久保駅", "新宿区", "2026-11-21");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -2584,6 +2585,27 @@ export const REAL_CLINICS: Clinic[] = [
       t("ortho_wire", 700_000, 1_100_000, "1年半〜3年", "https://www.dynamis-kyousei.jp/price/", NO_TAX + "。成人の表側マルチブラケット。調整料込みのトータルフィー。検査・診断料38,500円（税込）は別"),
       t("ortho_aligner", 800_000, 1_100_000, "記載なし", "https://www.dynamis-kyousei.jp/price/", NO_TAX + "。成人のマウスピース矯正。調整料込みのトータルフィー。検査・診断料38,500円（税込）は別"),
       t("ortho_lingual", 1_100_000, 1_600_000, "2年〜3年半", "https://www.dynamis-kyousei.jp/price/", NO_TAX + "。ハーフリンガル110万〜140万円・上下裏側リンガル130万〜160万円（期間は上下裏側の目安）。調整料込みのトータルフィー。検査・診断料38,500円（税込）は別"),
+    ],
+  }),
+  shinOkubo1121({
+    id: id(215), slug: "shinookubo-shika", name: "新大久保歯科医院",
+    address: "東京都新宿区百人町2-4-1 サンビル2階", walk_minutes: 1, website_url: "https://www.shinookubo-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR山手線新大久保駅から徒歩30秒。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 33_000, 52_800, "1回（10分照射×3）〜2回", "https://www.shinookubo-dental.com/cosmetic/", "ビヨンドシステム。1回分33,000円・2回セット52,800円"),
+      t("whitening_home", 16_500, 16_500, "記載なし", "https://www.shinookubo-dental.com/cosmetic/", "スターターセット（マウスピース上下＋ジェル2本）。追加ジェル4本11,000円"),
+      t("whitening_dual", 67_100, 67_100, "オフィス2回＋ホーム", "https://www.shinookubo-dental.com/cosmetic/", "パーフェクトホワイトニング（オフィス2回セット＋ホームのスターターセット）"),
+    ],
+  }),
+  shinOkubo1121({
+    id: id(216), slug: "shinokubo-isoda-shika", name: "新大久保礒田歯科医院",
+    address: "東京都新宿区百人町2-9-14 ミズホアルファビル2F", walk_minutes: 2, website_url: "https://www.isoda-dc.com/",
+    features: ["weekend"],
+    catch_copy: "JR山手線新大久保駅から徒歩2分。土曜も診療（木・日・祝休診）。矯正相談は無料",
+    treatments: [
+      t("whitening_home", 22_000, 33_000, "記載なし", "https://www.isoda-dc.com/fee/", NO_TAX + "。片顎22,000円・上下顎33,000円"),
+      t("ortho_aligner", 550_000, 1_045_000, "記載なし", "https://www.isoda-dc.com/fee/", NO_TAX + "。インビザラインGO 550,000円・フル990,000円・ワイヤー併用のコンビネーション1,045,000円。基本検査16,500円（矯正を行う場合は矯正料金から差し引き）、調整料3,300〜5,500円（毎回）、保定装置44,000円は別"),
     ],
   }),
 ];
