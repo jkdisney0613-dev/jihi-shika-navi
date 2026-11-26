@@ -71,6 +71,7 @@ const gotanda1118 = at("gotanda", "五反田駅", "品川区", "2026-11-18");
 const meguro1119 = at("meguro", "目黒駅", "品川区", "2026-11-19");
 const meguroMeguroku1120 = at("meguro", "目黒駅", "目黒区", "2026-11-20");
 const shinOkubo1121 = at("shin-okubo", "新大久保駅", "新宿区", "2026-11-21");
+const yoyogi1126 = at("yoyogi", "代々木駅", "渋谷区", "2026-11-26");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -2606,6 +2607,85 @@ export const REAL_CLINICS: Clinic[] = [
     treatments: [
       t("whitening_home", 22_000, 33_000, "記載なし", "https://www.isoda-dc.com/fee/", NO_TAX + "。片顎22,000円・上下顎33,000円"),
       t("ortho_aligner", 550_000, 1_045_000, "記載なし", "https://www.isoda-dc.com/fee/", NO_TAX + "。インビザラインGO 550,000円・フル990,000円・ワイヤー併用のコンビネーション1,045,000円。基本検査16,500円（矯正を行う場合は矯正料金から差し引き）、調整料3,300〜5,500円（毎回）、保定装置44,000円は別"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(217), slug: "yoyogi-dental-clinic-aoki", name: "デンタルクリニック青木",
+    address: "東京都渋谷区代々木1-55-5 三共ビル1F", walk_minutes: 2, website_url: "https://dca-yoyogi.jp/",
+    features: ["weekend"],
+    catch_copy: "JR代々木駅北口から徒歩2分。土曜も診療（木・日・祝休診）。矯正相談は無料",
+    treatments: [
+      t("whitening_office", 44_000, 44_000, "記載なし", "https://dca-yoyogi.jp/price-list/"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "薬剤追加1本3,300円"),
+      t("whitening_dual", 55_000, 55_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "ホーム＋オフィス"),
+      t("ortho_wire", 825_000, 935_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "メタル825,000円・ホワイトワイヤー935,000円。検査・診断料44,000円、調整料5,500円（毎回）、保定装置16,500〜33,000円（1個）は別"),
+      t("ortho_aligner", 440_000, 990_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "インビザライン。部位や症例による。検査・診断料44,000円、調整料5,500円（毎回）、保定装置16,500〜33,000円（1個）は別"),
+      t("ortho_partial", 165_000, 440_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "歯列改善のための部分矯正。検査・診断料44,000円、調整料5,500円（毎回）は別"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(218), slug: "yoyogi-crystal-shika", name: "代々木クリスタル歯科医院",
+    address: "東京都渋谷区代々木1-35-4 代々木クリスタルビル2階", walk_minutes: 1, website_url: "https://c-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR代々木駅北口から徒歩0分（駅ビル2階）。土曜も診療（日・祝休診）。矯正の初診相談は無料",
+    treatments: [
+      t("ortho_wire", 539_000, 638_000, "記載なし", "https://c-dental.com/price", "税抜の表示に消費税10%を足した額。金属ブラケット 現金一括税抜49万円・ローン税抜52万円、セラミック 現金一括税抜55万円・ローン税抜58万円。検査・診断料税抜1万円、調整料税抜3,000〜5,000円（毎月）、リテーナー税抜3,000〜20,000円は別"),
+      t("ortho_aligner", 440_000, 858_000, "記載なし", "https://c-dental.com/price", "税抜の表示に消費税10%を足した額。マウスピース矯正 Level1 現金一括税抜40万円〜Level2 ローン税抜78万円。検査・診断料税抜1万円、調整料税抜3,000〜5,000円（毎月）、リテーナーは別"),
+      t("ortho_lingual", 1_485_000, 1_518_000, "記載なし", "https://c-dental.com/price", "税抜の表示に消費税10%を足した額。インコグニト 現金一括税抜135万円・ローン税抜138万円。検査・診断料・調整料・リテーナーは別"),
+      t("ortho_partial", 33_000, 33_000, "記載なし", "https://c-dental.com/price", "MTM（部分矯正）ベーシック 1歯 税抜3万円に消費税10%を足した額"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(219), slug: "yoyogi-sanshundo-shika", name: "代々木三春堂歯科診療所",
+    address: "東京都渋谷区代々木1-32-12 HOUWAビル8F", walk_minutes: 1, website_url: "https://www.sanshundo.com/",
+    features: ["access"],
+    catch_copy: "JR代々木駅西口から徒歩0.5分",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "1回", "https://www.sanshundo.com/beauty", "前歯6本"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(220), slug: "yoyogi-mariko-shika", name: "マリコ歯科クリニック",
+    address: "東京都渋谷区千駄ヶ谷5-23-2 2F", walk_minutes: 1, website_url: "https://a-mariko-dentol.com/",
+    features: ["access"],
+    catch_copy: "代々木駅東口から徒歩1分",
+    treatments: [
+      t("whitening_office", 26_400, 26_400, "1回", "https://a-mariko-dentol.com/treatment/beauty", NO_TAX + "。ポリリン酸ホワイトニング"),
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://a-mariko-dentol.com/treatment/beauty", NO_TAX + "。ポリリン酸ホワイトニング5,500円＋トレイ作成費用22,000円（2回目以降は5,500円）"),
+      t("ortho_wire", 660_000, 770_000, "1年半〜3年程度", "https://a-mariko-dentol.com/treatment/orthodontics", "全顎 ワイヤー660,000円・セラミックブラケット770,000円。矯正診断料33,000円、調整料5,500円（毎回）は別"),
+      t("ortho_aligner", 990_000, 1_320_000, "記載なし", "https://a-mariko-dentol.com/treatment/orthodontics", "全顎のマウスピース矯正。診断料44,000円は別"),
+      t("ortho_partial", 110_000, 330_000, "数か月〜1年程度", "https://a-mariko-dentol.com/treatment/orthodontics", "ASOアライナー（前歯のみ・片顎）。診断料44,000円は別"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(221), slug: "yoyogi-ekimae-shika", name: "代々木駅前歯科 矯正歯科 口腔外科",
+    address: "東京都渋谷区代々木1-38-5 KDX代々木ビル2F", walk_minutes: 1, website_url: "https://www.y-m-o.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR・大江戸線代々木駅から徒歩10秒。土日も診療。矯正の初診相談は無料",
+    treatments: [
+      t("ortho_aligner", 363_000, 825_000, "記載なし", "https://www.y-m-o.com/", "インビザライン・ライト 片顎363,000円・両顎528,000円、フル825,000円。保定装置22,000〜44,000円、追加矯正22,000円は別。症例参考費用には検査料33,000円・処置料5,500円/回の記載あり"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(222), slug: "royal-shika-yoyogi", name: "ロイヤル歯科クリニック代々木",
+    address: "東京都渋谷区代々木1-21-12 ヤマノ25ビル3階", walk_minutes: 3, website_url: "https://www.dc-royal.com/",
+    features: ["weekend"],
+    catch_copy: "JR山手線・大江戸線代々木駅から徒歩3分。土曜も診療（木・日・祝休診）",
+    treatments: [
+      t("ortho_partial", 165_000, 275_000, "記載なし", "https://www.dc-royal.com/orthodontist.html", "マウスピース型装置による部分矯正の総額。調整費・期間延長の追加費用0円と記載"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(223), slug: "sendagaya-nakamura-kyousei", name: "千駄ヶ谷中村矯正歯科室",
+    address: "東京都渋谷区千駄ヶ谷1-24-7", walk_minutes: 10, website_url: "https://41820.jp/",
+    features: ["weekend"],
+    catch_copy: "JR代々木駅から徒歩10分（千駄ヶ谷駅から徒歩3分）。土曜も診療（金・日・祝休診）",
+    treatments: [
+      t("whitening_office", 33_000, 49_500, "3回〜6回", "https://41820.jp/price", "ジェル・光照射3回33,000円・6回49,500円"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://41820.jp/price", "ジェル＋マウスピース＋シェードガイド＋ケースの一式。ジェル追加1本3,300円"),
+      t("ortho_wire", 850_000, 950_000, "記載なし", "https://41820.jp/price", "外側 メタル850,000円・セラミック950,000円。初診料5,000円、精密検査・診断料30,000円、管理費8,800円（土曜10,000円）、保定用リテーナー22,000円（上または下）は別"),
+      t("ortho_lingual", 1_200_000, 1_400_000, "記載なし", "https://41820.jp/price", "ハーフリンガル（上顎のみ）1,200,000円・フルリンガル1,400,000円。初診料・検査診断料・管理費・リテーナーは別"),
+      t("ortho_partial", 55_000, 795_000, "記載なし", "https://41820.jp/price", "気になる歯のみの部分矯正。初診料・検査診断料・管理費は別"),
     ],
   }),
 ];
