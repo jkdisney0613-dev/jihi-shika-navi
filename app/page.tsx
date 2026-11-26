@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ArrowRight } from "@/components/LineIcons";
 import { CATEGORIES } from "@/lib/options";
+import OraneBanner from "@/components/OraneBanner";
 
 export const revalidate = 3600;
 
@@ -60,6 +61,9 @@ export default function Home() {
           <ArrowRight className="h-5 w-5" />
         </Link>
         <p className="mt-2 text-center text-xs text-[#7A8473]">無料・登録不要。ホワイトニングか矯正を選ぶだけです。</p>
+        <div className="mt-12">
+          <OraneBanner placement="top" />
+        </div>
       </div>
       </section>
       <footer className="px-4 pb-10 text-center text-xs text-[#7A8473]">

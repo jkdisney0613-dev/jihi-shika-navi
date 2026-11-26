@@ -1,3 +1,4 @@
+import OraneBanner from "@/components/OraneBanner";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -65,6 +66,9 @@ export default async function ArticlePage({ params }: Props) {
       <Link href="/diagnosis" className="mt-10 block rounded-xl bg-sky-600 py-4 text-center font-bold text-white hover:bg-sky-700">
         予算と希望から医院を探す（無料）
       </Link>
+      <div className="mt-6">
+        <OraneBanner placement="article" />
+      </div>
     </main>
   );
 }
