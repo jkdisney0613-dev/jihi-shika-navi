@@ -71,6 +71,8 @@ const gotanda1118 = at("gotanda", "五反田駅", "品川区", "2026-11-18");
 const meguro1119 = at("meguro", "目黒駅", "品川区", "2026-11-19");
 const meguroMeguroku1120 = at("meguro", "目黒駅", "目黒区", "2026-11-20");
 const shinOkubo1121 = at("shin-okubo", "新大久保駅", "新宿区", "2026-11-21");
+const yoyogi1126 = at("yoyogi", "代々木駅", "渋谷区", "2026-11-26");
+const hamamatsucho1127 = at("hamamatsucho", "浜松町駅", "港区", "2026-11-27");
 
 
 export const REAL_CLINICS: Clinic[] = [
@@ -2606,6 +2608,177 @@ export const REAL_CLINICS: Clinic[] = [
     treatments: [
       t("whitening_home", 22_000, 33_000, "記載なし", "https://www.isoda-dc.com/fee/", NO_TAX + "。片顎22,000円・上下顎33,000円"),
       t("ortho_aligner", 550_000, 1_045_000, "記載なし", "https://www.isoda-dc.com/fee/", NO_TAX + "。インビザラインGO 550,000円・フル990,000円・ワイヤー併用のコンビネーション1,045,000円。基本検査16,500円（矯正を行う場合は矯正料金から差し引き）、調整料3,300〜5,500円（毎回）、保定装置44,000円は別"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(217), slug: "yoyogi-dental-clinic-aoki", name: "デンタルクリニック青木",
+    address: "東京都渋谷区代々木1-55-5 三共ビル1F", walk_minutes: 2, website_url: "https://dca-yoyogi.jp/",
+    features: ["weekend"],
+    catch_copy: "JR代々木駅北口から徒歩2分。土曜も診療（木・日・祝休診）。矯正相談は無料",
+    treatments: [
+      t("whitening_office", 44_000, 44_000, "記載なし", "https://dca-yoyogi.jp/price-list/"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "薬剤追加1本3,300円"),
+      t("whitening_dual", 55_000, 55_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "ホーム＋オフィス"),
+      t("ortho_wire", 825_000, 935_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "メタル825,000円・ホワイトワイヤー935,000円。検査・診断料44,000円、調整料5,500円（毎回）、保定装置16,500〜33,000円（1個）は別"),
+      t("ortho_aligner", 440_000, 990_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "インビザライン。部位や症例による。検査・診断料44,000円、調整料5,500円（毎回）、保定装置16,500〜33,000円（1個）は別"),
+      t("ortho_partial", 165_000, 440_000, "記載なし", "https://dca-yoyogi.jp/price-list/", "歯列改善のための部分矯正。検査・診断料44,000円、調整料5,500円（毎回）は別"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(218), slug: "yoyogi-crystal-shika", name: "代々木クリスタル歯科医院",
+    address: "東京都渋谷区代々木1-35-4 代々木クリスタルビル2階", walk_minutes: 1, website_url: "https://c-dental.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR代々木駅北口から徒歩0分（駅ビル2階）。土曜も診療（日・祝休診）。矯正の初診相談は無料",
+    treatments: [
+      t("ortho_wire", 539_000, 638_000, "記載なし", "https://c-dental.com/price", "税抜の表示に消費税10%を足した額。金属ブラケット 現金一括税抜49万円・ローン税抜52万円、セラミック 現金一括税抜55万円・ローン税抜58万円。検査・診断料税抜1万円、調整料税抜3,000〜5,000円（毎月）、リテーナー税抜3,000〜20,000円は別"),
+      t("ortho_aligner", 440_000, 858_000, "記載なし", "https://c-dental.com/price", "税抜の表示に消費税10%を足した額。マウスピース矯正 Level1 現金一括税抜40万円〜Level2 ローン税抜78万円。検査・診断料税抜1万円、調整料税抜3,000〜5,000円（毎月）、リテーナーは別"),
+      t("ortho_lingual", 1_485_000, 1_518_000, "記載なし", "https://c-dental.com/price", "税抜の表示に消費税10%を足した額。インコグニト 現金一括税抜135万円・ローン税抜138万円。検査・診断料・調整料・リテーナーは別"),
+      t("ortho_partial", 33_000, 33_000, "記載なし", "https://c-dental.com/price", "MTM（部分矯正）ベーシック 1歯 税抜3万円に消費税10%を足した額"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(219), slug: "yoyogi-sanshundo-shika", name: "代々木三春堂歯科診療所",
+    address: "東京都渋谷区代々木1-32-12 HOUWAビル8F", walk_minutes: 1, website_url: "https://www.sanshundo.com/",
+    features: ["access"],
+    catch_copy: "JR代々木駅西口から徒歩0.5分",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "1回", "https://www.sanshundo.com/beauty", "前歯6本"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(220), slug: "yoyogi-mariko-shika", name: "マリコ歯科クリニック",
+    address: "東京都渋谷区千駄ヶ谷5-23-2 2F", walk_minutes: 1, website_url: "https://a-mariko-dentol.com/",
+    features: ["access"],
+    catch_copy: "代々木駅東口から徒歩1分",
+    treatments: [
+      t("whitening_office", 26_400, 26_400, "1回", "https://a-mariko-dentol.com/treatment/beauty", NO_TAX + "。ポリリン酸ホワイトニング"),
+      t("whitening_home", 27_500, 27_500, "記載なし", "https://a-mariko-dentol.com/treatment/beauty", NO_TAX + "。ポリリン酸ホワイトニング5,500円＋トレイ作成費用22,000円（2回目以降は5,500円）"),
+      t("ortho_wire", 660_000, 770_000, "1年半〜3年程度", "https://a-mariko-dentol.com/treatment/orthodontics", "全顎 ワイヤー660,000円・セラミックブラケット770,000円。矯正診断料33,000円、調整料5,500円（毎回）は別"),
+      t("ortho_aligner", 990_000, 1_320_000, "記載なし", "https://a-mariko-dentol.com/treatment/orthodontics", "全顎のマウスピース矯正。診断料44,000円は別"),
+      t("ortho_partial", 110_000, 330_000, "数か月〜1年程度", "https://a-mariko-dentol.com/treatment/orthodontics", "ASOアライナー（前歯のみ・片顎）。診断料44,000円は別"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(221), slug: "yoyogi-ekimae-shika", name: "代々木駅前歯科 矯正歯科 口腔外科",
+    address: "東京都渋谷区代々木1-38-5 KDX代々木ビル2F", walk_minutes: 1, website_url: "https://www.y-m-o.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR・大江戸線代々木駅から徒歩10秒。土日も診療。矯正の初診相談は無料",
+    treatments: [
+      t("ortho_aligner", 363_000, 825_000, "記載なし", "https://www.y-m-o.com/", "インビザライン・ライト 片顎363,000円・両顎528,000円、フル825,000円。保定装置22,000〜44,000円、追加矯正22,000円は別。症例参考費用には検査料33,000円・処置料5,500円/回の記載あり"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(222), slug: "royal-shika-yoyogi", name: "ロイヤル歯科クリニック代々木",
+    address: "東京都渋谷区代々木1-21-12 ヤマノ25ビル3階", walk_minutes: 3, website_url: "https://www.dc-royal.com/",
+    features: ["weekend"],
+    catch_copy: "JR山手線・大江戸線代々木駅から徒歩3分。土曜も診療（木・日・祝休診）",
+    treatments: [
+      t("ortho_partial", 165_000, 275_000, "記載なし", "https://www.dc-royal.com/orthodontist.html", "マウスピース型装置による部分矯正の総額。調整費・期間延長の追加費用0円と記載"),
+    ],
+  }),
+  yoyogi1126({
+    id: id(223), slug: "sendagaya-nakamura-kyousei", name: "千駄ヶ谷中村矯正歯科室",
+    address: "東京都渋谷区千駄ヶ谷1-24-7", walk_minutes: 10, website_url: "https://41820.jp/",
+    features: ["weekend"],
+    catch_copy: "JR代々木駅から徒歩10分（千駄ヶ谷駅から徒歩3分）。土曜も診療（金・日・祝休診）",
+    treatments: [
+      t("whitening_office", 33_000, 49_500, "3回〜6回", "https://41820.jp/price", "ジェル・光照射3回33,000円・6回49,500円"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://41820.jp/price", "ジェル＋マウスピース＋シェードガイド＋ケースの一式。ジェル追加1本3,300円"),
+      t("ortho_wire", 850_000, 950_000, "記載なし", "https://41820.jp/price", "外側 メタル850,000円・セラミック950,000円。初診料5,000円、精密検査・診断料30,000円、管理費8,800円（土曜10,000円）、保定用リテーナー22,000円（上または下）は別"),
+      t("ortho_lingual", 1_200_000, 1_400_000, "記載なし", "https://41820.jp/price", "ハーフリンガル（上顎のみ）1,200,000円・フルリンガル1,400,000円。初診料・検査診断料・管理費・リテーナーは別"),
+      t("ortho_partial", 55_000, 795_000, "記載なし", "https://41820.jp/price", "気になる歯のみの部分矯正。初診料・検査診断料・管理費は別"),
+    ],
+  }),
+  hamamatsucho1127({
+    id: id(224), slug: "shiba-daimon-shika", name: "芝大門歯科クリニック",
+    address: "東京都港区芝大門2-1-17 朝川ビル1F", walk_minutes: 5, website_url: "https://www.shiba-sdc.com/",
+    features: [],
+    catch_copy: "JR浜松町駅から徒歩5分、大門駅A6出口から徒歩2分。平日は20:30まで診療（月・火・木）",
+    treatments: [
+      t("whitening_office", 16_500, 33_000, "記載なし", "https://www.shiba-sdc.com/price-list/", "片顎16,500円・上下顎33,000円"),
+      t("whitening_home", 11_000, 22_000, "記載なし", "https://www.shiba-sdc.com/price-list/", "片顎11,000円・上下顎22,000円。ジェル追加1本2,200円"),
+      t("whitening_dual", 22_000, 66_000, "1回〜2回", "https://www.shiba-sdc.com/price-list/", "1回コース 片顎22,000円・上下顎44,000円、2回コース 片顎33,000円・上下顎66,000円"),
+      t("ortho_wire", 770_000, 880_000, "記載なし", "https://www.shiba-sdc.com/price-list/", "成人全顎 メタルブラケット770,000円・セラミックブラケット880,000円。検査診断料33,000円、処置料5,500円（毎回）、保定装置33,000円は別"),
+      t("ortho_lingual", 1_320_000, 1_320_000, "記載なし", "https://www.shiba-sdc.com/price-list/", "成人全顎 裏側矯正。検査診断料33,000円、処置料5,500円（毎回）、保定装置33,000円は別"),
+      t("ortho_aligner", 55_000, 55_000, "記載なし", "https://www.shiba-sdc.com/price-list/", "マウスピース矯正 1ステップ 片顎の料金。診断料33,000円は別"),
+      t("ortho_partial", 165_000, 330_000, "記載なし", "https://www.shiba-sdc.com/price-list/", "MTM（部分治療）。検査診断料33,000円、処置料5,500円（毎回）は別"),
+    ],
+  }),
+  hamamatsucho1127({
+    id: id(225), slug: "takeshiba-south-tower-shika", name: "竹芝サウスタワー歯科",
+    address: "東京都港区海岸1-16-1 ニューピア竹芝サウスタワー4F", walk_minutes: 7, website_url: "https://takesiba-sika.com/",
+    features: [],
+    catch_copy: "JR浜松町駅北口から徒歩7分、ゆりかもめ竹芝駅直結",
+    treatments: [
+      t("whitening_office", 27_000, 27_000, "記載なし", "https://takesiba-sika.com/whitening.html", NO_TAX + "。12歯"),
+      t("whitening_home", 35_000, 35_000, "記載なし", "https://takesiba-sika.com/whitening.html", NO_TAX + "。トレー込みのキット"),
+    ],
+  }),
+  hamamatsucho1127({
+    id: id(226), slug: "hamamatsucho-ekimae-orange-shika", name: "浜松町駅前オレンジ歯科",
+    address: "東京都港区浜松町1-31 文化放送メディアプラスビルB1階", walk_minutes: 1, website_url: "https://www.minatoku-orange.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR浜松町駅から徒歩1分、大門駅直結。土日・祝日も診療",
+    treatments: [
+      t("whitening_office", 25_000, 31_000, "記載なし", "https://www.minatoku-orange.com/price/", "オフィスホワイトニング1回目25,000円（3か月以内の2回目21,000円）、1Dayホワイトニング（120分）31,000円、3回コース55,000円"),
+      t("ortho_aligner", 396_000, 396_000, "記載なし", "https://www.minatoku-orange.com/price/", "スマーティー矯正の矯正基本料。精密検査22,000円、調整・管理料3,300円（毎回）、2フェーズ以降の追加39,600円、リテーナー33,000円は別"),
+    ],
+  }),
+  hamamatsucho1127({
+    id: id(227), slug: "hamamatsucho-kyousei-shika", name: "浜松町矯正歯科",
+    address: "東京都港区浜松町1-16-7 浜松町オークビル2階", walk_minutes: 3, website_url: "https://hamamatsucho-ortho.com/",
+    features: [],
+    catch_copy: "浜松町駅北口から徒歩3分、大門駅B1出口から徒歩2分。土曜は隔週で診療",
+    treatments: [
+      t("ortho_wire", 880_000, 935_000, "記載なし", "https://hamamatsucho-ortho.com/price.html", "表側矯正。料金表に880,000円と935,000円の2つの記載。初診料2,200円、精密検査料38,500円、調整料5,500円（毎月の来院時）は別"),
+      t("ortho_lingual", 1_100_000, 1_320_000, "記載なし", "https://hamamatsucho-ortho.com/price.html", "裏側矯正。料金表に1,100,000円と1,320,000円の2つの記載。初診料2,200円、精密検査料38,500円、調整料5,500円（毎月の来院時）は別"),
+      t("ortho_aligner", 935_000, 935_000, "記載なし", "https://hamamatsucho-ortho.com/price.html", "マウスピース型（カスタムメイド）矯正装置。初診料2,200円、精密検査料38,500円、調整料5,500円（毎月の来院時）は別"),
+      t("ortho_partial", 495_000, 495_000, "記載なし", "https://hamamatsucho-ortho.com/price.html", "片顎矯正495,000円〜（部分矯正は1歯11,000円の記載あり）。初診料2,200円、精密検査料38,500円は別"),
+    ],
+  }),
+  hamamatsucho1127({
+    id: id(228), slug: "hamamatsucho-dental-office", name: "浜松町デンタルオフィス",
+    address: "東京都港区浜松町2-2-14 KIビル101", walk_minutes: 2, website_url: "https://ha-taisetsu.jp/",
+    features: ["weekend"],
+    catch_copy: "浜松町駅金杉橋口から徒歩2分、大門駅A1出口から徒歩3分。土曜も診療（日・祝休診）",
+    treatments: [
+      t("whitening_office", 8_800, 8_800, "記載なし", "https://ha-taisetsu.jp/price/", "初回8,800円〜"),
+      t("whitening_home", 19_800, 19_800, "記載なし", "https://ha-taisetsu.jp/price/"),
+      t("whitening_dual", 28_000, 28_000, "記載なし", "https://ha-taisetsu.jp/price/", "オフィス＋ホーム"),
+    ],
+  }),
+  hamamatsucho1127({
+    id: id(229), slug: "trust-dental-daimon-hamamatsucho", name: "トラストデンタルクリニック大門浜松町",
+    address: "東京都港区浜松町2-1-18 東亜ビル1F", walk_minutes: 3, website_url: "https://www.trust-dental.jp/",
+    features: ["weekend"],
+    catch_copy: "JR浜松町駅北口から徒歩3分、大門駅A1出口から徒歩30秒。土曜も診療（木・日休診）",
+    treatments: [
+      t("whitening_office", 33_000, 33_000, "1回", "https://www.trust-dental.jp/short-term-intensive-treatment/fee/", "10分×2回照射"),
+      t("whitening_home", 33_000, 33_000, "記載なし", "https://www.trust-dental.jp/short-term-intensive-treatment/fee/"),
+    ],
+  }),
+  hamamatsucho1127({
+    id: id(230), slug: "ai-kyousei-shika-hamamatsucho", name: "愛 矯正歯科クリニック",
+    address: "東京都港区浜松町1-21-5 薩田ビル1F", walk_minutes: 1, website_url: "https://www.ai-kyousei.com/",
+    features: ["access", "weekend"],
+    catch_copy: "JR浜松町駅から徒歩1分、大門駅から徒歩1分。土曜も診療（月・木・日休診）",
+    treatments: [
+      t("ortho_wire", 880_000, 990_000, "記載なし", "https://www.ai-kyousei.com/price.html", "本格矯正（永久歯列全顎）マルチブラケット。保定装置料は基本料に含む。検査診断料55,000円、調整料5,500円（おおよそ月1回）、観察料4,400円は別"),
+      t("ortho_lingual", 1_155_000, 1_540_000, "記載なし", "https://www.ai-kyousei.com/price.html", "マルチブラケット880,000〜990,000円に舌側矯正として片顎につき275,000円を足した額（片顎〜上下）。検査診断料55,000円、舌側調整料7,700〜9,900円は別"),
+      t("ortho_aligner", 880_000, 990_000, "記載なし", "https://www.ai-kyousei.com/price.html", "マウスピースはマルチブラケット装置での治療費に準じると記載。検査診断料55,000円、調整料5,500円は別"),
+      t("ortho_partial", 110_000, 550_000, "記載なし", "https://www.ai-kyousei.com/price.html", "症例により異なる。検査診断料55,000円は別"),
+    ],
+  }),
+  hamamatsucho1127({
+    id: id(231), slug: "maruyama-kyousei-shika", name: "丸山矯正歯科",
+    address: "東京都港区浜松町2-11-16 ユーワビル3F", walk_minutes: 3, website_url: "https://maruyama-kyousei.net/",
+    features: ["weekend"],
+    catch_copy: "浜松町駅から徒歩3分。土曜も診療（月・日・祝休診）。矯正相談は無料",
+    treatments: [
+      t("ortho_wire", 907_500, 1_089_000, "2年〜3年", "https://maruyama-kyousei.net/price/", "金属のワイヤー矯正907,500円・白い矯正装置1,089,000円。検査・診断33,000円、調整費6,600円（毎回、金属ワイヤーは期により4,400〜6,600円）、リテーナー装着後の調整4,400円は別"),
+      t("ortho_lingual", 1_270_500, 1_452_000, "2年〜3年", "https://maruyama-kyousei.net/price/", "ハーフリンガル1,270,500円・上下とも裏側1,452,000円。検査・診断33,000円、調整費6,600円（毎回）は別"),
+      t("ortho_aligner", 1_320_000, 1_320_000, "2年〜3年", "https://maruyama-kyousei.net/price/", "検査・診断33,000円、調整費は別"),
+      t("ortho_partial", 121_000, 242_000, "6か月〜10か月", "https://maruyama-kyousei.net/price/", "検査・診断33,000円、調整費6,600円（毎回）は別"),
     ],
   }),
 ];
